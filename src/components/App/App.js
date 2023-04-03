@@ -1,25 +1,26 @@
-import logo from '../../logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import CreatePost from "../CreatePost/CreatePost";
+import React from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
+import PostsContainer from "../Posts/PostsContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header />
+            <NavBar />
+            <Router>
+                <Routes>
+                    <Route path="/" element={<PostsContainer/>}/>
+                    <Route path="/create" element={<CreatePost/>}/>
+                </Routes>
+            </Router>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
