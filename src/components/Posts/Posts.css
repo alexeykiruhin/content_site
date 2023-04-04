@@ -12,3 +12,8 @@
     height: 100%;
     background-color: cornflowerblue;
 }
+
+.select {
+    font-weight: bold;
+    color: deeppink;
+}
