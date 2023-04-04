@@ -1,15 +1,18 @@
 import {connect} from "react-redux";
 import Posts from "./Posts";
+import {setUsers} from "../../redux/reducers/postsReducer";
 
 let mapStateToProps = (state) => {
     return {
-        posts: state.posts
+        posts: state.postsPage.posts
     }
 }
 
-let mapDispatchToProps = (state) => {
+let mapDispatchToProps = (dispatch) => {
     return {
-
+        setPosts: (posts) => {
+            dispatch(setUsers(posts));
+        }
     }
 }
 

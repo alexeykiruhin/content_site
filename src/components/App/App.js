@@ -8,18 +8,20 @@ import PostsContainer from "../Posts/PostsContainer";
 
 function App() {
     return (
-        <div className="App">
-            <Header/>
-            <div className={'Content'}>
-                <NavBar/>
-                <Router>
+        <Router>
+            <div className="App">
+                <Header/>
+                <div className={'Content'}>
+                    <NavBar/>
+
                     <Routes>
                         <Route path="/" element={<PostsContainer/>}/>
                         <Route path="/create" element={<CreatePost/>}/>
                     </Routes>
-                </Router>
+
+                </div>
             </div>
-        </div>
+        </Router>
     );
 }
 
