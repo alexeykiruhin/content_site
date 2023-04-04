@@ -1,16 +1,14 @@
 .Posts {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-basis: 90%;
 }
 
 .body {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 auto;
     width: 100%;
+    height: 100%;
     background-color: cornflowerblue;
-}
-
-.Header, .Footer {
-    background-color: darkcyan;
-    flex: none; /* 2 */
 }

@@ -6,6 +6,7 @@ const Posts = (props) => {
         <div className={'Posts'}>
             <div className={'body'}>
                 <div>Posts</div>
+                <hr/>
                 {props.posts.posts.map(post => <div key={post.id}>
                     <span>{post.nameUser}</span>
                     <br/>

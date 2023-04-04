@@ -1,0 +1,21 @@
+body {
+    background-color: blueviolet;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vh;
+    background-color: chocolate;
+    /*justify-content: space-between;*/
+    /*gap: 0;*/
+}
+
+.Content {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+}
