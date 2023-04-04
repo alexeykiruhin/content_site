@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Posts from "./Posts";
+import PostsC from "./PostsC";
 import {setUsers} from "../../redux/reducers/postsReducer";
 
 let mapStateToProps = (state) => {
@@ -16,6 +16,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
+const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(PostsC);
 
 export default PostsContainer;
