@@ -11,7 +11,7 @@ const Posts = (props) => {
     return (
         <div className={'Posts'}>
             <div className={'body'}>
-                <div>
+                <div className={'pagination'}>
                     {pages.map(page => {
                         return <span
                             onClick={() => {
@@ -19,14 +19,12 @@ const Posts = (props) => {
                             }}
                             key={page}
                             className={
-                                (props.currentPage === 0 ? 1 : props.currentPage) === page ? 'select' : 'notselect'
+                                (props.currentPage === 0 ? 1 : props.currentPage) === page ? 'select pag' : 'notselect pag'
                             }
                         >{page}</span>
                     })}
                 </div>
-                <div>Posts</div>
-                <br/>
-                <div>Count: {props.count}</div>
+                <div>Всего постов: {props.count}</div>
                 <br/>
                 {(props.isFetching ? <Preloader /> : (props.posts.map(post => <div key={post.id}>
                     <span>{post.nameUser}</span>

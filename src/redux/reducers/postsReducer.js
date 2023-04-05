@@ -38,7 +38,7 @@ const postsReducer = (state = initialState, action) => {
     }
 }
 
-export const setUsers = (posts) => ({type: SET_POSTS, posts: posts})
+export const setPosts = (posts) => ({type: SET_POSTS, posts: posts})
 export const setCount = (count) => ({type: SET_COUNT, count: count})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
 export const setIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching})

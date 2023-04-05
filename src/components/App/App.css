@@ -1,7 +1,11 @@
 body {
-    background-color: blueviolet;
+    background-color: #fbfaf8;
+    /*background-color: #e1faf7;*/
+    /*background-color: #eaf08f;*/
+    /*background-color: #1b242f;*/
     margin: 0;
     padding: 0;
+    font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
 }
 
 .App {
@@ -9,13 +13,14 @@ body {
     flex-direction: column;
     min-height: 100vh;
     min-width: 100vh;
-    background-color: chocolate;
+    /*background-color: chocolate;*/
     /*justify-content: space-between;*/
-    /*gap: 0;*/
+    gap: 10px;
 }
 
 .Content {
     display: flex;
     flex-direction: row;
     flex: 1 0 auto;
+    gap: 10px;
 }

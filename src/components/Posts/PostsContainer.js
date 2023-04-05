@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setCount, setCurrentPage, setIsFetching, setUsers} from "../../redux/reducers/postsReducer";
+import {setCount, setCurrentPage, setIsFetching, setPosts} from "../../redux/reducers/postsReducer";
 import React from "react";
 import axios from "axios";
 import Posts from "./Posts";
@@ -12,7 +12,6 @@ class PostsContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.currentPage)
         this.props.setIsFetching(true);
         axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}`)
             .then(response => {
@@ -61,21 +60,10 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setPosts: (posts) => {
-            dispatch(setUsers(posts));
-        },
-        setCount: (count) => {
-            dispatch(setCount(count));
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPage(currentPage));
-        },
-        setIsFetching: (isFetching) => {
-            dispatch(setIsFetching(isFetching));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);
+export default connect(mapStateToProps,
+    {
+        setPosts,
+        setCount,
+        setCurrentPage,
+        setIsFetching
+    })(PostsContainer);

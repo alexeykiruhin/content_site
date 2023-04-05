@@ -1,5 +1,16 @@
 .Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     min-height: 50px;
     max-height: 50px;
-    background-color: darkcyan;
+    background: linear-gradient(90deg, #d7d931, #cdd21f);
+    /*background-color: #8b98a3;*/
+    /*background-color: #1d1f1f;*/
+}
+
+.logo {
+    color: #285992;
+    font-size: x-large;
 }
