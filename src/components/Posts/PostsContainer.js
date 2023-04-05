@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {setCount, setCurrentPage, setUsers} from "../../redux/reducers/postsReducer";
+import {setCount, setCurrentPage, setIsFetching, setUsers} from "../../redux/reducers/postsReducer";
 import React from "react";
 import axios from "axios";
 import Posts from "./Posts";
@@ -13,15 +13,15 @@ class PostsContainer extends React.Component {
 
     componentDidMount() {
         console.log(this.props.currentPage)
-        if (this.props.posts.length === 0) {
-            axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}`)
-                .then(response => {
+        this.props.setIsFetching(true);
+        axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}`)
+            .then(response => {
                 let posts = response.data.posts;
                 let count = response.data.count;
                 this.props.setPosts(posts);
                 this.props.setCount(count);
+                this.props.setIsFetching(false);
             });
-        }
     }
 
     setCurrentPage(currentPage) {
@@ -30,20 +30,23 @@ class PostsContainer extends React.Component {
             currentPage = 0;
         }
         this.props.setCurrentPage(currentPage);
+        this.props.setIsFetching(true);
         axios.get(`http://127.0.0.1:5000/posts?page=${currentPage}`).then(response => {
             let posts = response.data.posts;
             this.props.setPosts(posts);
+            this.props.setIsFetching(false);
         });
     }
 
     render() {
         return <Posts
+            isFetching={this.props.isFetching}
             posts={this.props.posts}
             pages={this.props.pages}
             count={this.props.count}
             pageSize={this.props.pageSize}
             currentPage={this.props.currentPage}
-            setCurrentPage={this.setCurrentPage} // ????
+            setCurrentPage={this.setCurrentPage}
         />
     }
 }
@@ -53,7 +56,8 @@ let mapStateToProps = (state) => {
         posts: state.postsPage.posts,
         pageSize: state.postsPage.pageSize,
         count: state.postsPage.count,
-        currentPage: state.postsPage.currentPage
+        currentPage: state.postsPage.currentPage,
+        isFetching: state.postsPage.isFetching
     }
 }
 
@@ -67,6 +71,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCurrentPage: (currentPage) => {
             dispatch(setCurrentPage(currentPage));
+        },
+        setIsFetching: (isFetching) => {
+            dispatch(setIsFetching(isFetching));
         }
     }
 }
