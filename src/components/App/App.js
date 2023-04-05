@@ -5,7 +5,7 @@ import React from "react";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
 import PostsContainer from "../Posts/PostsContainer";
-import Users from "../Users/Users";
+import UsersContainer from "../Users/UsersContainer";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<PostsContainer/>}/>
                         <Route path="/create" element={<CreatePost/>}/>
-                        <Route path="/users" element={<Users/>}/>
+                        <Route path="/users" element={<UsersContainer/>}/>
                     </Routes>
 
                 </div>

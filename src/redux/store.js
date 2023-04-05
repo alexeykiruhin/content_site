@@ -1,10 +1,12 @@
 import postsReducer from './reducers/postsReducer';
 import createPostReducer from './reducers/createPostReducer';
 import {combineReducers, legacy_createStore as createStore} from "redux";
+import usersReducer from "./reducers/usersReducer";
 
 let rootReducers = combineReducers({
     postsPage: postsReducer,
-    createPostPage: createPostReducer
+    createPostPage: createPostReducer,
+    usersPage: usersReducer
 })
 
 let store = createStore(rootReducers)

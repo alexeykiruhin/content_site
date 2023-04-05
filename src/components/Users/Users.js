@@ -4,7 +4,7 @@ import './Users.css';
 const Users = (props) => {
   return (
       <div className={'Users'}>
-          Users
+          {props.users.map(user => <div>{user.nameUser}</div>)}
       </div>
   )
 }
