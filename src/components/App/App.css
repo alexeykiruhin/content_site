@@ -23,4 +23,5 @@ body {
     flex-direction: row;
     flex: 1 0 auto;
     gap: 10px;
+    margin: 0 10px 0 10px;
 }

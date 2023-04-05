@@ -1,6 +1,7 @@
 import React from "react";
 import './Posts.css'
 import Preloader from "../Preloader/Preloader";
+import Post from "../Post/Post";
 
 const Posts = (props) => {
     let pagesCount = Math.ceil(props.count / props.pageSize);
@@ -26,12 +27,10 @@ const Posts = (props) => {
                 </div>
                 <div>Всего постов: {props.count}</div>
                 <br/>
-                {(props.isFetching ? <Preloader /> : (props.posts.map(post => <div key={post.id}>
-                    <span>{post.nameUser}</span>
-                    <br/>
-                    <span>{post.textPost}</span>
-                    <hr/>
-                </div>)))}
+                {(props.isFetching ?
+                    <Preloader /> :
+                    (props.posts.map(post => <Post key={post.id} post={post}/>))
+                )}
             </div>
         </div>
     )
