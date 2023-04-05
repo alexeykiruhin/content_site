@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import PostsC from "./PostsC";
-import {setCount, setUsers} from "../../redux/reducers/postsReducer";
+import {setCount, setCurrentPage, setUsers} from "../../redux/reducers/postsReducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -18,6 +18,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setCount: (count) => {
             dispatch(setCount(count));
+        },
+        setCurrentPage: (currentPage) => {
+            dispatch(setCurrentPage(currentPage));
         }
     }
 }

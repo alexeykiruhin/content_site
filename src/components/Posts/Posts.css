@@ -17,3 +17,7 @@
     font-weight: bold;
     color: deeppink;
 }
+
+.select, .notselect {
+    cursor: pointer;
+}
