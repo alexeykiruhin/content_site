@@ -1,0 +1,13 @@
+
+
+.infoUserPage {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.nameUserPage {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

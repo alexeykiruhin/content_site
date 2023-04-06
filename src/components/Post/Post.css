@@ -16,7 +16,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 10px;
+    gap: 10px;
 }
 
 .postText {
@@ -26,4 +26,16 @@
     flex: 5 0 auto;
     padding-left: 10px;
     padding-top: 10px;
+}
+
+.postAvatar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.postAvatar > img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
 }
