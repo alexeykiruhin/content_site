@@ -19,6 +19,11 @@
     gap: 10px;
 }
 
+.postNameUser > a {
+    text-decoration: none;
+    color: black;
+}
+
 .postText {
     display: flex;
     align-items: flex-start;
@@ -33,6 +38,8 @@
     flex-direction: row;
     margin-left: 10px;
 }
+
+
 
 .postAvatar > img {
     width: 38px;

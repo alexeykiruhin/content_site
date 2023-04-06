@@ -19,7 +19,7 @@ function App() {
                         <Route path="/" element={<PostsContainer/>}/>
                         <Route path="/create" element={<CreatePost/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
-                        <Route path="/user/1" element={<UserContainer/>}/>
+                        <Route path="/user/:userId" element={<UserContainer/>}/>
                     </Routes>
 
                 </div>

@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import User from "./User";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
 
 const UserContainer = () => {
 
@@ -12,8 +13,10 @@ const UserContainer = () => {
     const rating = useSelector((state) => state.userPage.rating);
     const dispatch = useDispatch();
 
+    let paramUserId = useParams();
+
     useEffect(() => {
-        axios.get(`http://127.0.0.1:5000/user/1`)
+        axios.get(`http://127.0.0.1:5000/user/${paramUserId.userId}`)
             .then(response => {
                 let userId = response.data.user.userId;
                 let nameUser = response.data.user.nameUser;
