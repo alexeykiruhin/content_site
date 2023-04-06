@@ -6,11 +6,11 @@ const User = (props) => {
         <div className={'User'}>
             <div className={'infoUserPage'}>
                 <div className={'avatarUserPage'}>
-                    <img src={props.img} alt={props.userId}/>
+                    <img src={props.img} alt={props.id}/>
                 </div>
                 <div className={'nameUserPage'}>
                     <div>
-                        {props.nameUser}
+                        {props.username}
                     </div>
                     <div>
                         Количество постов: {props.countPosts}

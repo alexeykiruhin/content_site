@@ -19,8 +19,8 @@ const UserContainer = () => {
         // обработать кейс если не будет передан айди, то хагрузить свою страницу
         axios.get(`http://127.0.0.1:5000/user/${paramUserId.userId}`)
             .then(response => {
-                let userId = response.data.user.userId;
-                let nameUser = response.data.user.nameUser;
+                let userId = response.data.user.id;
+                let nameUser = response.data.user.username;
                 let img = response.data.user.img;
                 dispatch({type: 'SET_USER', userId, nameUser, img});
             });
