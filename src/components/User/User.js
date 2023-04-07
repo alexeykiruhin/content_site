@@ -13,12 +13,22 @@ const User = (props) => {
                         {props.username}
                     </div>
                     <div>
-                        Количество постов: {props.countPosts}
+                        Количество постов: {props.postsCount}
                     </div>
                     <div>
                         Рейтинг: {props.rating}
                     </div>
                 </div>
+                <div className={'btnsUserPage'}>
+                    <button>Подписаться</button>
+                    <button>Написать</button>
+                    <button>+</button>
+                    <button>-</button>
+                </div>
+            </div>
+            <div className={'postsUserPage'}>
+                <h3>Посты пользователя</h3>
+                {props.posts.map((post, index) => <div key={index}>{post}</div>)}
             </div>
         </div>
     )

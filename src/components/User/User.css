@@ -1,4 +1,9 @@
-
+.User {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 600px;
+}
 
 .infoUserPage {
     display: flex;
@@ -6,8 +11,35 @@
     gap: 10px;
 }
 
+.avatarUserPage {
+    flex: 1 0 auto;
+}
+
 .nameUserPage {
+    flex: 1 0 auto;
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.btnsUserPage {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btnsUserPage > button {
+    width: 100px;
+}
+
+.postsUserPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.postsUserPage > h3 {
+    margin-bottom: 10px;
 }

@@ -1,12 +1,12 @@
-const SET_USER = "SET_USER";
-
+import {SET_USER} from "../actions/actionTypes";
 
 let initialState = {
     userId: null,
-    nameUser: '',
+    username: '',
     img: '',
-    countPosts: 0,
-    rating: 100
+    postsCount: 0,
+    rating: 0,
+    posts: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -15,14 +15,15 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userId: action.userId,
-                nameUser: action.nameUser,
-                img: action.img
+                username: action.username,
+                img: action.img,
+                postsCount: action.postsCount,
+                rating: action.rating,
+                posts: [...action.posts]
             }
         default:
             return state;
     }
 }
-
-export const setUser = (userId, nameUser, img) => ({type: SET_USER, userId, nameUser, img})
 
 export default usersReducer;

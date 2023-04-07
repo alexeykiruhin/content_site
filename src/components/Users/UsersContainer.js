@@ -14,6 +14,7 @@ class UsersContainer extends React.Component {
         axios.get(`http://127.0.0.1:5000/users`)
             .then(response => {
                 let users = response.data.users;
+                console.log(users);
                 this.props.setUsers(users);
             });
     }
