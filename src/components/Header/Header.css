@@ -5,7 +5,8 @@
     align-items: center;
     min-height: 50px;
     max-height: 50px;
-    background: linear-gradient(90deg, #d7d931, #cdd21f);
+    background-color: #ff5e5b;
+    /*background: linear-gradient(90deg, #d7d931, #cdd21f);*/
     /*background-color: #8b98a3;*/
     /*background-color: #1d1f1f;*/
 }
@@ -32,7 +33,7 @@
 .logo {
     margin-left: auto; /* прижимаем правый край */
     margin-right: 45%; /* выравниваем по центру */
-    color: #285992;
+    color: #2b2d42;
     font-size: x-large;
     text-decoration: none;
 }

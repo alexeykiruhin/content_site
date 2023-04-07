@@ -4,13 +4,13 @@
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 20px;
-    background-color: #d7d931;
+    background-color: #f0f4f8;
     width: 600px;
     height: 200px;
 }
 
 .postNameUser {
-    background-color: #70cde3;
+    background-color: #ff5e5b;
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
@@ -21,13 +21,13 @@
 
 .postNameUser > a {
     text-decoration: none;
-    color: black;
+    color: #2b2d42;
 }
 
 .postText {
     display: flex;
     align-items: flex-start;
-    background-color: #ffcb00;
+    background-color: #8d99ae;
     flex: 5 0 auto;
     padding-left: 10px;
     padding-top: 10px;
