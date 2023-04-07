@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import Header from "./Header";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
+import {setInfo} from "../../redux/actions/authActions";
 
 
 const HeaderContainer = () => {
@@ -19,7 +20,7 @@ const HeaderContainer = () => {
             .then((response) => {
                 let isAuth = response.data.isAuth;
                 let user_obj = response.data.user_obj;
-                dispatch({type: 'SET_INFO', isAuth, user_obj})
+                dispatch(setInfo(isAuth, user_obj))
             })
             .catch((error) => {
                 console.error(error);

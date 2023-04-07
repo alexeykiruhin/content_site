@@ -1,4 +1,4 @@
-const SET_INFO = 'SET_INFO';
+import {SET_INFO} from "../actions/actionTypes";
 
 let initialState = {
     username: null,
@@ -18,7 +18,5 @@ const authReducer = (state = initialState, action) => {
             return state
     }
 }
-
-const setInfo = (isAuth, user_obj) => ({type: SET_INFO, isAuth, user_obj})
 
 export default authReducer;
