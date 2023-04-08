@@ -13,9 +13,11 @@ class PostsContainer extends React.Component {
 
     componentDidMount() {
         this.props.setIsFetching(true);
-        axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}`)
+        axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}&page_size=2`)//?page=${this.props.currentPage}
             .then(response => {
+                // let posts = response.data.posts;
                 let posts = response.data.posts;
+                console.log(response.data)
                 let count = response.data.count;
                 this.props.setPosts(posts);
                 this.props.setCount(count);
@@ -24,17 +26,15 @@ class PostsContainer extends React.Component {
     }
 
     setCurrentPage(currentPage) {
-        // обработка ошибки СORS при передаче гет параметра page=1
-        if (currentPage === 1) {
-            currentPage = 0;
-        }
         this.props.setCurrentPage(currentPage);
         this.props.setIsFetching(true);
-        axios.get(`http://127.0.0.1:5000/posts?page=${currentPage}`).then(response => {
-            let posts = response.data.posts;
-            this.props.setPosts(posts);
-            this.props.setIsFetching(false);
-        });
+        axios.get(`http://127.0.0.1:5000/posts?page=${currentPage}&page_size=2`)//
+            .then(response => {
+                let posts = response.data.posts;
+                console.log(posts)
+                this.props.setPosts(posts);
+                this.props.setIsFetching(false);
+            });
     }
 
     render() {

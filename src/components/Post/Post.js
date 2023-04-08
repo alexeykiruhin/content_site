@@ -6,18 +6,18 @@ const Post = (props) => {
     return (
         <div className={'Post'}>
             <div className={'postNameUser'}>
-                <NavLink to={`/user/${props.post.userId}`}>
+                <NavLink to={`/user/${props.post.author.id}`}>
                     <div className={'postAvatar'}>
-                        <img src='https://randomuser.me/api/portraits/women/55.jpg' alt="no ava"/>
+                        <img src={props.post.author.img} alt="no ava"/>
                     </div>
                 </NavLink>
-                <NavLink to={`/user/${props.post.userId}`}>
+                <NavLink to={`/user/${props.post.author.id}`}>
                     <div className={'postNameUser'}>
-                        {props.post.nameUser}
+                        {props.post.author.username}
                     </div>
                 </NavLink>
             </div>
-            <div className={'postText'}>{props.post.textPost}</div>
+            <div className={'postText'}>{props.post.text}</div>
         </div>
     )
 }

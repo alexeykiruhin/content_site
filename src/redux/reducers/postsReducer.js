@@ -7,7 +7,7 @@ let initialState = {
     posts: [],
     pageSize: 2,
     count: 0,
-    currentPage: 0,
+    currentPage: 1,
     isFetching: false
 }
 
@@ -16,7 +16,7 @@ const postsReducer = (state = initialState, action) => {
         case SET_POSTS:
             return {
                 ...state,
-                posts: action.posts
+                posts: [...action.posts]
             }
         case SET_COUNT:
             return {

@@ -18,7 +18,7 @@ const Posts = (props) => {
                             onClick={() => {
                                 props.setCurrentPage(page);
                             }}
-                            key={page}
+                            key={page+'p'}
                             className={
                                 (props.currentPage === 0 ? 1 : props.currentPage) === page ? 'select pag' : 'notselect pag'
                             }
@@ -27,9 +27,14 @@ const Posts = (props) => {
                 </div>
                 <div>Всего постов: {props.count}</div>
                 <br/>
+                <div className={'wrapperDifferentPosts'}>
+                    <div>Все посты</div>
+                    <div>Подписки</div>
+                {/* Добавить переключение между компонентами Все посты и Подписки используя флаг   */}
+                </div>
                 {(props.isFetching ?
                     <Preloader /> :
-                    (props.posts.map(post => <Post key={post.id} post={post}/>))
+                    (props.posts.map(post => <Post key={post.index} post={post}/>))
                 )}
             </div>
         </div>

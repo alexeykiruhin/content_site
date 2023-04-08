@@ -26,3 +26,10 @@
 .pagination {
     margin-bottom: 10px;
 }
+
+.wrapperDifferentPosts {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 30px;
+}
