@@ -13,12 +13,12 @@ const Posts = (props) => {
         <div className={'Posts'}>
             <div className={'body'}>
                 <div className={'pagination'}>
-                    {pages.map(page => {
+                    {pages.map((page) => {
                         return <span
                             onClick={() => {
                                 props.setCurrentPage(page);
                             }}
-                            key={page+'p'}
+                            key={page}
                             className={
                                 (props.currentPage === 0 ? 1 : props.currentPage) === page ? 'select pag' : 'notselect pag'
                             }

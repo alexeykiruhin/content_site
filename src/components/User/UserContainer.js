@@ -20,12 +20,12 @@ const UserContainer = () => {
     useEffect(() => {
         axios.get(`http://127.0.0.1:5000/user/${paramUserId.userId}`)
             .then(response => {
-                let userId = response.data.id;
-                let username = response.data.username;
-                let img = response.data.img;
-                let postsCount = response.data.postsCount;
-                let rating = response.data.rating;
-                let posts = response.data.posts;
+                let userId = response.data.user_info.id;
+                let username = response.data.user_info.username;
+                let img = response.data.user_info.img;
+                let postsCount = response.data.user_info.posts_count;
+                let rating = response.data.user_info.rating;
+                let posts = [...response.data.user_posts];
                 dispatch(setUser(userId, username, img, postsCount, rating, posts));
                 // debugger
             });

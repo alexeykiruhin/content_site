@@ -28,7 +28,9 @@ const User = (props) => {
             </div>
             <div className={'postsUserPage'}>
                 <h3>Посты пользователя</h3>
-                {props.posts.map((post, index) => <div key={index}>{post}</div>)}
+                {props.posts.length !== 0 ?
+                    props.posts.map((post, index) => <div key={index}>{post}</div>) :
+                    <div>У пользователя ещё нет постов</div>}
             </div>
         </div>
     )

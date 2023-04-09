@@ -15,9 +15,7 @@ class PostsContainer extends React.Component {
         this.props.setIsFetching(true);
         axios.get(`http://127.0.0.1:5000/posts?page=${this.props.currentPage}&page_size=2`)//?page=${this.props.currentPage}
             .then(response => {
-                // let posts = response.data.posts;
                 let posts = response.data.posts;
-                console.log(response.data)
                 let count = response.data.count;
                 this.props.setPosts(posts);
                 this.props.setCount(count);
