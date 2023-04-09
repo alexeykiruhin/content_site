@@ -13,12 +13,12 @@ const Posts = (props) => {
         <div className={'Posts'}>
             <div className={'body'}>
                 <div className={'pagination'}>
-                    {pages.map((page) => {
+                    {pages.map((page, index) => {
                         return <span
                             onClick={() => {
                                 props.setCurrentPage(page);
                             }}
-                            key={page}
+                            key={`pagination-${index}`}
                             className={
                                 (props.currentPage === 0 ? 1 : props.currentPage) === page ? 'select pag' : 'notselect pag'
                             }
@@ -34,7 +34,7 @@ const Posts = (props) => {
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
-                    (props.posts.map(post => <Post key={post.index} post={post}/>))
+                    (props.posts.map((post, index) => <Post key={`post-${index}`} post={post}/>))
                 )}
             </div>
         </div>
