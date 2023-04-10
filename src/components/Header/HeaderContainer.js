@@ -1,33 +1,32 @@
 import React, {useEffect} from "react";
 import Header from "./Header";
-import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {setInfo} from "../../redux/actions/authActions";
+import {login} from "../../api/api";
 
 
 const HeaderContainer = () => {
 
-    const username = useSelector( (state) => state.auth.username)
+    const username = useSelector((state) => state.auth.username)
+    const password = useSelector((state) => state.auth.password)
     const img = useSelector((state) => state.auth.img);
     const isAuth = useSelector((state) => state.auth.isAuth);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.post(`http://127.0.0.1:5000/login`, {
-            username: 'Ivan',
-            password: 'password1'
+
+        login(username, password).then((response) => {
+            console.log(response)
+            let isAuth = response.isAuth;
+            let user_obj = response.user_obj;
+            dispatch(setInfo(isAuth, user_obj))
         })
-            .then((response) => {
-                let isAuth = response.data.isAuth;
-                let user_obj = response.data.user_obj;
-                dispatch(setInfo(isAuth, user_obj))
-            })
             .catch((error) => {
                 console.error(error);
             });
     })
 
-    return <Header username={username} img={img} isAuth={isAuth} />
+    return <Header username={username} img={img} isAuth={isAuth}/>
 }
 
 export default HeaderContainer;

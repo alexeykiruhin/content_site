@@ -1,7 +1,8 @@
 import {SET_INFO} from "../actions/actionTypes";
 
 let initialState = {
-    username: null,
+    username: 'Ivan',
+    password: 'password1',
     img: null,
     isAuth: false
 }
