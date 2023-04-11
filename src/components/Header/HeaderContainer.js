@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import Header from "./Header";
 import {useDispatch, useSelector} from "react-redux";
-import {setInfo} from "../../redux/actions/authActions";
-import {login} from "../../api/api";
+import {authThunkCreator} from "../../redux/thunk/authThunk";
 
 
 const HeaderContainer = () => {
@@ -14,16 +13,7 @@ const HeaderContainer = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-
-        login(username, password).then((response) => {
-            console.log(response)
-            let isAuth = response.isAuth;
-            let user_obj = response.user_obj;
-            dispatch(setInfo(isAuth, user_obj))
-        })
-            .catch((error) => {
-                console.error(error);
-            });
+        dispatch(authThunkCreator(username, password));
     })
 
     return <Header username={username} img={img} isAuth={isAuth}/>

@@ -12,24 +12,27 @@ if (token) {
     instance.defaults.headers.common['Authorization'] = token;
 }
 
-export const login = (username, password) => {
-    return instance.post(`login`, {
-        username: username,
-        password: password
-    }).then((response) => response.data)
-}
+export const API = {
 
-export const getUser = (userId) => {
-    return instance.get(`user/${userId}`)
-        .then((response) => response.data)
-}
+    getUser(userId) {
+        return instance.get(`user/${userId}`)
+            .then((response) => response.data)
+    },
 
-export const getUsers = () => {
-    return instance.get(`users`)
-        .then((response) => response.data)
-}
+    getUsers() {
+        return instance.get(`users`)
+            .then((response) => response.data)
+    },
 
-export const getPosts = (currentPage) => {
-    return instance.get(`posts?page=${currentPage}&page_size=2`)
-        .then((response) => response.data)
+    getPosts(currentPage) {
+        return instance.get(`posts?page=${currentPage}&page_size=2`)
+            .then((response) => response.data)
+    },
+
+    login(username, password) {
+        return instance.post(`login`, {
+            username: username,
+            password: password
+        }).then((response) => response.data)
+    },
 }

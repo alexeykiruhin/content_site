@@ -1,9 +1,10 @@
 import postsReducer from './reducers/postsReducer';
 import createPostReducer from './reducers/createPostReducer';
-import {combineReducers, legacy_createStore as createStore} from "redux";
+import {combineReducers, legacy_createStore as createStore, applyMiddleware} from "redux";
 import usersReducer from "./reducers/usersReducer";
 import userReducer from "./reducers/userReducer";
 import authReducer from "./reducers/authReducer";
+import thunk from 'redux-thunk'
 
 let rootReducers = combineReducers({
     postsPage: postsReducer,
@@ -13,6 +14,6 @@ let rootReducers = combineReducers({
     auth: authReducer
 })
 
-let store = createStore(rootReducers)
+let store = createStore(rootReducers, applyMiddleware(thunk))
 
 export default store;

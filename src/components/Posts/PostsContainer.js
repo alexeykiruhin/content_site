@@ -1,8 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
-import {setCount, setCurrentPage, setIsFetching, setPosts} from "../../redux/reducers/postsReducer";
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import Posts from "./Posts";
-import {getPosts} from "../../api/api";
+import {getPostsThunkCreator, nextPageThunkCreator} from "../../redux/thunk/postsThunk";
 
 const PostsContainer = () => {
 
@@ -13,24 +12,16 @@ const PostsContainer = () => {
     const isFetching = useSelector((state) => state.postsPage.isFetching);
     const dispatch = useDispatch();
 
+    const dispatchGetPosts = useCallback(() => {
+        dispatch(getPostsThunkCreator(currentPage));
+    }, [currentPage, dispatch]);
+
     useEffect(() => {
-        getPosts(currentPage).then(response => {
-            let posts = response.posts;
-            let count = response.count;
-            dispatch(setPosts(posts));
-            dispatch(setCount(count));
-            dispatch(setIsFetching(false));
-        })
-    })
+        dispatchGetPosts();
+    }, [dispatchGetPosts]);
 
     const handleSetCurrentPage = (currentPage) => {
-        dispatch(setCurrentPage(currentPage));
-        dispatch(setIsFetching(true));
-        getPosts(currentPage).then(response => {
-            let posts = response.posts;
-            dispatch(setPosts(posts));
-            dispatch(setIsFetching(false));
-        });
+        dispatch(nextPageThunkCreator(currentPage));
     }
 
     return <Posts
@@ -39,7 +30,7 @@ const PostsContainer = () => {
         count={count}
         pageSize={pageSize}
         currentPage={currentPage}
-        setCurrentPage={handleSetCurrentPage}
+        handleSetCurrentPage={handleSetCurrentPage}
     />
 }
 

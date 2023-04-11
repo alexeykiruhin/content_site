@@ -1,8 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import Users from "./Users";
-import {setUsers} from "../../redux/reducers/usersReducer";
-import {getUsers} from "../../api/api";
+import {getUsersThunkCreator} from "../../redux/thunk/usersThunk";
 
 const UsersContainer = () => {
 
@@ -10,10 +9,7 @@ const UsersContainer = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getUsers().then(response => {
-                let users = response.users;
-                dispatch(setUsers(users));
-            });
+        dispatch(getUsersThunkCreator());
     })
 
   return <Users users={users} />
