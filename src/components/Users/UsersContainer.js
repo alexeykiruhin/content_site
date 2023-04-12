@@ -13,7 +13,7 @@ const UsersContainer = () => {
 
     useEffect(() => {
         dispatch(getUsersThunkCreator());
-    })
+    },[dispatch])
 
     return <UsersWithRedirect users={users}/>
 }
