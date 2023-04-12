@@ -8,7 +8,6 @@ export const authThunkCreator = (username, password) => {
         API.login(username, password).then(response => {
             let isAuth = response.isAuth;
             let user_obj = response.user_obj;
-            console.log(user_obj)
             dispatch(setInfo(isAuth, user_obj))
         }).catch((error) => {
             console.error(error);
