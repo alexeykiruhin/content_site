@@ -1,17 +1,19 @@
 import CreatePost from "./CreatePost";
 import {useSelector} from "react-redux";
-import {Navigate} from "react-router-dom";
+import {withRedirect} from "../../hoc/redirectHoc";
 
+const CreatePostWithRedirect = withRedirect(CreatePost)
 
 const CreatePostContainer = () => {
 
     const isAuth = useSelector((state) => state.auth.isAuth );
 
-    if (!isAuth) return <Navigate to="/login" replace={true} />;
+    // const CreatePostContainerWithRedirect = withRedirect(CreatePost)
 
     return (
-        <CreatePost />
+        <CreatePostWithRedirect isAuth={isAuth}/>
     )
 }
+
 
 export default CreatePostContainer;

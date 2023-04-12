@@ -1,13 +1,13 @@
 import React from "react";
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import CreatePostContainer from "../CreatePost/CreatePostContainer";
 import NavBar from "../NavBar/NavBar";
 import PostsContainer from "../Posts/PostsContainer";
 import UsersContainer from "../Users/UsersContainer";
 import UserContainer from "../User/UserContainer";
 import HeaderContainer from "../Header/HeaderContainer";
 import Login from "../Login/Login";
+import CreatePostContainer from "../CreatePost/CreatePostContainer";
 
 function App() {
     return (
