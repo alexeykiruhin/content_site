@@ -6,6 +6,7 @@ import {authThunkCreator} from "../../redux/thunk/authThunk";
 
 const HeaderContainer = () => {
 
+    const id = useSelector((state) => state.auth.id)
     const username = useSelector((state) => state.auth.username)
     const password = useSelector((state) => state.auth.password)
     const img = useSelector((state) => state.auth.img);
@@ -16,7 +17,7 @@ const HeaderContainer = () => {
         dispatch(authThunkCreator(username, password));
     })
 
-    return <Header username={username} img={img} isAuth={isAuth}/>
+    return <Header id={id} username={username} img={img} isAuth={isAuth}/>
 }
 
 export default HeaderContainer;

@@ -6,7 +6,9 @@ const CreatePost = (props) => {
         <div className={'CreatePost'}>
             <div className={'wrapperCreatePost'}>
                 <div className={'textArea'}>
-                    <textarea name="text" id="createText" cols="30" rows="10"></textarea>
+                    <textarea name="text" id="createText" cols="30" rows="10">
+
+                    </textarea>
                 </div>
                 <div className={'submit'}>
                     <button

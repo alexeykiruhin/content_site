@@ -1,6 +1,5 @@
 .Header {
     display: flex;
-    /*flex-direction: row;*/
     justify-content: space-between;
     align-items: center;
     min-height: 50px;
@@ -15,6 +14,11 @@
     flex-shrink: 0;
     margin-right: 10%; /* прижимаем левый край */
     padding-left: 10px;
+}
+
+.login > a {
+    text-decoration: none;
+    color: #2b2d42;
 }
 
 .info {
