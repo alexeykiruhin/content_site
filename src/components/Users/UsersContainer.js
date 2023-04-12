@@ -7,8 +7,6 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 const UsersWithRedirect = withAuthRedirect(Users); // в качестве тренировки, можно убрать
 
 const UsersContainer = () => {
-    // isAuth нужен для сокрытия компонента, если юзер не авторизован
-    const isAuth = useSelector((state) => state.auth.isAuth);
 
     const users = useSelector((state) => state.usersPage.users);
     const dispatch = useDispatch();
@@ -16,7 +14,7 @@ const UsersContainer = () => {
     useEffect(() => {
         dispatch(getUsersThunkCreator());
     })
-    // Не забываем передать isAuth в хок
-    return <UsersWithRedirect isAuth={isAuth} users={users}/>
+
+    return <UsersWithRedirect users={users}/>
 }
 export default UsersContainer;
