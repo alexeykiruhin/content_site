@@ -7,16 +7,23 @@ const instance = axios.create({
     baseURL: 'http://127.0.0.1:5000/'
 });
 
-// const token = Cookies.get('access-token');
-// console.log(token)
-// if (token) {
-//     instance.defaults.headers.common['Authorization'] = token;
-// }
+let token = null;
+console.log(token)
+if (token) {
+    instance.defaults.headers.common['Authorization'] = token;
+}
 
 export const API = {
 
     getUser(userId) {
         return instance.get(`user/${userId}`)
+            .then((response) => response.data)
+    },
+
+    updUser(userId, statusText) {
+        return instance.post(`user/${userId}`, {
+            statusText: statusText,
+        })
             .then((response) => response.data)
     },
 
@@ -35,7 +42,8 @@ export const API = {
             username: username,
             password: password
         }).then((response) => {
-            instance.defaults.headers.common['Authorization'] = response.headers['access-token'];
+            token = response.headers['access-token'];
+            instance.defaults.headers.common['Authorization'] = token;
             console.log(response.data)
             return response.data
         })

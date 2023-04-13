@@ -12,6 +12,26 @@ const User = (props) => {
                     <div>
                         {props.username}
                     </div>
+                    <div className={'statusText'}>
+                        {/*Если айди не мой, то показываем статус без возможности редактирования*/}
+                        {!(props.id === props.userId) &&
+                            <span>{props.statusText}</span>
+                        }
+                        {/*Если мой айди и флаг фолс то показываем статус с возможностью редактирования*/}
+                        {!props.isEditStatusText && props.id === props.userId &&
+                            <span onClick={props.handlerEditStatusText}>{props.statusText}</span>
+                        }
+                        {/*Если флаг тру, то редактируем статус*/}
+                        {props.isEditStatusText &&
+                            <input
+                                type="text"
+                                autoFocus={true}
+                                onBlur={props.handlerSendStatusText}
+                                onChange={props.handlerUpdStatusText}
+                                value={props.statusText}
+                            />
+                        }
+                    </div>
                     <div>
                         Количество постов: {props.postsCount}
                     </div>
