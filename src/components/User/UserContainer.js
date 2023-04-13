@@ -5,6 +5,8 @@ import {useParams} from "react-router-dom";
 import {getUserThunkCreator} from "../../redux/thunk/userThunk";
 
 const UserContainer = () => {
+    //id нужен для определения, в свой ли профиль ты попал
+    const id = useSelector((state) => state.auth.id);
 
     const userId = useSelector((state) => state.userPage.userId);
     const username = useSelector((state) => state.userPage.username);
@@ -18,10 +20,10 @@ const UserContainer = () => {
 
     useEffect(() => {
         dispatch(getUserThunkCreator(paramUserId.userId));
-    })
+    },[dispatch, paramUserId.userId])
 
     return (
-        <User userId={userId} username={username} img={img} postsCount={postsCount} rating={rating} posts={posts} />
+        <User id={id} userId={userId} username={username} img={img} postsCount={postsCount} rating={rating} posts={posts} />
     )
 }
 
