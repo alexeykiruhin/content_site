@@ -1,5 +1,6 @@
 import React from "react";
 import './User.css';
+import editIcon from './img/edit-status.svg';
 
 const User = (props) => {
     return (
@@ -19,7 +20,10 @@ const User = (props) => {
                         }
                         {/*Если мой айди и флаг фолс то показываем статус с возможностью редактирования*/}
                         {!props.isEditStatusText && props.id === props.userId &&
-                            <span onClick={props.handlerEditStatusText}>{props.statusText}</span>
+                            <div>
+                                <span><img className={'editIcon'} src={editIcon} alt="edit"/></span>
+                                <span onClick={props.handlerEditStatusText}>{props.statusText}</span>
+                            </div>
                         }
                         {/*Если флаг тру, то редактируем статус*/}
                         {props.isEditStatusText &&
@@ -45,7 +49,7 @@ const User = (props) => {
                     <button>+</button>
                     <button>-</button>
                     {props.id === props.userId &&
-                        <button onClick={()=>console.log('заглушка выхода')}>Выйти</button>}
+                        <button onClick={() => console.log('заглушка выхода')}>Выйти</button>}
                 </div>
             </div>
             <div className={'postsUserPage'}>
