@@ -10,7 +10,7 @@ const LoginContainer = () => {
     const dispatch = useDispatch();
 
     const onSubmit = (values) => {
-        console.log('submit');
+        console.log(values);
         dispatch(authThunkCreator(values.username, values.password));
         setRedirect(true);
     };
