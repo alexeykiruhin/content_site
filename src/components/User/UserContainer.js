@@ -25,17 +25,13 @@ const UserContainer = () => {
         dispatch(getUserThunkCreator(paramUserId.userId));
     },[dispatch, paramUserId.userId])
 
-    const handlerSendStatusText = (event) => {
+    const handlerSendStatusText = (value) => {
         dispatch(editStatusText(false));
-        dispatch(updUserThunkCreator(userId, event.target.value))
+        dispatch(updUserThunkCreator(userId, value))
     }
 
     const handlerEditStatusText = () => {
         dispatch(editStatusText(true));
-    }
-
-    const handlerUpdStatusText = (event) => {
-        dispatch(updStatusText(event.target.value));
     }
 
     return (
@@ -50,7 +46,6 @@ const UserContainer = () => {
               posts={posts}
               handlerSendStatusText={handlerSendStatusText}
               handlerEditStatusText={handlerEditStatusText}
-              handlerUpdStatusText={handlerUpdStatusText}
         />
     )
 }

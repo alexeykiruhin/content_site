@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setUser} from "../actions/userActions";
+import {setUser, updStatusText} from "../actions/userActions";
 
 export const getUserThunkCreator = (userId) => {
     return (dispatch) => {
@@ -20,7 +20,7 @@ export const getUserThunkCreator = (userId) => {
 export const updUserThunkCreator = (userId, statusText) => {
     return (dispatch) => {
         API.updUser(userId, statusText).then(response => {
-            // console.log(response);
+            dispatch(updStatusText(response.statusText))
         }).catch((error) => {
             console.error(error);
         });

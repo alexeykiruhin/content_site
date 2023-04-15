@@ -6,10 +6,6 @@ const LoginForm = (props) => {
     const validate = (values) => {
         const errors = {};
 
-        if (!values.email) {
-            errors.email = 'Это поле обязательно';
-        }
-
         if (!values.username) {
             errors.username = 'Это поле обязательно';
         }
@@ -22,22 +18,9 @@ const LoginForm = (props) => {
 
     return (
         <Form onSubmit={props.onSubmit} validate={validate}>
-            {({handleSubmit, submitting, form}) => (
+            {({handleSubmit, submitting}) => (
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <div>
-                            <label htmlFor="email">
-                                Поле
-                            </label>
-                        </div>
-                        <div>
-                            <Field
-                                name='email'
-                                component={LoginNameField}
-                                type="text"
-                                placeholder="Введите email"
-                            />
-                        </div>
                         <div>
                             <label htmlFor="username">
                                 Имя пользователя
@@ -46,7 +29,7 @@ const LoginForm = (props) => {
                         <div>
                             <Field
                                 name="username"
-                                component="input"
+                                component={LoginNameField}
                                 type="text"
                                 placeholder="Введите имя пользователя"
                             />
@@ -59,7 +42,7 @@ const LoginForm = (props) => {
                         <div>
                             <Field
                                 name="password"
-                                component="input"
+                                component={LoginNameField}
                                 type="password"
                                 placeholder="Введите пароль"
                             />

@@ -1,3 +1,8 @@
 .formControl.error input {
     border: solid red 1px;
 }
+
+.errorMessage {
+    background-color: red;
+    margin-left: 5px;
+}

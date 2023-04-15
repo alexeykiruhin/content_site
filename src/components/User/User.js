@@ -1,6 +1,7 @@
 import React from "react";
 import './User.css';
 import editIcon from './img/edit-status.svg';
+import StatusForm from './StatusForm';
 
 const User = (props) => {
     return (
@@ -27,14 +28,12 @@ const User = (props) => {
                         }
                         {/*Если флаг тру, то редактируем статус*/}
                         {props.isEditStatusText &&
-                            <input
-                                type="text"
-                                autoFocus={true}
-                                onBlur={props.handlerSendStatusText}
-                                onChange={props.handlerUpdStatusText}
-                                value={props.statusText}
+                            <StatusForm 
+                                handlerSendStatusText={props.handlerSendStatusText}
+                                statusText={props.statusText} 
                             />
                         }
+                        
                     </div>
                     <div>
                         Количество постов: {props.postsCount}
