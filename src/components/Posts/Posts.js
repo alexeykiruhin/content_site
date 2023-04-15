@@ -1,6 +1,6 @@
 import React from "react";
 import './Posts.css'
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../common/Preloader/Preloader";
 import Post from "../Post/Post";
 
 const Posts = (props) => {

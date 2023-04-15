@@ -1,9 +1,14 @@
 import React from 'react';
 import {Form, Field} from 'react-final-form';
+import {LoginNameField} from "../common/FormsControls/LoginNameField";
 
 const LoginForm = (props) => {
     const validate = (values) => {
         const errors = {};
+
+        if (!values.email) {
+            errors.email = 'Это поле обязательно';
+        }
 
         if (!values.username) {
             errors.username = 'Это поле обязательно';
@@ -20,6 +25,19 @@ const LoginForm = (props) => {
             {({handleSubmit, submitting, form}) => (
                 <form onSubmit={handleSubmit}>
                     <div>
+                        <div>
+                            <label htmlFor="email">
+                                Поле
+                            </label>
+                        </div>
+                        <div>
+                            <Field
+                                name='email'
+                                component={LoginNameField}
+                                type="text"
+                                placeholder="Введите email"
+                            />
+                        </div>
                         <div>
                             <label htmlFor="username">
                                 Имя пользователя
