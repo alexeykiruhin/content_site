@@ -23,7 +23,6 @@ function App() {
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/user/:userId" element={<UserContainer/>}/>
                     </Routes>
-
                 </div>
             </div>
         </Router>

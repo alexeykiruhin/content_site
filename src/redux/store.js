@@ -1,3 +1,4 @@
+import {composeWithDevTools} from 'redux-devtools-extension';
 import postsReducer from './reducers/postsReducer';
 import createPostReducer from './reducers/createPostReducer';
 import {combineReducers, legacy_createStore as createStore, applyMiddleware} from "redux";
@@ -14,6 +15,6 @@ let rootReducers = combineReducers({
     auth: authReducer
 })
 
-let store = createStore(rootReducers, applyMiddleware(thunk))
+let store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store;
