@@ -36,9 +36,7 @@ export const API = {
     },
 
     getPosts(currentPage) {
-        const token = localStorage.getItem('token');
-        // console.log(token);
-        return instance.get(`posts?page=${currentPage}&page_size=2`, { headers: { Authorization: `Bearer ${token}` }})
+        return instance.get(`posts?page=${currentPage}&page_size=2`)
             .then((response) => {
                 return response.data
             })
