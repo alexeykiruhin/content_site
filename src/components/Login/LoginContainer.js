@@ -15,10 +15,10 @@ const LoginContainer = () => {
     };
 
     return (
-        <div>
+        <>
             {redirect && <Navigate to="/" replace={true}/>}
             <Login onSubmit={onSubmit}/>
-        </div>
+        </>
     )
 }
 
