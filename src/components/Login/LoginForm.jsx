@@ -5,10 +5,6 @@ import {LoginNameField} from "../common/FormsControls/LoginNameField";
 
 const LoginForm = (props) => {
 
-    const regForm = () => {
-        console.log('reg');
-    }
-
     const validate = (values) => {
         const errors = {};
 
@@ -50,7 +46,7 @@ const LoginForm = (props) => {
                             <button className={styles.loginFormBtn} type="submit" disabled={submitting}>Login</button>
                         </div>
                         <div className={styles.loginFormWrapBtn}>
-                            <button className={styles.loginFormBtn} onClick={regForm} disabled={submitting}>Reg</button>
+                            <button className={styles.loginFormBtn} onClick={props.toReg} disabled={submitting}>Reg</button>
                         </div>
                     </form>
             )}
