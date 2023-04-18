@@ -3,10 +3,8 @@ import styles from './RegForm.module.css';
 import { Form, Field } from 'react-final-form';
 import { LoginNameField } from "../common/FormsControls/LoginNameField";
 import {NavLink} from "react-router-dom";
-import { useSelector } from 'react-redux';
 
 const RegForm = (props) => {
-    const isReg = useSelector((state) => state.reg.isReg);
 
     const validate = (values) => {
         const errors = {};
@@ -23,7 +21,6 @@ const RegForm = (props) => {
 
     return (
         <div className={styles.wrapForm}>
-            <span>{isReg && 'register'}</span>
             <Form onSubmit={props.onSubmit} validate={validate}>
                 {({ handleSubmit, submitting }) => (
                     <form className={styles.loginForm} onSubmit={handleSubmit}>

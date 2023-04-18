@@ -1,14 +1,12 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { regThunkCreator } from "../../redux/thunk/regThunk";
-import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import RegForm from "./RegForm";
 
 
-
 const Reg = () => {
-    const [redirect, setRedirect] = useState(false);
+    const isReg = useSelector((state) => state.reg.isReg);
 
     const dispatch = useDispatch();
 
@@ -19,7 +17,7 @@ const Reg = () => {
 
     return (
         <>
-            {redirect && <Navigate to="/login" replace={true} />}
+            {isReg && <Navigate to="/login" replace={true} />}
             <RegForm onSubmit={onSubmit} />
         </>
     )
