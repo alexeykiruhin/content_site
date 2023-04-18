@@ -8,6 +8,7 @@ import UserContainer from "../User/UserContainer";
 import HeaderContainer from "../Header/HeaderContainer";
 import LoginContainer from "../Login/LoginContainer";
 import CreatePostContainer from "../CreatePost/CreatePostContainer";
+import Reg from "../Reg/Reg";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<PostsContainer/>}/>
                         <Route path="/login" element={<LoginContainer/>}/>
+                        <Route path="/register" element={<Reg/>}/>
                         <Route path="/create" element={<CreatePostContainer/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/user/:userId" element={<UserContainer/>}/>

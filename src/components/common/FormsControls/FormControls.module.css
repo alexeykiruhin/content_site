@@ -73,6 +73,13 @@ input {
     border: none;
 }
 
+input:-webkit-autofill, input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    border: 2px solid green !important;
+    -webkit-text-fill-color: rgb(5, 5, 5) !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
 .has-val.loginFormInput+.focus-input100::after {
     top: -22px;
     font-size: 18px

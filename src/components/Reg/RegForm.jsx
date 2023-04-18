@@ -1,10 +1,12 @@
 import React from 'react';
-import styles from './LoginForm.module.css';
+import styles from './RegForm.module.css';
 import { Form, Field } from 'react-final-form';
 import { LoginNameField } from "../common/FormsControls/LoginNameField";
 import {NavLink} from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-const LoginForm = (props) => {
+const RegForm = (props) => {
+    const isReg = useSelector((state) => state.reg.isReg);
 
     const validate = (values) => {
         const errors = {};
@@ -21,12 +23,21 @@ const LoginForm = (props) => {
 
     return (
         <div className={styles.wrapForm}>
+            <span>{isReg && 'register'}</span>
             <Form onSubmit={props.onSubmit} validate={validate}>
                 {({ handleSubmit, submitting }) => (
                     <form className={styles.loginForm} onSubmit={handleSubmit}>
                         <span className={styles.loginFormText}>
-                            LOG IN
+                            REGISTER
                         </span>
+                        {/* <div className={styles.loginFormWrapInput}>
+                            <Field
+                                name="email"
+                                component={LoginNameField}
+                                type="text"
+                                placeholder="Email"
+                            />
+                        </div> */}
                         <div className={styles.loginFormWrapInput}>
                             <Field
                                 name="username"
@@ -44,11 +55,11 @@ const LoginForm = (props) => {
                             />
                         </div>
                         <div className={styles.loginFormWrapBtn}>
-                            <button className={styles.loginFormBtn} type="submit" disabled={submitting}>Login</button>
+                            <button className={styles.loginFormBtn} type="submit" disabled={submitting}>Reg</button>
                         </div>
                         <div className={styles.loginFormWrapBtn}>
-                            <NavLink to={'/register'}>
-                                <button className={styles.loginFormBtn} disabled={submitting}>Reg</button>
+                            <NavLink to={'/login'}>
+                                <button className={styles.loginFormBtn} disabled={submitting}>Login</button>
                             </NavLink>
                         </div>
                     </form>
@@ -58,4 +69,4 @@ const LoginForm = (props) => {
     );
 };
 
-export default LoginForm;
+export default RegForm;

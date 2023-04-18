@@ -1,6 +1,6 @@
 .Users {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     flex-basis: 88%;
     gap: 10px;
