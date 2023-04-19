@@ -1,6 +1,6 @@
 import {setInfo} from "../actions/authActions";
-
-const {API} = require("../../api/api");
+import { API } from '../../api/api';
+// const {API} = require("../../api/api");
 
 
 export const authThunkCreator = (username, password) => {

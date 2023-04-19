@@ -42,6 +42,10 @@ export const API = {
             })
     },
 
+    createPost(userId, dataPost) {
+        return instance.post(`posts`).then((response) => response.data)
+    },
+
     login(username, password) {
         return instance.post(`login`, {
             username: username,
