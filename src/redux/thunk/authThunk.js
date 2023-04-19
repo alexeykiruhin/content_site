@@ -11,6 +11,7 @@ export const authThunkCreator = (username, password) => {
             let access_token = response.access_token;
             dispatch(setInfo(isAuth, user_obj, access_token))
         }).catch((error) => {
+            console.log('ошибка');
             console.error(error);
         });
     }

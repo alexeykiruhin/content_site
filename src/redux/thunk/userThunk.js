@@ -22,6 +22,7 @@ export const updUserThunkCreator = (userId, statusText) => {
         API.updUser(userId, statusText).then(response => {
             dispatch(updStatusText(response.statusText))
         }).catch((error) => {
+            console.log('ошибка');
             console.error(error);
         });
     }

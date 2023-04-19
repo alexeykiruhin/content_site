@@ -1,5 +1,4 @@
 import Login from "./Login";
-import Reg from "../Reg/Reg";
 import { useDispatch } from "react-redux";
 import { authThunkCreator } from "../../redux/thunk/authThunk";
 import { useState } from "react";
@@ -12,6 +11,7 @@ const LoginContainer = () => {
 
     const onSubmit = (values) => {
         dispatch(authThunkCreator(values.username, values.password));
+        // дописать редирект, в случае удачного логина, иначе написать текст ошибки messageError
         setRedirect(true);
     };
 
