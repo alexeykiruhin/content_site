@@ -6,13 +6,15 @@ import usersReducer from "./reducers/usersReducer";
 import userReducer from "./reducers/userReducer";
 import authReducer from "./reducers/authReducer";
 import thunk from 'redux-thunk'
+import regReducer from './reducers/regReducer';
 
 let rootReducers = combineReducers({
     postsPage: postsReducer,
     createPostPage: createPostReducer,
     usersPage: usersReducer,
     userPage: userReducer,
-    auth: authReducer
+    auth: authReducer,
+    reg: regReducer
 })
 
 let store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))

@@ -56,6 +56,12 @@ export const API = {
             return response.data
         })
     },
+
+    register(username, password) {
+        return instance.post(`register`, {
+            username, password
+        }).then((response) => response.data)
+    }
 }
 // продолжить с авторизацией, сейчас токен получаю, записываю в локал сторедж, отправляю с запросами на сервер в заголовках токен
 // добавить логаут и переписать логику кнопки логинв хедере
