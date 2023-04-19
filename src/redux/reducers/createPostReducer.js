@@ -1,4 +1,4 @@
-import CREATE_POST from '../actions/actionTypes';
+import {CREATE_POST} from '../actions/actionTypes';
 
 let initialState = {
     isCreate: false,

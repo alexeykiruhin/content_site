@@ -5,4 +5,4 @@ export const EDIT_STATUS_TEXT = 'EDIT_STATUS_TEXT';
 export const UPD_STATUS_TEXT = 'UPD_STATUS_TEXT';
 export const SET_REG = 'SET_REG';
 
-
+export const CREATE_POST = 'CREATE_POST';

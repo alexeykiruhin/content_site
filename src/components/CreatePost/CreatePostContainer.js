@@ -1,7 +1,7 @@
 import CreatePost from "./CreatePost";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import { useDispatch, useSelector } from "react-redux";
-import createPostThunkCreator from '../../redux/thunk/createPostThunk';
+import {createPostThunkCreator} from '../../redux/thunk/createPostThunk';
 
 const CreatePostWithRedirect = withAuthRedirect(CreatePost)
 
@@ -11,7 +11,7 @@ const CreatePostContainer = () => {
     
     const dispatch = useDispatch();
 
-    handleClick = (userId, dataPost) => {
+    const handleClick = (userId, dataPost) => {
         dispatch(createPostThunkCreator(userId, dataPost))
     }
 
