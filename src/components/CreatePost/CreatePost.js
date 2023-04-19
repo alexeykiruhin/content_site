@@ -2,6 +2,8 @@ import React from "react";
 import './CreatePost.css';
 
 const CreatePost = (props) => {
+
+    //props.handleClick
     return (
         <div className={'CreatePost'}>
             <div className={'wrapperCreatePost'}>
