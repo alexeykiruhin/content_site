@@ -54,12 +54,12 @@ export const API = {
             username: username,
             password: password
         }).then((response) => {
-            if (response.data) {
-                const token = response.data.access_token; // запись токена
-                localStorage.setItem('token', token); // сохранение токена в localStorage
-                instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                // console.log(token);
-            }
+            // if (response.data) {
+            //     const access_token = response.data.access_token; // запись токена
+            //     localStorage.setItem('token', access_token); // сохранение токена в localStorage
+            //     instance.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+            //     // console.log(token);
+            // }
             return response.data
         })
     },

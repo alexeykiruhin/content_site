@@ -4,7 +4,8 @@ let initialState = {
     id: null,
     username: '',
     img: null,
-    isAuth: false
+    isAuth: false,
+    access_token: ''
 }
 
 const authReducer = (state = initialState, action) => {
@@ -13,7 +14,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.user_obj,
-                isAuth: action.isAuth
+                isAuth: action.isAuth,
+                access_token: action.access_token
             }
         default:
             return state
