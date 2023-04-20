@@ -35,6 +35,10 @@ export const API = {
                 console.log(`token-${token}`);
                 instance.post(`refresh`, {
                     refresh_token: token
+                }, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
                 }).then(response => {
                     // Ваш код обновления токена
                     instance.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
