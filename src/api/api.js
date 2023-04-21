@@ -10,7 +10,8 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
+    const access_token = localStorage.getItem('access_token');
+    config.headers.Authorization = `Bearer ${access_token}`;
     console.log('add header Auth');
     return config
 })
@@ -38,6 +39,8 @@ instance.interceptors.response.use(
                 window.location.href = '/login';
                 return Promise.reject(error);
             }
+        }else{
+            window.location.href = '/login';
         }
     }
 )
