@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Field, Form } from "react-final-form";
 
 const StatusForm = (props) => {

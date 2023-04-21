@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
@@ -9,8 +9,20 @@ import HeaderContainer from "../Header/HeaderContainer";
 import LoginContainer from "../Login/LoginContainer";
 import CreatePostContainer from "../CreatePost/CreatePostContainer";
 import Reg from "../Reg/Reg";
+import { useDispatch } from "react-redux";
+import { checkAuthThunkCreator } from "../../redux/thunk/checkAuthThunk";
 
 function App() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if(localStorage.getItem('access_token')) {
+            //делаем запрос на эндпоинт refresh
+            dispatch(checkAuthThunkCreator());
+        }
+    }, [])
+
     return (
         <Router>
             <div className="App">

@@ -4,7 +4,7 @@ import Users from "./Users";
 import {getUsersThunkCreator} from "../../redux/thunk/usersThunk";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
-// const UsersWithRedirect = withAuthRedirect(Users); // в качестве тренировки, можно убрать
+const UsersWithRedirect = withAuthRedirect(Users);
 
 const UsersContainer = () => {
 
@@ -15,7 +15,7 @@ const UsersContainer = () => {
         dispatch(getUsersThunkCreator());
     },[dispatch])
 
-    // return <UsersWithRedirect users={users}/>
-    return <Users users={users}/>
+    return <UsersWithRedirect users={users}/>
+    // return <Users users={users}/>
 }
 export default UsersContainer;

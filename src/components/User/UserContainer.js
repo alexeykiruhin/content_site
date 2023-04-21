@@ -3,7 +3,11 @@ import User from "./User";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {getUserThunkCreator, updUserThunkCreator} from "../../redux/thunk/userThunk";
-import {editStatusText, updStatusText} from "../../redux/actions/userActions";
+import {editStatusText} from "../../redux/actions/userActions";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+
+
+const UserWithRedirect = withAuthRedirect(User);
 
 const UserContainer = () => {
     //id нужен для определения, в свой ли профиль ты попал
@@ -35,7 +39,7 @@ const UserContainer = () => {
     }
 
     return (
-        <User id={id}
+        <UserWithRedirect id={id}
               userId={userId}
               username={username}
               img={img}

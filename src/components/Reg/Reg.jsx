@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { regThunkCreator } from "../../redux/thunk/regThunk";
 import { Navigate } from "react-router-dom";

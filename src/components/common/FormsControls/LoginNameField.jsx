@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from './FormControls.module.css';
-import u from './icon/user.svg'
 
 export const LoginNameField = ({input, meta, ...props}) => {
 

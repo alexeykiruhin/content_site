@@ -1,4 +1,4 @@
-import {SET_INFO} from "../actions/actionTypes";
+import {SET_INFO, REFRESH_TOKEN} from "../actions/actionTypes";
 
 let initialState = {
     id: null,
@@ -15,6 +15,12 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.user_obj,
                 isAuth: action.isAuth,
+                // access_token: action.access_token
+            }
+        case REFRESH_TOKEN:
+            return {
+                ...state,
+                // isAuth: action.isAuth,
                 access_token: action.access_token
             }
         default:

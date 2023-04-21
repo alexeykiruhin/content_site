@@ -1,3 +1,4 @@
+import React from "react";
 import CreatePost from "./CreatePost";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import { useDispatch, useSelector } from "react-redux";
