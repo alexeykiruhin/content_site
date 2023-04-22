@@ -12,7 +12,8 @@ export const checkAuthThunkCreator = () => {
             localStorage.setItem('access_token', access_token);
             dispatch(setInfo(isAuth, user_obj));
         }).catch((error) => {
-            console.log(`ошибка - ${error.response.status}`);
+            // console.log(`ошибка - ${error.response.status}`);
+            console.log(`ошибка - checkAuthThunk`);
         });
     }
 }

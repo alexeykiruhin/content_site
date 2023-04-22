@@ -28,7 +28,7 @@ instance.interceptors.response.use(
             try {
                 const response = await axios.get(`${BASE_URL}refresh`, { 
                     withCredentials: true, 
-                    headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`} 
+                    // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
                 }).then((response) => response.data)
                 localStorage.setItem('access_token', response.access_token);
                 console.log('set local');
@@ -36,11 +36,11 @@ instance.interceptors.response.use(
             } catch (error) {
                 console.log('Ошибка авторизации', error); 
                 store.dispatch(setInfo(false, {id: null, img: null, username: ''})); // тут нужно затереть данные в auth
-                window.location.href = '/login';
+                // window.location.href = '/login';
                 return Promise.reject(error);
             }
         }else{
-            window.location.href = '/login';
+            // window.location.href = '/login';
         }
     }
 )
@@ -51,17 +51,17 @@ export const API = {
         console.log('checkAuth');
         return axios.get(`${BASE_URL}refresh`, { 
             withCredentials: true,
-            headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
+            // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
         }).then((response) => response.data)
     },
-
+    // добавить логаут
     login(username, password) {
         return instance.post(`login`, {
             username: username,
             password: password
         }).then((response) => response.data)
     },
-
+    // переписать роут своего профиля
     getUser(userId) {
         return instance.get(`user/${userId}`)
             .then((response) => {
