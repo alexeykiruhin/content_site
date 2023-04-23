@@ -9,6 +9,7 @@ const Header = (props) => {
             <div className={'login'}>
                 {props.isAuth ?
                     <NavLink to={'/user/' + props.id}>
+                    {/* <NavLink to={'/user'}> */}
                         <div className={'info'}>
                             <img src={props.img} alt="no ava"/>
                             {props.username}

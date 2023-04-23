@@ -62,6 +62,14 @@ export const API = {
         }).then((response) => response.data)
     },
     // переписать роут своего профиля
+    // getUser() {
+    //     return instance.get(`user`)
+    //         .then((response) => {
+    //             console.log(`resUser - ${response}`);
+    //             return response.data
+    //         })
+    // },
+    // переписать роут своего профиля
     getUser(userId) {
         return instance.get(`user/${userId}`)
             .then((response) => {

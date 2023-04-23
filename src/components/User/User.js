@@ -15,12 +15,18 @@ const User = (props) => {
                         {props.username}
                     </div>
                     <div className={'statusText'}>
+                        {/* обработать отображение пустого статуса */}
+                        
                         {/*Если айди не мой, то показываем статус без возможности редактирования*/}
-                        {!(props.id === props.userId) &&
+                        {/*перенести эту логику на сервер, если айди переданного в урле юзера равен 
+                        айди в куках, то возвращаем ключ это я и по нему тут делать проверку*/}
+                        {/* {!(props.id === props.userId) &&
                             <span>{props.statusText}</span>
-                        }
+                        } */}
+                        {!props.isMe && <span>{props.statusText}</span>}
                         {/*Если мой айди и флаг фолс то показываем статус с возможностью редактирования*/}
-                        {!props.isEditStatusText && props.id === props.userId &&
+                        {/* {!props.isEditStatusText && props.id === props.userId && */}
+                        {!props.isEditStatusText && props.isMe &&
                             <div>
                                 <span><img className={'editIcon'} src={editIcon} alt="edit"/></span>
                                 <span onClick={props.handlerEditStatusText}>{props.statusText}</span>

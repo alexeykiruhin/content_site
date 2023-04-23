@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import User from "./User";
-import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
-import {getUserThunkCreator, updUserThunkCreator} from "../../redux/thunk/userThunk";
-import {editStatusText} from "../../redux/actions/userActions";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getUserThunkCreator, updUserThunkCreator } from "../../redux/thunk/userThunk";
+import { editStatusText } from "../../redux/actions/userActions";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 const UserWithRedirect = withAuthRedirect(User);
@@ -12,7 +12,8 @@ const UserWithRedirect = withAuthRedirect(User);
 const UserContainer = () => {
     //id нужен для определения, в свой ли профиль ты попал
     const id = useSelector((state) => state.auth.id);
-
+    const isMe = useSelector((state) => state.userPage.isMe);
+    console.log(isMe);
     const userId = useSelector((state) => state.userPage.userId);
     const username = useSelector((state) => state.userPage.username);
     const img = useSelector((state) => state.userPage.img);
@@ -26,8 +27,9 @@ const UserContainer = () => {
     let paramUserId = useParams();
 
     useEffect(() => {
+        // dispatch(getUserThunkCreator());
         dispatch(getUserThunkCreator(paramUserId.userId));
-    },[dispatch, paramUserId.userId])
+    }, [dispatch, paramUserId.userId])
 
     const handlerSendStatusText = (value) => {
         dispatch(editStatusText(false));
@@ -39,17 +41,19 @@ const UserContainer = () => {
     }
 
     return (
-        <UserWithRedirect id={id}
-              userId={userId}
-              username={username}
-              img={img}
-              statusText={statusText}
-              isEditStatusText={isEditStatusText}
-              postsCount={postsCount}
-              rating={rating}
-              posts={posts}
-              handlerSendStatusText={handlerSendStatusText}
-              handlerEditStatusText={handlerEditStatusText}
+        <UserWithRedirect
+            isMe={isMe}
+            id={id}
+            userId={userId}
+            username={username}
+            img={img}
+            statusText={statusText}
+            isEditStatusText={isEditStatusText}
+            postsCount={postsCount}
+            rating={rating}
+            posts={posts}
+            handlerSendStatusText={handlerSendStatusText}
+            handlerEditStatusText={handlerEditStatusText}
         />
     )
 }

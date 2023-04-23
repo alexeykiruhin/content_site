@@ -1,6 +1,7 @@
 import {EDIT_STATUS_TEXT, SET_USER, UPD_STATUS_TEXT} from "../actions/actionTypes";
 
 let initialState = {
+    isMe: false,
     userId: null,
     username: '',
     img: '',
@@ -11,11 +12,12 @@ let initialState = {
     posts: []
 }
 
-const usersReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
             return {
                 ...state,
+                isMe: action.isMe,
                 userId: action.userId,
                 username: action.username,
                 img: action.img,
@@ -39,4 +41,4 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export default usersReducer;
+export default userReducer;
