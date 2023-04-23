@@ -53,7 +53,7 @@ const User = (props) => {
                     <button>Написать</button>
                     <button>+</button>
                     <button>-</button>
-                    {props.id === props.userId &&
+                    {props.isMe &&
                         <button onClick={() => console.log('заглушка выхода')}>Выйти</button>}
                 </div>
             </div>

@@ -35,7 +35,6 @@ function App() {
                         <Route path="/register" element={<Reg/>}/>
                         <Route path="/create" element={<CreatePostContainer/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
-                        {/* <Route path="/user" element={<UserContainer/>}/> */}
                         <Route path="/user/:userId" element={<UserContainer/>}/>
                     </Routes>
                 </div>

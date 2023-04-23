@@ -7,6 +7,7 @@ export const logoutThunkCreator = () => {
         API.logout().then(response => {
             console.log(`logout successfully`);
             // зануляем данные об аутентификации
+            localStorage.removeItem('access_token');
             dispatch(setInfo(false, { id: null, img: null, username: '' }));
         }).catch((error) => {
             // console.log(`ошибка - ${error.response.status}`);

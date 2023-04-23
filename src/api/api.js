@@ -36,6 +36,7 @@ instance.interceptors.response.use(
             } catch (error) {
                 console.log('Ошибка авторизации', error);
                 store.dispatch(setInfo(false, { id: null, img: null, username: '' })); // тут нужно затереть данные в auth
+                // попробовать затереть локалсторедж ацесс токен
                 window.location.href = '/login';
                 return Promise.reject(error);
             }

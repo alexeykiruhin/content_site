@@ -11,9 +11,8 @@ const UserWithRedirect = withAuthRedirect(User);
 
 const UserContainer = () => {
     //id нужен для определения, в свой ли профиль ты попал
-    const id = useSelector((state) => state.auth.id);
+    // const id = useSelector((state) => state.auth.id);
     const isMe = useSelector((state) => state.userPage.isMe);
-    console.log(isMe);
     const userId = useSelector((state) => state.userPage.userId);
     const username = useSelector((state) => state.userPage.username);
     const img = useSelector((state) => state.userPage.img);
@@ -27,9 +26,10 @@ const UserContainer = () => {
     let paramUserId = useParams();
 
     useEffect(() => {
+        console.log('init');
         // dispatch(getUserThunkCreator());
         dispatch(getUserThunkCreator(paramUserId.userId));
-    }, [dispatch, paramUserId.userId])
+    }, [])
 
     const handlerSendStatusText = (value) => {
         dispatch(editStatusText(false));
@@ -43,7 +43,7 @@ const UserContainer = () => {
     return (
         <UserWithRedirect
             isMe={isMe}
-            id={id}
+            // id={id}
             userId={userId}
             username={username}
             img={img}
