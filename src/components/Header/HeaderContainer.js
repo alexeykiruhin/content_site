@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import { logoutThunkCreator } from "../../redux/thunk/logoutThunk";
 
 
 const HeaderContainer = () => {
@@ -10,8 +11,13 @@ const HeaderContainer = () => {
     const img = useSelector((state) => state.auth.img);
     const isAuth = useSelector((state) => state.auth.isAuth);
     // console.log(isAuth);
+    const dispatch = useDispatch();
 
-    return <Header id={id} username={username} img={img} isAuth={isAuth}/>
+    const logout = () => {
+        dispatch(logoutThunkCreator());
+    }
+
+    return <Header id={id} username={username} img={img} isAuth={isAuth} logout={logout}/>
 }
 
 export default HeaderContainer;

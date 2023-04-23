@@ -24,22 +24,22 @@ instance.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
         console.log(`error status - ${error.response.status}`);
-        if(error.response.status === 401) {
+        if (error.response.status === 401) {
             try {
-                const response = await axios.get(`${BASE_URL}refresh`, { 
-                    withCredentials: true, 
+                const response = await axios.get(`${BASE_URL}refresh`, {
+                    withCredentials: true,
                     // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
                 }).then((response) => response.data)
                 localStorage.setItem('access_token', response.access_token);
                 console.log('set local');
                 return instance.request(originalRequest);
             } catch (error) {
-                console.log('Ошибка авторизации', error); 
-                store.dispatch(setInfo(false, {id: null, img: null, username: ''})); // тут нужно затереть данные в auth
+                console.log('Ошибка авторизации', error);
+                store.dispatch(setInfo(false, { id: null, img: null, username: '' })); // тут нужно затереть данные в auth
                 window.location.href = '/login';
                 return Promise.reject(error);
             }
-        }else{
+        } else {
             window.location.href = '/login';
         }
     }
@@ -49,27 +49,30 @@ export const API = {
 
     checkAuth() {
         console.log('checkAuth');
-        return axios.get(`${BASE_URL}refresh`, { 
+        return axios.get(`${BASE_URL}refresh`, {
             withCredentials: true,
             // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
         }).then((response) => response.data)
     },
-    // добавить логаут
+
+    register(username, password) {
+        return instance.post(`register`, {
+            username, password
+        }).then((response) => response.data)
+    },
+
     login(username, password) {
         return instance.post(`login`, {
             username: username,
             password: password
         }).then((response) => response.data)
     },
-    // переписать роут своего профиля
-    // getUser() {
-    //     return instance.get(`user`)
-    //         .then((response) => {
-    //             console.log(`resUser - ${response}`);
-    //             return response.data
-    //         })
-    // },
-    // переписать роут своего профиля
+
+    logout() {
+        return instance.get(`logout`)
+            .then((response) => response.data)
+    },
+
     getUser(userId) {
         return instance.get(`user/${userId}`)
             .then((response) => {
@@ -101,12 +104,6 @@ export const API = {
         return instance.post(`posts`, {
             author_id: userId,
             text: dataPost
-        }).then((response) => response.data)
-    },
-
-    register(username, password) {
-        return instance.post(`register`, {
-            username, password
         }).then((response) => response.data)
     }
 }

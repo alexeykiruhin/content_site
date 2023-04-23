@@ -16,6 +16,18 @@
     padding-left: 10px;
 }
 
+.loginWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.loginWrap > a {
+    text-decoration: none;
+    color: #2b2d42;
+}
+
 .login > a {
     text-decoration: none;
     color: #2b2d42;
@@ -40,4 +52,9 @@
     color: #2b2d42;
     font-size: x-large;
     text-decoration: none;
+}
+
+.logout {
+    color: #76371a;
+    cursor: pointer;
 }
