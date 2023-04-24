@@ -19,12 +19,17 @@ function App() {
     const init = useSelector((state) => state.init.init);
     const dispatch = useDispatch();
 
+    let flagInit = false // для инициализации 1 раз иначе 2, но не на что не повлияло
     useEffect(() => {
-        dispatch(initAppThunkCreator());
-        if(localStorage.getItem('access_token')) {
-            //делаем запрос на эндпоинт refresh
-            // dispatch(checkAuthThunkCreator());
+        if (!flagInit) {
+            flagInit = true;
+            console.log('init_app');
+            dispatch(initAppThunkCreator());
         }
+        // if(localStorage.getItem('access_token')) {
+        //     //делаем запрос на эндпоинт refresh
+        //     // dispatch(checkAuthThunkCreator());
+        // }
     }, [])
 
     if(!init) {

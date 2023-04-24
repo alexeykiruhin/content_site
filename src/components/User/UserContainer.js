@@ -25,7 +25,7 @@ const UserContainer = () => {
     let paramUserId = useParams();
 
     useEffect(() => {
-        console.log('init');
+        // console.log('init');
         // dispatch(getUserThunkCreator());
         dispatch(getUserThunkCreator(paramUserId.userId));
     }, [])
