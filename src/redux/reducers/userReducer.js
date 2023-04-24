@@ -1,4 +1,4 @@
-import {EDIT_STATUS_TEXT, SET_USER, UPD_STATUS_TEXT} from "../actions/actionTypes";
+import {SET_USER, UPD_STATUS_TEXT} from "../actions/actionTypes";
 
 let initialState = {
     isMe: false,
@@ -6,7 +6,6 @@ let initialState = {
     username: '',
     img: '',
     statusText: '',
-    isEditStatusText: false,
     postsCount: 0,
     rating: 0,
     posts: []
@@ -25,11 +24,6 @@ const userReducer = (state = initialState, action) => {
                 postsCount: action.postsCount,
                 rating: action.rating,
                 posts: [...action.posts]
-            }
-        case EDIT_STATUS_TEXT:
-            return {
-                ...state,
-                isEditStatusText: action.isEditStatusText
             }
         case UPD_STATUS_TEXT:
             return {

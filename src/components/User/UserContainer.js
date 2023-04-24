@@ -3,14 +3,11 @@ import User from "./User";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getUserThunkCreator, updUserThunkCreator } from "../../redux/thunk/userThunk";
-import { editStatusText } from "../../redux/actions/userActions";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 
 const UserContainer = () => {
-    //id нужен для определения, в свой ли профиль ты попал
-    // const id = useSelector((state) => state.auth.id);
     const isMe = useSelector((state) => state.userPage.isMe);
     const userId = useSelector((state) => state.userPage.userId);
     const username = useSelector((state) => state.userPage.username);
@@ -25,24 +22,16 @@ const UserContainer = () => {
     let paramUserId = useParams();
 
     useEffect(() => {
-        // console.log('init');
-        // dispatch(getUserThunkCreator());
         dispatch(getUserThunkCreator(paramUserId.userId));
     }, [])
 
     const handlerSendStatusText = (value) => {
-        dispatch(editStatusText(false));
         dispatch(updUserThunkCreator(userId, value))
-    }
-
-    const handlerEditStatusText = () => {
-        dispatch(editStatusText(true));
     }
 
     return (
         <User
             isMe={isMe}
-            // id={id}
             userId={userId}
             username={username}
             img={img}
@@ -52,7 +41,6 @@ const UserContainer = () => {
             rating={rating}
             posts={posts}
             handlerSendStatusText={handlerSendStatusText}
-            handlerEditStatusText={handlerEditStatusText}
         />
     )
 }

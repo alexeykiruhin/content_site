@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import './User.css';
 import editIcon from './img/edit-status.svg';
 import StatusForm from './StatusForm';
 
 const User = (props) => {
+    //убрал из бизнес слоя значение переключения поля, слишком локальное состояние это
+    const [isEditStatusText, toggleEditStatusText] = useState(false);
+
+    const handlerEditAndSendStatusText = (value) => {
+        props.handlerSendStatusText(value)
+        toggleEditStatusText(false);
+    }
+
+    const handlerEditStatusText = () => {
+        toggleEditStatusText(true);
+    }
+
     return (
         <div className={'User'}>
             <div className={'infoUserPage'}>
@@ -26,16 +38,16 @@ const User = (props) => {
                         {!props.isMe && <span>{props.statusText}</span>}
                         {/*Если мой айди и флаг фолс то показываем статус с возможностью редактирования*/}
                         {/* {!props.isEditStatusText && props.id === props.userId && */}
-                        {!props.isEditStatusText && props.isMe &&
+                        {!isEditStatusText && props.isMe &&
                             <div>
                                 <span><img className={'editIcon'} src={editIcon} alt="edit"/></span>
-                                <span onClick={props.handlerEditStatusText}>{props.statusText}</span>
+                                <span onClick={handlerEditStatusText}>{props.statusText}</span>
                             </div>
                         }
                         {/*Если флаг тру, то редактируем статус*/}
-                        {props.isEditStatusText &&
+                        {isEditStatusText &&
                             <StatusForm 
-                                handlerSendStatusText={props.handlerSendStatusText}
+                            handlerEditAndSendStatusText={handlerEditAndSendStatusText}
                                 statusText={props.statusText} 
                             />
                         }
