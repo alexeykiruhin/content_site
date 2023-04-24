@@ -1,3 +1,5 @@
+export const SET_INIT_OK = 'SET_INIT_OK';
+
 export const SET_INFO = 'SET_INFO';
 export const SET_USER = 'SET_USER';
 

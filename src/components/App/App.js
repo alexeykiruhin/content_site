@@ -9,19 +9,27 @@ import HeaderContainer from "../Header/HeaderContainer";
 import LoginContainer from "../Login/LoginContainer";
 import CreatePostContainer from "../CreatePost/CreatePostContainer";
 import Reg from "../Reg/Reg";
-import { useDispatch } from "react-redux";
-import { checkAuthThunkCreator } from "../../redux/thunk/checkAuthThunk";
+import { useDispatch, useSelector } from "react-redux";
+// import { checkAuthThunkCreator } from "../../redux/thunk/checkAuthThunk";
+import { initAppThunkCreator } from "../../redux/thunk/initAppThunk";
+import Preloader from "../common/Preloader/Preloader";
 
 function App() {
 
+    const init = useSelector((state) => state.init.init);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(initAppThunkCreator());
         if(localStorage.getItem('access_token')) {
             //делаем запрос на эндпоинт refresh
-            dispatch(checkAuthThunkCreator());
+            // dispatch(checkAuthThunkCreator());
         }
     }, [])
+
+    if(!init) {
+        return <Preloader />
+    }
 
     return (
         <Router>

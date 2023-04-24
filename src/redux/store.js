@@ -7,8 +7,10 @@ import userReducer from "./reducers/userReducer";
 import authReducer from "./reducers/authReducer";
 import thunk from 'redux-thunk'
 import regReducer from './reducers/regReducer';
+import appReducer from './reducers/appReducer';
 
 let rootReducers = combineReducers({
+    init: appReducer,
     postsPage: postsReducer,
     createPostPage: createPostReducer,
     usersPage: usersReducer,

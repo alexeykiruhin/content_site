@@ -7,7 +7,6 @@ import { editStatusText } from "../../redux/actions/userActions";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
-const UserWithRedirect = withAuthRedirect(User);
 
 const UserContainer = () => {
     //id нужен для определения, в свой ли профиль ты попал
@@ -41,7 +40,7 @@ const UserContainer = () => {
     }
 
     return (
-        <UserWithRedirect
+        <User
             isMe={isMe}
             // id={id}
             userId={userId}
@@ -58,4 +57,6 @@ const UserContainer = () => {
     )
 }
 
-export default UserContainer;
+const UserWithRedirect = withAuthRedirect(UserContainer);
+
+export default UserWithRedirect;

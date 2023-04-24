@@ -26,22 +26,30 @@ instance.interceptors.response.use(
         console.log(`error status - ${error.response.status}`);
         if (error.response.status === 401) {
             try {
-                const response = await axios.get(`${BASE_URL}refresh`, {
+                await axios.get(`${BASE_URL}refresh`, {
                     withCredentials: true,
                     // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
-                }).then((response) => response.data)
-                localStorage.setItem('access_token', response.access_token);
+                }).then((response) => {
+                    localStorage.setItem('access_token', response.data.access_token);
+                    console.log('set access');
+                    return response.data
+                }).catch((error) => {
+                    console.log(`ошибка - ${error.response.status}`);
+                    console.log(`ошибка - logoutThunk`);
+                });
                 console.log('set local');
                 return instance.request(originalRequest);
             } catch (error) {
                 console.log('Ошибка авторизации', error);
                 store.dispatch(setInfo(false, { id: null, img: null, username: '' })); // тут нужно затереть данные в auth
                 // попробовать затереть локалсторедж ацесс токен
-                window.location.href = '/login';
+                // window.location.href = '/login';
                 return Promise.reject(error);
             }
         } else {
-            window.location.href = '/login';
+            // window.location.href = '/login';
+            console.log('ошибка если удален рефреш токен, после логаута если пойти на страницу защищенную');
+            return null
         }
     }
 )
@@ -89,9 +97,9 @@ export const API = {
             .then((response) => response.data)
     },
 
-    getUsers() {
-        return instance.get(`users`)
-            .then((response) => response.data)
+    async getUsers() {
+        const response = await instance.get(`users`);
+        return response.data;
     },
 
     getPosts(currentPage) {
