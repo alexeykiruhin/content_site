@@ -13,7 +13,6 @@ const UserContainer = () => {
     const username = useSelector((state) => state.userPage.username);
     const img = useSelector((state) => state.userPage.img);
     const statusText = useSelector((state) => state.userPage.statusText);
-    const isEditStatusText = useSelector((state) => state.userPage.isEditStatusText);
     const postsCount = useSelector((state) => state.userPage.postsCount);
     const rating = useSelector((state) => state.userPage.rating);
     const posts = useSelector((state) => state.userPage.posts);
@@ -36,7 +35,6 @@ const UserContainer = () => {
             username={username}
             img={img}
             statusText={statusText}
-            isEditStatusText={isEditStatusText}
             postsCount={postsCount}
             rating={rating}
             posts={posts}

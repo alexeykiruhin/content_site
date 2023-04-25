@@ -3,9 +3,9 @@ import { createPost } from '../actions/createPostActions';
 
 
 
-export const createPostThunkCreator = (userId, dataPost) => {
+export const createPostThunkCreator = (dataPost) => {
     return (dispatch) => {
-        API.createPost(userId, dataPost).then(response => {
+        API.createPost(dataPost).then(response => {
             const isCreate = response.isCreate;
             dispatch(createPost(isCreate));
         })

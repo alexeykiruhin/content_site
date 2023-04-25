@@ -19,20 +19,3 @@ const UsersContainer = () => {
 const UsersWithRedirect = withAuthRedirect(UsersContainer);
 //возвращаем контейнерную с редиректом а в апп указваю имя как просто контейнерную
 export default UsersWithRedirect;
-
-
-// const UsersWithRedirect = withAuthRedirect(Users);
-
-// const UsersContainer = () => {
-
-//     const users = useSelector((state) => state.usersPage.users);
-//     const dispatch = useDispatch();
-
-//     useEffect(() => {
-//         dispatch(getUsersThunkCreator());
-//     },[dispatch])
-
-//     return <UsersWithRedirect users={users}/>
-//     // return <Users users={users}/>
-// }
-// export default UsersContainer;
