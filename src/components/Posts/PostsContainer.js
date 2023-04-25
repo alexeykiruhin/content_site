@@ -35,4 +35,3 @@ const PostsContainer = () => {
 }
 
 export default PostsContainer;
-// пофиксить пагинацию и создания постов
