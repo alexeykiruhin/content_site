@@ -11,15 +11,16 @@ const CreatePostForm = (props) => {
 
     return (
         //доработать стилизацию
-        <div className={styles.СreatePost}>
+        <div className={styles.createPost}>
             {props.isCreate && 'Done'}
             <Form
                 onSubmit={sendPostText}
                 initialValues={{ postText: '' }}
             >
                 {({ handleSubmit }) => (
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className={styles.wrapperCreatePost}>
                         <Field
+                            className={styles.textArea}
                             name="postText"
                             // сюда нужно передать свой компонент со стилизацией
                             component='textarea'
@@ -27,8 +28,8 @@ const CreatePostForm = (props) => {
                             placeholder="Напишите тут свои мысли"
                             autoFocus={true}
                         />
-                        <div className={'submit'}>
-                            <button className={'createBTN'}>Запостить</button>
+                        <div className={styles.submit}>
+                            <button className={styles.createBTN}>Запостить</button>
                         </div>
                     </form>
                 )}
