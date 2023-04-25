@@ -1,5 +1,4 @@
 import React from "react";
-// import CreatePost from "./CreatePost";
 import CreatePostForm from "./CreatePostForm";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import { useDispatch, useSelector } from "react-redux";

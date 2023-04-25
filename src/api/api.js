@@ -111,7 +111,6 @@ export const API = {
 
     createPost(dataPost) {
         return instance.post(`posts`, {
-            // author_id: userId,
             text: dataPost
         }).then((response) => response.data)
     }
