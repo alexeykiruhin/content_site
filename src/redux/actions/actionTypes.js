@@ -14,3 +14,4 @@ export const SET_POSTS = 'SET_POSTS';
 export const SET_COUNT = 'SET_COUNT';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+export const SET_NEW_RATING_POST = 'SET_NEW_RATING_POST';

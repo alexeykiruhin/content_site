@@ -29,7 +29,7 @@ const Post = (props) => {
                 </div>
                 <div className={styles.postRating}>
                     <span onClick={sendScoreMinus}>-</span>
-                    <span>{props.post.rating}</span>
+                    <span>{props.post.rating.result}</span>
                     <span onClick={sendScorePlus}>+</span>
                 </div>
             </div>

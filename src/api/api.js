@@ -12,13 +12,13 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => {
     const access_token = localStorage.getItem('access_token');
     config.headers.Authorization = `Bearer ${access_token}`;
-    console.log('add header Auth');
+    // console.log('add header Auth');
     return config
 })
 
 instance.interceptors.response.use(
     (config) => {
-        console.log('interceptor');
+        // console.log('interceptor');
         return config
     },
     async (error) => {

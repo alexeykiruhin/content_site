@@ -1,4 +1,4 @@
-import {SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING} from '../actions/actionTypes';
+import {SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING, SET_NEW_RATING_POST} from '../actions/actionTypes';
 
 let initialState = {
     posts: [],
@@ -29,6 +29,12 @@ const postsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: action.isFetching
+            }
+        case SET_NEW_RATING_POST:
+            // для обновления рейтинга отдельно, нужно раскукожить объект постс, что бы был явный доступ к рейтингу
+            return {
+                ...state,
+                posts: action.isFetching
             }
         default:
             return state;
