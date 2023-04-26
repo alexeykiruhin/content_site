@@ -3,6 +3,15 @@ import styles from './Post.module.css';
 import { NavLink } from "react-router-dom";
 
 const Post = (props) => {
+
+    const sendScorePlus = () => {
+        props.sendScore(props.post.id, 1);
+    }
+
+    const sendScoreMinus = () => {
+        props.sendScore(props.post.id, 0);
+    }
+
     return (
         <div className={styles.Post}>
             <div className={styles.postHeader}>
@@ -19,9 +28,9 @@ const Post = (props) => {
                         </div>
                 </div>
                 <div className={styles.postRating}>
-                    <span onClick={() => {console.log('-')}}>-</span>
+                    <span onClick={sendScoreMinus}>-</span>
                     <span>{props.post.rating}</span>
-                    <span onClick={() => {console.log('+')}}>+</span>
+                    <span onClick={sendScorePlus}>+</span>
                 </div>
             </div>
             <div className={styles.postText}>{props.post.text}</div>

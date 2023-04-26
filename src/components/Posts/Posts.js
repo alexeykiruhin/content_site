@@ -1,7 +1,8 @@
 import React from "react";
 import './Posts.css'
 import Preloader from "../common/Preloader/Preloader";
-import Post from "../Post/Post";
+// import Post from "../Post/Post";
+import PostContainer from "../Post/PostContainer";
 
 const Posts = (props) => {
     let pagesCount = Math.ceil(props.count / props.pageSize);
@@ -34,7 +35,8 @@ const Posts = (props) => {
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
-                    (props.posts.map((post, index) => <Post key={`post-${index}`} post={post}/>))
+                    (props.posts.map((post, index) => <PostContainer key={`post-${index}`} post={post}/>))
+                    // (props.posts.map((post, index) => <Post key={`post-${index}`} post={post}/>))
                 )}
             </div>
         </div>

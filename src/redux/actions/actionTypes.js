@@ -8,3 +8,9 @@ export const SET_REG = 'SET_REG';
 
 export const CREATE_POST = 'CREATE_POST';
 export const REFRESH_TOKEN = 'REFRESH_TOKEN';
+
+//Posts
+export const SET_POSTS = 'SET_POSTS';
+export const SET_COUNT = 'SET_COUNT';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';

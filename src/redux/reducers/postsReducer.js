@@ -1,7 +1,4 @@
-const SET_POSTS = 'SET_POSTS';
-const SET_COUNT = 'SET_COUNT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+import {SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING} from '../actions/actionTypes';
 
 let initialState = {
     posts: [],
@@ -37,11 +34,5 @@ const postsReducer = (state = initialState, action) => {
             return state;
     }
 }
-
-export const setPosts = (posts) => ({type: SET_POSTS, posts: posts})
-export const setCount = (count) => ({type: SET_COUNT, count: count})
-export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
-export const setIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching})
-
 
 export default postsReducer;

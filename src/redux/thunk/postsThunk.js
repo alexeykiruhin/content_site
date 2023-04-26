@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setCount, setCurrentPage, setIsFetching, setPosts} from "../reducers/postsReducer";
+import {setCount, setCurrentPage, setIsFetching, setPosts} from "../actions/postsActions";
 
 export const getPostsThunkCreator = (currentPage) => {
     return (dispatch) => {
@@ -23,5 +23,13 @@ export const nextPageThunkCreator = (currentPage) => {
             dispatch(setPosts(posts));
             dispatch(setIsFetching(false));
         });
+    }
+}
+
+export const postRatingThunkCreator = (postId, score) => {
+    return (dispatch) => {
+        API.Post.sendScore(postId, score).then( response => {
+            console.log(response);
+        })
     }
 }

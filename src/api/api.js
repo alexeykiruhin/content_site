@@ -56,6 +56,15 @@ instance.interceptors.response.use(
 
 export const API = {
 
+    Post: {
+        sendScore(postId, score) {
+            return instance.put(`post_rating`, {
+                post_id: postId,
+                score: score
+            }).then((response) => response.data)
+        }
+    },
+
     checkAuth() {
         console.log('checkAuth');
         return axios.get(`${BASE_URL}refresh`, {
