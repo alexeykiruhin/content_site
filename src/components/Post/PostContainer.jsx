@@ -6,7 +6,7 @@ import {postRatingThunkCreator} from '../../redux/thunk/postsThunk';
 const PostContainer = (props) => {
 
 const dispatch = useDispatch();
-
+    // console.log(`props.index = ${props.index}`);
     const sendScore = (postId, score) => {
         // console.log(postId);
         // console.log(score);
@@ -14,7 +14,7 @@ const dispatch = useDispatch();
     }
 
     return (
-        <Post post={props.post} sendScore={sendScore}/>
+        <Post index={props.index} post={props.post} sendScore={sendScore}/>
     )
 }
 

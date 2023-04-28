@@ -35,7 +35,8 @@ const Posts = (props) => {
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
-                    (props.posts.map((post, index) => <PostContainer key={`post-${index}`} post={post}/>))
+                    (props.posts.map((post, index) => <PostContainer key={`post-${index}`} index={index} post={post}/>))
+                    // (props.posts.map((post, index) => <PostContainer key={`post-${index}`} post={post}/>))
                     // (props.posts.map((post, index) => <Post key={`post-${index}`} post={post}/>))
                 )}
             </div>
