@@ -7,10 +7,6 @@ export const getPostsThunkCreator = (currentPage) => {
         API.getPosts(currentPage).then(response => {
             // получаем массив постов
             let posts = response.posts;
-            console.log(posts);
-            // posts.map( p => console.log(p))
-            // тут можно раскукожить приходящий массив по полям и диспатчить в стор по элементам
-
             let count = response.count;
             dispatch(setPosts(posts));
             dispatch(setCount(count));
