@@ -59,6 +59,12 @@ const User = (props) => {
                     <div>
                         Рейтинг: {props.rating}
                     </div>
+                    <div>
+                        Поставлено плюсов: {props.plus}
+                    </div>
+                    <div>
+                        Поставлено минусов: {props.minus}
+                    </div>
                 </div>
                 <div className={'btnsUserPage'}>
                     <button>Подписаться</button>

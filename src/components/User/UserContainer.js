@@ -15,6 +15,8 @@ const UserContainer = () => {
     const statusText = useSelector((state) => state.userPage.statusText);
     const postsCount = useSelector((state) => state.userPage.postsCount);
     const rating = useSelector((state) => state.userPage.rating);
+    const plus = useSelector((state) => state.userPage.plus);
+    const minus = useSelector(state => state.userPage.minus);
     const posts = useSelector((state) => state.userPage.posts);
     const dispatch = useDispatch();
 
@@ -37,6 +39,8 @@ const UserContainer = () => {
             statusText={statusText}
             postsCount={postsCount}
             rating={rating}
+            plus={plus}
+            minus={minus}
             posts={posts}
             handlerSendStatusText={handlerSendStatusText}
         />

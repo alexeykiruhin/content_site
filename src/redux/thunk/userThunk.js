@@ -16,11 +16,13 @@ export const getUserThunkCreator = (userId) => {
                 let statusText = response.user_info.statusText;
                 let postsCount = response.user_info.posts_count;
                 let rating = response.user_info.rating;
+                let plus = response.user_info.plus;
+                let minus = response.user_info.minus;
                 let posts = [...response.user_posts];
 
                 // let access_token = localStorage.getItem('access_token');
                 // dispatch(refreshToken(access_token));
-                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, posts));
+                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, plus, minus, posts));
             });
     }
 }
