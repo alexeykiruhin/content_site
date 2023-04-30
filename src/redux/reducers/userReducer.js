@@ -10,6 +10,7 @@ let initialState = {
     rating: 0,
     plus: 0,
     minus: 0,
+    subscribers: 0,
     posts: []
 }
 
@@ -27,6 +28,7 @@ const userReducer = (state = initialState, action) => {
                 rating: action.rating,
                 plus: action.plus,
                 minus: action.minus,
+                subscribers: action.subscribers,
                 posts: [...action.posts]
             }
         case UPD_STATUS_TEXT:

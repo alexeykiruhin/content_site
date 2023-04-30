@@ -8,22 +8,22 @@ export const getUserThunkCreator = (userId) => {
         API.getUser(userId)
         // API.getUser()
             .then(response => {
-                console.log(`посты - ${[...response.user_posts]}`);
+                console.log(`инфо - ${response.user_info.subscribers}`);
                 let isMe = response.isMe;
                 let userId = response.user_info.id;
                 let username = response.user_info.username;
                 let img = response.user_info.img;
                 let statusText = response.user_info.statusText;
                 let postsCount = response.user_info.posts_count;
-                // let rating = response.user_info.rating;
                 let rating = response.all_rating;
                 let plus = response.user_info.plus;
                 let minus = response.user_info.minus;
+                let subscribers = response.user_info.subscribers;
                 let posts = [...response.user_posts];
 
                 // let access_token = localStorage.getItem('access_token');
                 // dispatch(refreshToken(access_token));
-                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, plus, minus, posts));
+                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, plus, minus, subscribers, posts));
             });
     }
 }

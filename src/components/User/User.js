@@ -67,7 +67,8 @@ const User = (props) => {
                     </div>
                 </div>
                 <div className={'btnsUserPage'}>
-                    <button>Подписаться</button>
+                    {!props.isMe ? <button>Подписаться</button> : <span>Подписчиков: {props.subscribers}</span>}
+                    {/* <button>Подписаться</button> */}
                     <button>Написать</button>
                     <button>+</button>
                     <button>-</button>
