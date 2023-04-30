@@ -8,14 +8,15 @@ export const getUserThunkCreator = (userId) => {
         API.getUser(userId)
         // API.getUser()
             .then(response => {
-                // console.log(`getUser - ${response}`);
+                console.log(`посты - ${[...response.user_posts]}`);
                 let isMe = response.isMe;
                 let userId = response.user_info.id;
                 let username = response.user_info.username;
                 let img = response.user_info.img;
                 let statusText = response.user_info.statusText;
                 let postsCount = response.user_info.posts_count;
-                let rating = response.user_info.rating;
+                // let rating = response.user_info.rating;
+                let rating = response.all_rating;
                 let plus = response.user_info.plus;
                 let minus = response.user_info.minus;
                 let posts = [...response.user_posts];
@@ -40,3 +41,6 @@ export const updUserThunkCreator = (userId, statusText) => {
         });
     }
 }
+
+
+// баг при переходе со страницы юзера на другую страницу юзера нет редиректа
