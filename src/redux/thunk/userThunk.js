@@ -41,6 +41,3 @@ export const updUserThunkCreator = (userId, statusText) => {
         });
     }
 }
-
-
-// баг при переходе со страницы юзера на другую страницу юзера нет редиректа

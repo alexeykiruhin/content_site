@@ -24,7 +24,7 @@ const UserContainer = () => {
 
     useEffect(() => {
         dispatch(getUserThunkCreator(paramUserId.userId));
-    }, [])
+    }, [paramUserId.userId])
 
     const handlerSendStatusText = (value) => {
         dispatch(updUserThunkCreator(userId, value))
