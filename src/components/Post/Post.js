@@ -28,9 +28,9 @@ const Post = (props) => {
                         </div>
                 </div>
                 <div className={styles.postRating}>
-                    <span onClick={sendScoreMinus}>-</span>
-                    <span>{props.post.rating.result}</span>
-                    <span onClick={sendScorePlus}>+</span>
+                    <button onClick={sendScoreMinus}>-</button>
+                    <div>{props.post.rating.result}</div>
+                    <button onClick={sendScorePlus}>+</button>
                 </div>
             </div>
             <div className={styles.postText}>{props.post.text}</div>
