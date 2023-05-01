@@ -1,4 +1,4 @@
-import {SET_USER, UPD_STATUS_TEXT} from "../actions/actionTypes";
+import {IS_SUBSCRIBED, SET_USER, UPD_STATUS_TEXT} from "../actions/actionTypes";
 
 let initialState = {
     isMe: false,
@@ -11,6 +11,7 @@ let initialState = {
     plus: 0,
     minus: 0,
     subscribers: 0,
+    isSubs: false,
     posts: []
 }
 
@@ -29,12 +30,18 @@ const userReducer = (state = initialState, action) => {
                 plus: action.plus,
                 minus: action.minus,
                 subscribers: action.subscribers,
+                isSubs: action.isSubs,
                 posts: [...action.posts]
             }
         case UPD_STATUS_TEXT:
             return {
                 ...state,
                 statusText: action.statusText
+            }
+        case IS_SUBSCRIBED:
+            return {
+                ...state,
+                isSubs: action.isSubs
             }
         default:
             return state;

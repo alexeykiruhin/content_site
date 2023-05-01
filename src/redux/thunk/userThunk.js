@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setUser, updStatusText} from "../actions/userActions";
+import {setUser, updStatusText, isSubscribed} from "../actions/userActions";
 // import {refreshToken} from "../actions/authActions";
 
 export const getUserThunkCreator = (userId) => {
@@ -19,11 +19,12 @@ export const getUserThunkCreator = (userId) => {
                 let plus = response.user_info.plus;
                 let minus = response.user_info.minus;
                 let subscribers = response.user_info.subscribers;
+                let isSubs = response.user_info.is_sub;
                 let posts = [...response.user_posts];
 
                 // let access_token = localStorage.getItem('access_token');
                 // dispatch(refreshToken(access_token));
-                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, plus, minus, subscribers, posts));
+                dispatch(setUser(isMe, userId, username, img, statusText, postsCount, rating, plus, minus, subscribers, isSubs, posts));
             });
     }
 }
@@ -39,5 +40,23 @@ export const updUserThunkCreator = (userId, statusText) => {
             console.log('ошибка');
             console.error(error);
         });
+    }
+}
+
+export const subscribe = (to_user_id) => {
+    return (dispatch) => {
+        API.User.subscribe(to_user_id).then(response => {
+            console.log(response);
+            dispatch(isSubscribed(response.subs))
+        })
+    }
+}
+
+export const unsubscribe = (to_user_id) => {
+    return (dispatch) => {
+        API.User.unsubscribe(to_user_id).then(response => {
+            console.log(response);
+            dispatch(isSubscribed(response.subs))
+        })
     }
 }

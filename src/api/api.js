@@ -57,53 +57,71 @@ instance.interceptors.response.use(
 export const API = {
 
     Post: {
-        sendScore(postId, score) {
-            return instance.put(`post_rating`, {
+        async sendScore(postId, score) {
+            const response = await instance.put(`post_rating`, {
                 post_id: postId,
                 score: score
-            }).then((response) => response.data)
+            });
+            return response.data;
         }
     },
 
-    checkAuth() {
+    User: {
+        // подписка на юзера
+        async subscribe(to_user_id) {
+            const response = await instance.put(`subscribe`, {
+                to_user_id: to_user_id
+            });
+            return response.data;
+        },
+        // отписка от юзера
+        async unsubscribe(to_user_id) {
+            const response = await instance.put(`unsubscribe`, {
+                to_user_id: to_user_id
+            });
+            return response.data;
+        }
+    },
+
+    async checkAuth() {
         console.log('checkAuth');
-        return axios.get(`${BASE_URL}refresh`, {
+        const response = await axios.get(`${BASE_URL}refresh`, {
             withCredentials: true,
-            // headers: {'Authorization': `Bearer ${localStorage.getItem('refresh_token')}`}
-        }).then((response) => response.data)
+        });
+        return response.data;
     },
 
-    register(username, password) {
-        return instance.post(`register`, {
+    async register(username, password) {
+        const response = await instance.post(`register`, {
             username, password
-        }).then((response) => response.data)
+        });
+        return response.data;
     },
 
-    login(username, password) {
-        return instance.post(`login`, {
+    async login(username, password) {
+        const response = await instance.post(`login`, {
             username: username,
             password: password
-        }).then((response) => response.data)
+        });
+        return response.data;
     },
 
-    logout() {
-        return instance.get(`logout`)
-            .then((response) => response.data)
+    async logout() {
+        const response = await instance.get(`logout`);
+        return response.data;
     },
 
-    getUser(userId) {
-        return instance.get(`user/${userId}`)
-            .then((response) => {
-                console.log(`resUser - ${response}`);
-                return response.data
-            })
+    async getUser(userId) {
+        const response = await instance.get(`user/${userId}`);
+        console.log(`resUser - ${response}`);
+        return response.data;
     },
 
-    updUser(userId, statusText) {
-        return instance.post(`user/${userId}`, {
+    async updUser(userId, statusText) {
+        const response = await instance.post(`user/${userId}`, {
             statusText: statusText,
-        })
-            .then((response) => response.data)
+        });
+        return response.data;
     },
 
     async getUsers() {
@@ -111,16 +129,15 @@ export const API = {
         return response.data;
     },
 
-    getPosts(currentPage) {
-        return instance.get(`posts?page=${currentPage}&page_size=2`)
-            .then((response) => {
-                return response.data
-            })
+    async getPosts(currentPage) {
+        const response = await instance.get(`posts?page=${currentPage}&page_size=2`);
+        return response.data;
     },
 
-    createPost(dataPost) {
-        return instance.post(`posts`, {
+    async createPost(dataPost) {
+        const response = await instance.post(`posts`, {
             text: dataPost
-        }).then((response) => response.data)
+        });
+        return response.data;
     }
 }

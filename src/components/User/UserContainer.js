@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import User from "./User";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getUserThunkCreator, updUserThunkCreator } from "../../redux/thunk/userThunk";
+import { getUserThunkCreator, subscribe, unsubscribe, updUserThunkCreator } from "../../redux/thunk/userThunk";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
@@ -18,6 +18,7 @@ const UserContainer = () => {
     const plus = useSelector((state) => state.userPage.plus);
     const minus = useSelector(state => state.userPage.minus);
     const subscribers = useSelector(state => state.userPage.subscribers);
+    const isSubs = useSelector(state => state.userPage.isSubs);
     const posts = useSelector((state) => state.userPage.posts);
     const dispatch = useDispatch();
 
@@ -29,6 +30,16 @@ const UserContainer = () => {
 
     const handlerSendStatusText = (value) => {
         dispatch(updUserThunkCreator(userId, value))
+    }
+
+    const handlerSubscribe = () => {
+        dispatch(subscribe(paramUserId.userId))
+        console.log(paramUserId.userId);
+    }
+
+    const handlerUnsubscribe = () => {
+        dispatch(unsubscribe(paramUserId.userId))
+        console.log(paramUserId.userId);
     }
 
     return (
@@ -43,8 +54,11 @@ const UserContainer = () => {
             plus={plus}
             minus={minus}
             subscribers={subscribers}
+            isSubs={isSubs}
             posts={posts}
             handlerSendStatusText={handlerSendStatusText}
+            handlerSubscribe={handlerSubscribe}
+            handlerUnsubscribe={handlerUnsubscribe}
         />
     )
 }

@@ -8,7 +8,7 @@ const User = (props) => {
     const [isEditStatusText, toggleEditStatusText] = useState(false);
 
     const handlerEditAndSendStatusText = (value) => {
-        props.handlerSendStatusText(value)
+        props.handlerSendStatusText(value);
         toggleEditStatusText(false);
     }
 
@@ -16,11 +16,19 @@ const User = (props) => {
         toggleEditStatusText(true);
     }
 
+    const handlerSubscribeWrap = () => {
+        props.handlerSubscribe()
+    }
+
+    const handlerUnsubscribeWrap = () => {
+        props.handlerUnsubscribe()
+    }
+
     return (
         <div className={'User'}>
             <div className={'infoUserPage'}>
                 <div className={'avatarUserPage'}>
-                    <img src={props.img} alt={props.id}/>
+                    <img src={props.img} alt={props.id} />
                 </div>
                 <div className={'nameUserPage'}>
                     <div>
@@ -28,7 +36,7 @@ const User = (props) => {
                     </div>
                     <div className={'statusText'}>
                         {/* обработать отображение пустого статуса */}
-                        
+
                         {/*Если айди не мой, то показываем статус без возможности редактирования*/}
                         {/*перенести эту логику на сервер, если айди переданного в урле юзера равен 
                         айди в куках, то возвращаем ключ это я и по нему тут делать проверку*/}
@@ -40,18 +48,18 @@ const User = (props) => {
                         {/* {!props.isEditStatusText && props.id === props.userId && */}
                         {!isEditStatusText && props.isMe &&
                             <div>
-                                <span><img className={'editIcon'} src={editIcon} alt="edit"/></span>
+                                <span><img className={'editIcon'} src={editIcon} alt="edit" /></span>
                                 <span onClick={handlerEditStatusText}>{props.statusText}</span>
                             </div>
                         }
                         {/*Если флаг тру, то редактируем статус*/}
                         {isEditStatusText &&
-                            <StatusForm 
-                            handlerEditAndSendStatusText={handlerEditAndSendStatusText}
-                                statusText={props.statusText} 
+                            <StatusForm
+                                handlerEditAndSendStatusText={handlerEditAndSendStatusText}
+                                statusText={props.statusText}
                             />
                         }
-                        
+
                     </div>
                     <div>
                         Количество постов: {props.postsCount}
@@ -67,7 +75,14 @@ const User = (props) => {
                     </div>
                 </div>
                 <div className={'btnsUserPage'}>
-                    {!props.isMe ? <button>Подписаться</button> : <span>Подписчиков: {props.subscribers}</span>}
+                    {!props.isMe ?
+                        !props.isSubs ?
+                            <button onClick={handlerSubscribeWrap}>Подписаться</button>
+                            :
+                            <button onClick={handlerUnsubscribeWrap}>Отписаться</button>
+                        :
+                        <span>Подписчиков: {props.subscribers}</span>
+                    }
                     {/* <button>Подписаться</button> */}
                     <button>Написать</button>
                     <button>+</button>
