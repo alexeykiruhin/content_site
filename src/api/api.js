@@ -57,6 +57,14 @@ instance.interceptors.response.use(
 export const API = {
 
     Post: {
+        async getPosts(currentPage) {
+            const response = await instance.get(`posts?page=${currentPage}&page_size=2`);
+            return response.data;
+        },
+        async getSubsPosts(currentPage) {
+            const response = await instance.get(`subs_posts?page=${currentPage}&page_size=2`);
+            return response.data;
+        },
         async sendScore(postId, score) {
             const response = await instance.put(`post_rating`, {
                 post_id: postId,
@@ -129,10 +137,6 @@ export const API = {
         return response.data;
     },
 
-    async getPosts(currentPage) {
-        const response = await instance.get(`posts?page=${currentPage}&page_size=2`);
-        return response.data;
-    },
 
     async createPost(dataPost) {
         const response = await instance.post(`posts`, {

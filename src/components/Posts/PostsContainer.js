@@ -1,9 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import Posts from "./Posts";
-import {getPostsThunkCreator, nextPageThunkCreator} from "../../redux/thunk/postsThunk";
+import {getPostsThunkCreator, getSubsPostsThunkCreator, nextPageThunkCreator, nextSubsPageThunkCreator} from "../../redux/thunk/postsThunk";
 
 const PostsContainer = () => {
+
+    const [isSubsPosts, setIsSubsPosts] = useState(false);
 
     const currentPage = useSelector((state) => state.postsPage.currentPage);
     const posts = useSelector((state) => state.postsPage.posts);
@@ -16,12 +18,34 @@ const PostsContainer = () => {
         dispatch(getPostsThunkCreator(currentPage));
     }, [currentPage, dispatch]);
 
+    const dispatchGetSubsPosts = useCallback(() => {
+        dispatch(getSubsPostsThunkCreator(currentPage));
+    }, [currentPage, dispatch]);
+
     useEffect(() => {
-        dispatchGetPosts();
-    }, [dispatchGetPosts]);
+        if(isSubsPosts) {
+            dispatchGetSubsPosts();
+        }else {
+            dispatchGetPosts();
+        }
+    }, [dispatchGetPosts, dispatchGetSubsPosts, isSubsPosts]);
 
     const handleSetCurrentPage = (currentPage) => {
-        dispatch(nextPageThunkCreator(currentPage));
+        if(isSubsPosts) {
+            dispatch(nextSubsPageThunkCreator(currentPage));
+        }else {
+            dispatch(nextPageThunkCreator(currentPage));
+        }
+    }
+
+    const handlerViewPosts = () => {
+        //просмотр подписочных постов
+        setIsSubsPosts(true);
+    }
+
+    const handlerPosts = () => {
+        //просмотр всех постов
+        setIsSubsPosts(false);
     }
 
     return <Posts
@@ -31,6 +55,8 @@ const PostsContainer = () => {
         pageSize={pageSize}
         currentPage={currentPage}
         handleSetCurrentPage={handleSetCurrentPage}
+        handlerViewPosts={handlerViewPosts}
+        handlerPosts={handlerPosts}
     />
 }
 

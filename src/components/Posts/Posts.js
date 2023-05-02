@@ -7,8 +7,12 @@ import PostContainer from "../Post/PostContainer";
 const Posts = (props) => {
     let pagesCount = Math.ceil(props.count / props.pageSize);
     let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
+    if (props.count === 0) {
+        pages.push(1)
+    } else {
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
     }
     return (
         <div className={'Posts'}>
@@ -27,15 +31,16 @@ const Posts = (props) => {
                     })}
                 </div>
                 <div>Всего постов: {props.count}</div>
-                <br/>
+                <br />
                 <div className={'wrapperDifferentPosts'}>
-                    <div>Все посты</div>
-                    <div>Подписки</div>
-                {/* Добавить переключение между компонентами Все посты и Подписки используя флаг   */}
+                    <div onClick={props.handlerPosts}>Все посты</div>
+                    {/* условие если вкладка подписки активна то показываем другие посты */}
+                    <div onClick={props.handlerViewPosts}>Подписки</div>
+                    {/* Добавить переключение между компонентами Все посты и Подписки используя флаг   */}
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
-                    (props.posts.map((post, index) => <PostContainer key={`post-${index}`} index={index} post={post}/>))
+                    (props.posts.map((post, index) => <PostContainer key={`post-${index}`} index={index} post={post} />))
                     // (props.posts.map((post, index) => <PostContainer key={`post-${index}`} post={post}/>))
                     // (props.posts.map((post, index) => <Post key={`post-${index}`} post={post}/>))
                 )}

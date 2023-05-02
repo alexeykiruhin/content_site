@@ -33,3 +33,12 @@
     gap: 20px;
     margin-bottom: 30px;
 }
+
+.wrapperDifferentPosts > div {
+    cursor: pointer;
+}
+
+.wrapperDifferentPosts > div:hover {
+    cursor: pointer;
+    background-color: #ff5e5b;
+}

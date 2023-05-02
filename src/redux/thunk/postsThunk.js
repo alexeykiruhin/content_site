@@ -4,7 +4,7 @@ import {setCount, setCurrentPage, setIsFetching, setNewRatingPost, setPosts} fro
 export const getPostsThunkCreator = (currentPage) => {
     return (dispatch) => {
         dispatch(setIsFetching(true));
-        API.getPosts(currentPage).then(response => {
+        API.Post.getPosts(currentPage).then(response => {
             // получаем массив постов
             let posts = response.posts;
             let count = response.count;
@@ -15,11 +15,38 @@ export const getPostsThunkCreator = (currentPage) => {
     }
 }
 
+export const getSubsPostsThunkCreator = (currentPage) => {
+    return (dispatch) => {
+        dispatch(setIsFetching(true));
+        API.Post.getSubsPosts(currentPage).then(response => {
+            // получаем массив постов
+            let posts = response.posts;
+            let count = response.count;
+            console.log(posts);
+            dispatch(setPosts(posts));
+            dispatch(setCount(count));
+            dispatch(setIsFetching(false));
+        })
+    }
+}
+
+export const nextSubsPageThunkCreator = (currentPage) => {
+    return (dispatch) => {
+        dispatch(setCurrentPage(currentPage));
+        dispatch(setIsFetching(true));
+        API.Post.getSubsPosts(currentPage).then(response => {
+            let posts = response.posts;
+            dispatch(setPosts(posts));
+            dispatch(setIsFetching(false));
+        });
+    }
+}
+
 export const nextPageThunkCreator = (currentPage) => {
     return (dispatch) => {
         dispatch(setCurrentPage(currentPage));
         dispatch(setIsFetching(true));
-        API.getPosts(currentPage).then(response => {
+        API.Post.getPosts(currentPage).then(response => {
             let posts = response.posts;
             dispatch(setPosts(posts));
             dispatch(setIsFetching(false));
