@@ -1,4 +1,4 @@
-import {SET_POST_VIEW} from "../actions/actionTypes";
+import {SET_POST_VIEW, UPD_RATING_POST_VIEW} from "../actions/actionTypes";
 
 let initialState = {
     postId: null,
@@ -20,6 +20,11 @@ const postViewReducer = (state = initialState, action) => {
                 text: action.text,
                 img: action.img,
                 authorId: action.authorId
+            }
+        case UPD_RATING_POST_VIEW:
+            return {
+                ...state,
+                rating: action.rating
             }
         default:
             return state;

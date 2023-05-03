@@ -5,11 +5,12 @@ import { NavLink } from "react-router-dom";
 const PostView = (props) => {
 
     const sendScorePlus = () => {
-        props.sendScore(props.post.id, 1);
+        console.log(`HOLOLO - ${props.post.postId}`);
+        props.sendScore(props.post.postId, 1);
     }
 
     const sendScoreMinus = () => {
-        props.sendScore(props.post.id, 0);
+        props.sendScore(props.post.postId, 0);
     }
 
     return (

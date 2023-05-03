@@ -22,3 +22,4 @@ export const IS_SUBSCRIBED = 'IS_SUBSCRIBED';
 
 //PostView
 export const SET_POST_VIEW = 'SET_POST_VIEW';
+export const UPD_RATING_POST_VIEW = 'UPD_RATING_POST_VIEW';

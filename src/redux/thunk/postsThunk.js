@@ -1,5 +1,6 @@
 import {API} from "../../api/api";
 import {setCount, setCurrentPage, setIsFetching, setNewRatingPost, setPosts} from "../actions/postsActions";
+import {updRatingPostView} from "../actions/postViewActions";
 
 export const getPostsThunkCreator = (currentPage) => {
     return (dispatch) => {
@@ -60,6 +61,7 @@ export const postRatingThunkCreator = (postId, score) => {
             let newRating = response.new_rating;
             console.log(response);
             dispatch(setNewRatingPost(postId, newRating));
+            dispatch(updRatingPostView(newRating.result));
         })
     }
 }
