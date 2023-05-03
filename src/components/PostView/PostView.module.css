@@ -81,19 +81,13 @@
 /* Content Post */
 .postText {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
     background-color: #8d99ae;
     flex: 5 0 auto;
-    padding: 10px;
-    /* padding-left: 10px;
-    padding-top: 10px; */
+    padding-left: 10px;
+    padding-top: 10px;
 }
-.postText > a {
-    text-decoration: none;
-    color: #2b2d42;
-}
+
 @media screen and (max-width: 767px) {
     .Post {
         width: 100%;

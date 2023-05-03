@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import PostsContainer from "../Posts/PostsContainer";
+import PostViewContainer from "../PostView/PostViewContainer";
 import UsersContainer from "../Users/UsersContainer";
 import UserContainer from "../User/UserContainer";
 import HeaderContainer from "../Header/HeaderContainer";
@@ -49,6 +50,7 @@ function App() {
                         <Route path="/create" element={<CreatePostContainer/>}/>
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/user/:userId" element={<UserContainer/>}/>
+                        <Route path="/post/:postId" element={<PostViewContainer/>}/>
                     </Routes>
                 </div>
             </div>

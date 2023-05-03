@@ -57,6 +57,10 @@ instance.interceptors.response.use(
 export const API = {
 
     Post: {
+        async getPostView(postId) {
+            const response = await instance.get(`post/${postId}`);
+            return response.data;
+        },
         async getPosts(currentPage) {
             const response = await instance.get(`posts?page=${currentPage}&page_size=2`);
             return response.data;

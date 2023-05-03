@@ -19,3 +19,6 @@ export const SET_NEW_RATING_POST = 'SET_NEW_RATING_POST';
 //User
 // подписка н аюзера
 export const IS_SUBSCRIBED = 'IS_SUBSCRIBED';
+
+//PostView
+export const SET_POST_VIEW = 'SET_POST_VIEW';

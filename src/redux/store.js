@@ -8,9 +8,11 @@ import authReducer from "./reducers/authReducer";
 import thunk from 'redux-thunk'
 import regReducer from './reducers/regReducer';
 import appReducer from './reducers/appReducer';
+import postViewReducer from './reducers/postViewReducer';
 
 let rootReducers = combineReducers({
     init: appReducer,
+    postView: postViewReducer,
     postsPage: postsReducer,
     createPostPage: createPostReducer,
     usersPage: usersReducer,
