@@ -38,3 +38,11 @@
     text-decoration: none;
     color: black;
 }
+
+@media screen and (max-width: 767px) {
+    .Users {
+        width: 100%;
+        flex-basis: auto;
+        justify-content: space-around;
+    }
+}

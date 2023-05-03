@@ -30,8 +30,7 @@ const Posts = (props) => {
                         >{page}</span>
                     })}
                 </div>
-                <div>Всего постов: {props.count}</div>
-                <br />
+                <div className={'countPosts'}>Всего постов: {props.count}</div>
                 <div className={'wrapperDifferentPosts'}>
                     <div onClick={props.handlerPosts}>Все посты</div>
                     {/* условие если вкладка подписки активна то показываем другие посты */}

@@ -42,3 +42,11 @@
     cursor: pointer;
     background-color: #ff5e5b;
 }
+
+@media screen and (max-width: 767px) {
+    .pagination, 
+    .countPosts, 
+    .wrapperDifferentPosts {
+        margin: 0 10px 10px 10px;
+    }
+}

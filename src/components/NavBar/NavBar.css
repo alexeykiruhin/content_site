@@ -27,3 +27,25 @@
     text-decoration: none;
     margin-bottom: 3px;
 }
+
+@media screen and (max-width: 767px) {
+    .NavBar {
+        flex-basis: auto;
+        display: flex;
+        /* background-color: #f17a78; */
+        border: 1px solid #f17a78;
+    }
+    .wrapperNavBar {
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 50px;
+    }
+    .infoUserPage {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

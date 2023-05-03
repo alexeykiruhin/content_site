@@ -31,7 +31,7 @@ const User = (props) => {
                     <img src={props.img} alt={props.id} />
                 </div>
                 <div className={'nameUserPage'}>
-                    <div>
+                    <div className={'userNameUserPage'}>
                         {props.username}
                     </div>
                     <div className={'statusText'}>

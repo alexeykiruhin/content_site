@@ -54,3 +54,27 @@
 .postsUserPage > h3 {
     margin-bottom: 10px;
 }
+
+@media screen and (max-width: 767px) {
+    .User {
+        width: 100%;
+    }
+    .infoUserPage {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0 10px;
+    }
+    .postsUserPage {
+        margin: 0 10px;
+    }
+    .avatarUserPage {
+        text-align: center;
+    }
+    .userNameUserPage {
+        text-align: center;
+    }
+    .statusText {
+        text-align: center;
+    }
+}

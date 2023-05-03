@@ -87,3 +87,9 @@
     padding-left: 10px;
     padding-top: 10px;
 }
+
+@media screen and (max-width: 767px) {
+    .Post {
+        width: 100%;
+    }
+}
