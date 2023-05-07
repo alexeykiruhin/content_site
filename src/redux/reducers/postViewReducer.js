@@ -1,4 +1,4 @@
-import {SET_POST_VIEW, UPD_RATING_POST_VIEW} from "../actions/actionTypes";
+import { SET_POST_VIEW, UPD_RATING_POST_VIEW, SET_COMMENTS } from "../actions/actionTypes";
 
 let initialState = {
     postId: null,
@@ -6,7 +6,8 @@ let initialState = {
     text: '',
     username: '',
     img: '',
-    authorId: ''
+    authorId: '',
+    comments: []
 }
 
 const postViewReducer = (state = initialState, action) => {
@@ -25,6 +26,11 @@ const postViewReducer = (state = initialState, action) => {
             return {
                 ...state,
                 rating: action.rating
+            }
+        case SET_COMMENTS:
+            return {
+                ...state,
+                comments: [...action.comments]
             }
         default:
             return state;

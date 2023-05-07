@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import PostView from "./PostView";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {getPostViewThunkCreator} from '../../redux/thunk/postViewThunk';
+import {getCommentsThunkCreator, getPostViewThunkCreator} from '../../redux/thunk/postViewThunk';
 import {postRatingThunkCreator} from '../../redux/thunk/postsThunk';
 
 const PostContainer = (props) => {
@@ -17,6 +17,7 @@ const PostContainer = (props) => {
     useEffect(() => {
         console.log(paramPostId.postId);
         dispatch(getPostViewThunkCreator(paramPostId.postId));
+        dispatch(getCommentsThunkCreator(paramPostId.postId));
     }, [paramPostId.postId])
 
     // console.log(`props.index = ${props.index}`);

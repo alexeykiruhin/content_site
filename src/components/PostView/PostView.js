@@ -41,7 +41,7 @@ const PostView = (props) => {
                     {props.post.text}
                 </div>
             </div>
-            <PostComments />
+            <PostComments comments={props.post.comments}/>
             <PostViewAddCommentForm />
         </div>
     )

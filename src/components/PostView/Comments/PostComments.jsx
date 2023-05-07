@@ -4,13 +4,17 @@ import PostComment from "./PostComment";
 
 const PostComments = props => {
 
-    // тут дёргаем подгрузку комментов
+    // let paramPostId = useParams();
+
+
+    // тут дёргаем подгрузку комментов передавая айди поста paramPostId.postId
     useEffect(() => {
-        console.log('loads comment');
+        console.log(props.comments);
     }, [])
 
     return (
-        <PostComment />
+        props.comments.map((comment, index) => <PostComment key={index} comment={comment} />)
+        // < PostComment />
     )
 }
 

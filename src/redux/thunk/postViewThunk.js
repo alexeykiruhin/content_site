@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setPostView} from "../actions/postViewActions";
+import {setComments, setPostView} from "../actions/postViewActions";
 
 export const getPostViewThunkCreator = (postId) => {
     return (dispatch) => {
@@ -16,5 +16,15 @@ export const getPostViewThunkCreator = (postId) => {
                 let authorId = response.post_info.author.id;
                 dispatch(setPostView(postId, rating, text, username, img, authorId));
             });
+    }
+}
+
+export const getCommentsThunkCreator = (postId) => {
+    return (dispatch) => {
+        API.PostComments.getComments(postId)
+        .then(response => {
+            console.log(response.comments);
+            dispatch(setComments(response.comments))
+        })
     }
 }

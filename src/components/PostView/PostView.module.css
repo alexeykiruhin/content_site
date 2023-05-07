@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     background-color: #f0f4f8;
     width: 600px;
     height: 200px;
@@ -95,6 +95,7 @@
     flex-direction: column;
     /* flex-basis: 88%; */
     height: 20%;
+    margin-top: 10px;
 }
 
 .wrapperCreateComment {

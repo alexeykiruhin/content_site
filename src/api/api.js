@@ -78,6 +78,13 @@ export const API = {
         }
     },
 
+    PostComments: {
+        async getComments(postId) {
+            const response = await instance.get(`comments/${postId}`);
+            return response.data;
+        }
+    },
+
     User: {
         // подписка на юзера
         async subscribe(to_user_id) {
