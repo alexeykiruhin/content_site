@@ -25,3 +25,4 @@ export const SET_POST_VIEW = 'SET_POST_VIEW';
 export const UPD_RATING_POST_VIEW = 'UPD_RATING_POST_VIEW';
 //Комментарии к посту
 export const SET_COMMENTS = 'SET_COMMENTS';
+export const ADD_COMMENT = 'ADD_COMMENT';

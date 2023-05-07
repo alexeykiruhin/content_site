@@ -79,6 +79,13 @@ export const API = {
     },
 
     PostComments: {
+        async addComment(postId, text) {
+            const response = await instance.post(`comment`, {
+                post_id: postId,
+                text: text
+            });
+            return response.data;
+        },
         async getComments(postId) {
             const response = await instance.get(`comments/${postId}`);
             return response.data;

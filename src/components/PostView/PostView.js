@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './PostView.module.css';
 import { NavLink } from "react-router-dom";
-import PostViewAddCommentForm from "./PostViewAddCommentForm";
+import PostViewAddCommentForm from "./Comments/PostViewAddCommentForm";
 import PostComments from "./Comments/PostComments";
 
 const PostView = (props) => {
@@ -42,7 +42,7 @@ const PostView = (props) => {
                 </div>
             </div>
             <PostComments comments={props.post.comments}/>
-            <PostViewAddCommentForm />
+            <PostViewAddCommentForm addComment={props.addComment}/>
         </div>
     )
 }

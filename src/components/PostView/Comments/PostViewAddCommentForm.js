@@ -1,13 +1,12 @@
 import React from "react";
 import {Field, Form} from 'react-final-form';
-import styles from './PostView.module.css';
+import styles from '../PostView.module.css';
 
 const PostViewAddCommentForm = (props) => {
 
     const sendCommentText = (obj) => {
         let text = obj.commentText;
-        console.log(text);
-        // props.createPost(text);
+        props.addComment(text);
     }
 
     return (

@@ -4,11 +4,13 @@ import style from './PostComment.module.css';
 const PostComment = props => {
 
     const calculateTime = date => {
+        console.log(date);
         const yearsWords = ['год', 'года', 'лет'];
         const monthsWords = ['месяц', 'месяца', 'месяцев'];
         const daysWords = ['день', 'дня', 'дней'];
         const hoursWords = ['час', 'часа', 'часов'];
         const minutesWords = ['минута', 'минуты', 'минут'];
+        const secondsWords = ['секунда', 'секунды', 'секунд'];
 
         function declension(num, words) {
             const cases = [2, 0, 1, 1, 1, 2];
@@ -19,13 +21,17 @@ const PostComment = props => {
             ];
         }
 
-
         const startDate = new Date(date);
+        console.log(`startDate : ${startDate}`);
         const endDate = new Date();
 
-        const diff = endDate.getTime() - startDate.getTime();
+        const diff = Math.abs(endDate.getTime() - startDate.getTime());
+        // const diff = endDate.getTime() - startDate.getTime();
 
+        const seconds = Math.floor((diff / 1000) % 60);
+        console.log(`seconds : ${seconds}`);
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        console.log(`minutes : ${minutes}`);
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
@@ -40,13 +46,15 @@ const PostComment = props => {
             out = `${days} ${declension(days, daysWords)}`;
         } else if (hours > 0) {
             out = `${hours} ${declension(hours, hoursWords)}`;
-        } else {
+        } else if (minutes > 0) {
             out = `${minutes} ${declension(minutes, minutesWords)}`;    
+        } else {    
+            out = `${seconds} ${declension(seconds, secondsWords)}`;    
         }
         return out;
 
     }
-    calculateTime(props.comment.created_at);
+    
     return (
         <>
             {/* добавить оформление комментария с аватаркой и ником автора */}

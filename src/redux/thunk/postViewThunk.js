@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setComments, setPostView} from "../actions/postViewActions";
+import {setComments, setPostView, addCom} from "../actions/postViewActions";
 
 export const getPostViewThunkCreator = (postId) => {
     return (dispatch) => {
@@ -26,5 +26,18 @@ export const getCommentsThunkCreator = (postId) => {
             // console.log(response.comments);
             dispatch(setComments(response.comments))
         })
+    }
+}
+
+export const addCommentThunkCreator = (postId, text) => {
+    return (dispatch) => {
+        console.log(postId, text);
+        API.PostComments.addComment(postId, text)
+            .then(response => {
+                // console.log(`пост - ${JSON.stringify(response, null, 2)}`);
+                // console.log(`rating - ${response.post_info.rating.result}`);
+                console.log(`добавлен - ${response.isCommented}`);
+                dispatch(addCom(response.isCommented));
+            });
     }
 }
