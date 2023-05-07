@@ -6,8 +6,8 @@ export const getPostViewThunkCreator = (postId) => {
         console.log(postId);
         API.Post.getPostView(postId)
             .then(response => {
-                console.log(`пост - ${JSON.stringify(response, null, 2)}`);
-                console.log(`rating - ${response.post_info.rating.result}`);
+                // console.log(`пост - ${JSON.stringify(response, null, 2)}`);
+                // console.log(`rating - ${response.post_info.rating.result}`);
                 let postId = response.post_info.id;
                 let rating = response.post_info.rating.result;
                 let text = response.post_info.text;
@@ -23,7 +23,7 @@ export const getCommentsThunkCreator = (postId) => {
     return (dispatch) => {
         API.PostComments.getComments(postId)
         .then(response => {
-            console.log(response.comments);
+            // console.log(response.comments);
             dispatch(setComments(response.comments))
         })
     }

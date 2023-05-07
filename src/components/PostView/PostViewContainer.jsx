@@ -10,12 +10,12 @@ const PostContainer = (props) => {
     // const isMe = useSelector((state) => state.userPage.isMe);
 
     const post = useSelector(store => store.postView);
-    console.log(`post - ${post}`);
+    // console.log(`post - ${post}`);
     const dispatch = useDispatch();
     let paramPostId = useParams();
     
     useEffect(() => {
-        console.log(paramPostId.postId);
+        // console.log(paramPostId.postId);
         dispatch(getPostViewThunkCreator(paramPostId.postId));
         dispatch(getCommentsThunkCreator(paramPostId.postId));
     }, [paramPostId.postId])
