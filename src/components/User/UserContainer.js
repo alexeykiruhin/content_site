@@ -8,18 +8,21 @@ import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 
 const UserContainer = () => {
-    const isMe = useSelector((state) => state.userPage.isMe);
-    const userId = useSelector((state) => state.userPage.userId);
-    const username = useSelector((state) => state.userPage.username);
-    const img = useSelector((state) => state.userPage.img);
-    const statusText = useSelector((state) => state.userPage.statusText);
-    const postsCount = useSelector((state) => state.userPage.postsCount);
-    const rating = useSelector((state) => state.userPage.rating);
-    const plus = useSelector((state) => state.userPage.plus);
-    const minus = useSelector(state => state.userPage.minus);
-    const subscribers = useSelector(state => state.userPage.subscribers);
-    const isSubs = useSelector(state => state.userPage.isSubs);
-    const posts = useSelector((state) => state.userPage.posts);
+    const {
+        isMe,
+        userId,
+        username,
+        img,
+        statusText,
+        postsCount,
+        rating,
+        plus,
+        minus,
+        subscribers,
+        isSubs,
+        posts
+      } = useSelector(state => state.userPage);
+      
     const dispatch = useDispatch();
 
     let paramUserId = useParams();

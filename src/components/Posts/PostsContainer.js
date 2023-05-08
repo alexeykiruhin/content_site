@@ -5,11 +5,8 @@ import { getPostsThunkCreator, getSubsPostsThunkCreator, nextPageThunkCreator, n
 
 const PostsContainer = () => {
 
-    const currentPage = useSelector((state) => state.postsPage.currentPage);
-    const pageSize = useSelector((state) => state.postsPage.pageSize);
-    const posts = useSelector((state) => state.postsPage.posts);
-    const count = useSelector((state) => state.postsPage.count);
-    const isFetching = useSelector((state) => state.postsPage.isFetching);
+    const { currentPage, pageSize, posts, count, isFetching } = useSelector(state => state.postsPage);
+
     const dispatch = useDispatch();
 
     const [isSubsPosts, setIsSubsPosts] = useState(false);
