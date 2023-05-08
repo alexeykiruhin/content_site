@@ -110,7 +110,7 @@ export const API = {
     },
 
     async checkAuth() {
-        console.log('checkAuth');
+        // console.log('checkAuth');
         const response = await axios.get(`${BASE_URL}refresh`, {
             withCredentials: true,
         });

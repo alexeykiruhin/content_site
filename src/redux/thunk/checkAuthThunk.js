@@ -6,7 +6,7 @@ export const checkAuthThunkCreator = () => {
     return async (dispatch) => {
         try {
             const response = await API.checkAuth();
-            console.log(`chekThunk - ${response}`);
+            // console.log(`chekThunk - ${response}`);
             let isAuth = response.isAuth;
             let user_obj = response.user_obj;
             let access_token = response.access_token;

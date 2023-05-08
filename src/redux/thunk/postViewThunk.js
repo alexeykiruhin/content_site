@@ -3,7 +3,7 @@ import {setComments, setPostView, addCom} from "../actions/postViewActions";
 
 export const getPostViewThunkCreator = (postId) => {
     return (dispatch) => {
-        console.log(postId);
+        // console.log(postId);
         API.Post.getPostView(postId)
             .then(response => {
                 // console.log(`пост - ${JSON.stringify(response, null, 2)}`);
@@ -36,7 +36,7 @@ export const addCommentThunkCreator = (postId, text) => {
             .then(response => {
                 // console.log(`пост - ${JSON.stringify(response, null, 2)}`);
                 // console.log(`rating - ${response.post_info.rating.result}`);
-                console.log(`добавлен - ${response.isCommented}`);
+                // console.log(`добавлен - ${response.isCommented}`);
                 dispatch(addCom(response.isCommented));
             });
     }

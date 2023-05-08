@@ -4,7 +4,7 @@ import style from './PostComment.module.css';
 const PostComment = props => {
 
     const calculateTime = date => {
-        console.log(date);
+        // массивы для склонения
         const yearsWords = ['год', 'года', 'лет'];
         const monthsWords = ['месяц', 'месяца', 'месяцев'];
         const daysWords = ['день', 'дня', 'дней'];
@@ -12,7 +12,8 @@ const PostComment = props => {
         const minutesWords = ['минута', 'минуты', 'минут'];
         const secondsWords = ['секунда', 'секунды', 'секунд'];
 
-        function declension(num, words) {
+        // функция для верного склонения
+        const declension = (num, words) => {
             const cases = [2, 0, 1, 1, 1, 2];
             return words[
                 (num % 100 > 4 && num % 100 < 20)
@@ -21,22 +22,23 @@ const PostComment = props => {
             ];
         }
 
-        const startDate = new Date(date);
-        console.log(`startDate : ${startDate}`);
+        const localDate = new Date(date);
+        // получаем текущее смещение часового пояса
+        const timeZoneOffset = new Date().getTimezoneOffset();
+        // складываем с полученным временем т.к. смещение отрицательное
+        const startDate = new Date(localDate.getTime() + (timeZoneOffset * 60 * 1000));
+        // получаем текущую дату
         const endDate = new Date();
-
-        const diff = Math.abs(endDate.getTime() - startDate.getTime());
-        // const diff = endDate.getTime() - startDate.getTime();
-
+        // разница дат
+        const diff = endDate.getTime() - startDate.getTime();
+        // вычисляем единицы измерения
         const seconds = Math.floor((diff / 1000) % 60);
-        console.log(`seconds : ${seconds}`);
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        console.log(`minutes : ${minutes}`);
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
         const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-        // const out = `${years} лет, ${months} месяцев, ${days} дней, ${hours} часов, ${minutes} минут.`;
+        // готовим ответ в формате одной наибольшей единицы измерения
         let out = '';
         if (years > 0) {
             out = `${years} ${declension(years, yearsWords)}`;
@@ -47,17 +49,16 @@ const PostComment = props => {
         } else if (hours > 0) {
             out = `${hours} ${declension(hours, hoursWords)}`;
         } else if (minutes > 0) {
-            out = `${minutes} ${declension(minutes, minutesWords)}`;    
-        } else {    
-            out = `${seconds} ${declension(seconds, secondsWords)}`;    
+            out = `${minutes} ${declension(minutes, minutesWords)}`;
+        } else {
+            out = `${seconds} ${declension(seconds, secondsWords)}`;
         }
         return out;
 
     }
-    
+
     return (
         <>
-            {/* добавить оформление комментария с аватаркой и ником автора */}
             <div className={style.commentHeader}>
                 <img className={style.avatar} src={props.comment.author.img} alt="no img" />
                 <div className={style.username} >{props.comment.author.username}</div>

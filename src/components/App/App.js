@@ -11,7 +11,6 @@ import LoginContainer from "../Login/LoginContainer";
 import CreatePostContainer from "../CreatePost/CreatePostContainer";
 import Reg from "../Reg/Reg";
 import { useDispatch, useSelector } from "react-redux";
-// import { checkAuthThunkCreator } from "../../redux/thunk/checkAuthThunk";
 import { initAppThunkCreator } from "../../redux/thunk/initAppThunk";
 import Preloader from "../common/Preloader/Preloader";
 
@@ -24,13 +23,8 @@ function App() {
     useEffect(() => {
         if (!flagInit) {
             flagInit = true;
-            console.log('init_app');
             dispatch(initAppThunkCreator());
         }
-        // if(localStorage.getItem('access_token')) {
-        //     //делаем запрос на эндпоинт refresh
-        //     // dispatch(checkAuthThunkCreator());
-        // }
     }, [])
 
     if(!init) {
