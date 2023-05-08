@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setCount, setCurrentPage, setIsFetching, setNewRatingPost, setPosts} from "../actions/postsActions";
+import {loadNewPosts, setCount, setCurrentPage, setIsFetching, setNewRatingPost, setPosts} from "../actions/postsActions";
 import {updRatingPostView} from "../actions/postViewActions";
 
 export const getPostsThunkCreator = (currentPage, pageSize) => {
@@ -12,6 +12,21 @@ export const getPostsThunkCreator = (currentPage, pageSize) => {
             dispatch(setPosts(posts));
             dispatch(setCount(count));
             dispatch(setIsFetching(false));
+        })
+    }
+}
+
+export const loadNewPostsThunkCreator = (currentPage, pageSize) => {
+    return (dispatch) => {
+        dispatch(setIsFetching(true));
+        API.Post.getPosts(currentPage, pageSize).then(response => {
+            // получаем массив постов
+            let posts = response.posts;
+            let count = response.count;
+            dispatch(loadNewPosts(posts));
+            dispatch(setCount(count));
+            dispatch(setIsFetching(false));
+            return posts;
         })
     }
 }

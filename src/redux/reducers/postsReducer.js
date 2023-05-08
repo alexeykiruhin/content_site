@@ -1,8 +1,8 @@
-import { SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING, SET_NEW_RATING_POST } from '../actions/actionTypes';
+import { SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING, SET_NEW_RATING_POST, LOAD_NEW_POSTS } from '../actions/actionTypes';
 
 let initialState = {
     posts: [],
-    pageSize: 4,
+    pageSize: 3,
     count: 0,
     currentPage: 1,
     isFetching: false
@@ -13,7 +13,14 @@ const postsReducer = (state = initialState, action) => {
         case SET_POSTS:
             return {
                 ...state,
+                // posts: state.posts.concat(action.posts)
                 posts: [...action.posts]
+            }
+        case LOAD_NEW_POSTS:
+            return {
+                ...state,
+                posts: state.posts.concat(action.posts)
+                // posts: [...action.posts]
             }
         case SET_COUNT:
             return {

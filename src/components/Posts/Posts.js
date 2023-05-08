@@ -16,7 +16,7 @@ const Posts = (props) => {
     }
     return (
         <div className={'Posts'}>
-            <div className={'body'}>
+            <div className={'body'} >
                 <div className={'pagination'}>
                     {pages.map((page, index) => {
                         return <span
