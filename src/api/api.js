@@ -61,12 +61,12 @@ export const API = {
             const response = await instance.get(`post/${postId}`);
             return response.data;
         },
-        async getPosts(currentPage) {
-            const response = await instance.get(`posts?page=${currentPage}&page_size=2`);
+        async getPosts(currentPage, pageSize) {
+            const response = await instance.get(`posts?page=${currentPage}&page_size=${pageSize}`);
             return response.data;
         },
-        async getSubsPosts(currentPage) {
-            const response = await instance.get(`subs_posts?page=${currentPage}&page_size=2`);
+        async getSubsPosts(currentPage, pageSize) {
+            const response = await instance.get(`subs_posts?page=${currentPage}&page_size=${pageSize}`);
             return response.data;
         },
         async sendScore(postId, score) {

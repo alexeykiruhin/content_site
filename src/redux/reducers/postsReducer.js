@@ -2,7 +2,7 @@ import { SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING, SET_NEW_RAT
 
 let initialState = {
     posts: [],
-    pageSize: 2,
+    pageSize: 4,
     count: 0,
     currentPage: 1,
     isFetching: false

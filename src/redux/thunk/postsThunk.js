@@ -2,10 +2,10 @@ import {API} from "../../api/api";
 import {setCount, setCurrentPage, setIsFetching, setNewRatingPost, setPosts} from "../actions/postsActions";
 import {updRatingPostView} from "../actions/postViewActions";
 
-export const getPostsThunkCreator = (currentPage) => {
+export const getPostsThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setIsFetching(true));
-        API.Post.getPosts(currentPage).then(response => {
+        API.Post.getPosts(currentPage, pageSize).then(response => {
             // получаем массив постов
             let posts = response.posts;
             let count = response.count;
@@ -16,10 +16,10 @@ export const getPostsThunkCreator = (currentPage) => {
     }
 }
 
-export const getSubsPostsThunkCreator = (currentPage) => {
+export const getSubsPostsThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setIsFetching(true));
-        API.Post.getSubsPosts(currentPage).then(response => {
+        API.Post.getSubsPosts(currentPage, pageSize).then(response => {
             // получаем массив постов
             let posts = response.posts;
             let count = response.count;
@@ -31,9 +31,9 @@ export const getSubsPostsThunkCreator = (currentPage) => {
     }
 }
 
-export const nextSubsPageThunkCreator = (currentPage) => {
+export const nextSubsPageThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
-        dispatch(setCurrentPage(currentPage));
+        dispatch(setCurrentPage(currentPage, pageSize));
         dispatch(setIsFetching(true));
         API.Post.getSubsPosts(currentPage).then(response => {
             let posts = response.posts;
@@ -43,11 +43,11 @@ export const nextSubsPageThunkCreator = (currentPage) => {
     }
 }
 
-export const nextPageThunkCreator = (currentPage) => {
+export const nextPageThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setCurrentPage(currentPage));
         dispatch(setIsFetching(true));
-        API.Post.getPosts(currentPage).then(response => {
+        API.Post.getPosts(currentPage, pageSize).then(response => {
             let posts = response.posts;
             dispatch(setPosts(posts));
             dispatch(setIsFetching(false));

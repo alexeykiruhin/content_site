@@ -21,7 +21,7 @@ const Posts = (props) => {
                     {pages.map((page, index) => {
                         return <span
                             onClick={() => {
-                                props.handleSetCurrentPage(page);
+                                props.handleSetCurrentPage(page, props.pageSize);
                             }}
                             key={`pagination-${index}`}
                             className={

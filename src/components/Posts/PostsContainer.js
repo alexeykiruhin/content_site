@@ -8,18 +8,18 @@ const PostsContainer = () => {
     const [isSubsPosts, setIsSubsPosts] = useState(false);
 
     const currentPage = useSelector((state) => state.postsPage.currentPage);
-    const posts = useSelector((state) => state.postsPage.posts);
     const pageSize = useSelector((state) => state.postsPage.pageSize);
+    const posts = useSelector((state) => state.postsPage.posts);
     const count = useSelector((state) => state.postsPage.count);
     const isFetching = useSelector((state) => state.postsPage.isFetching);
     const dispatch = useDispatch();
 
     const dispatchGetPosts = useCallback(() => {
-        dispatch(getPostsThunkCreator(currentPage));
+        dispatch(getPostsThunkCreator(currentPage, pageSize));
     }, [currentPage, dispatch]);
 
     const dispatchGetSubsPosts = useCallback(() => {
-        dispatch(getSubsPostsThunkCreator(currentPage));
+        dispatch(getSubsPostsThunkCreator(currentPage, pageSize));
     }, [currentPage, dispatch]);
 
     useEffect(() => {
@@ -30,11 +30,11 @@ const PostsContainer = () => {
         }
     }, [dispatchGetPosts, dispatchGetSubsPosts, isSubsPosts]);
 
-    const handleSetCurrentPage = (currentPage) => {
+    const handleSetCurrentPage = (currentPage, pageSize) => {
         if(isSubsPosts) {
-            dispatch(nextSubsPageThunkCreator(currentPage));
+            dispatch(nextSubsPageThunkCreator(currentPage, pageSize));
         }else {
-            dispatch(nextPageThunkCreator(currentPage));
+            dispatch(nextPageThunkCreator(currentPage, pageSize));
         }
     }
 
