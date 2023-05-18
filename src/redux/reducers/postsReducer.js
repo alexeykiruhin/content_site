@@ -2,10 +2,11 @@ import { SET_POSTS, SET_COUNT, SET_CURRENT_PAGE, TOGGLE_IS_FETCHING, SET_NEW_RAT
 
 let initialState = {
     posts: [],
-    pageSize: 3,
+    pageSize: 5,
     count: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    fetch: false
 }
 
 const postsReducer = (state = initialState, action) => {
@@ -16,7 +17,7 @@ const postsReducer = (state = initialState, action) => {
                 // posts: state.posts.concat(action.posts)
                 posts: [...action.posts]
             }
-        case LOAD_NEW_POSTS:
+        case LOAD_NEW_POSTS: // добавил этот кейс так как в дев моде двойной рендер и если оставить только сет постс то задваиваются посты
             return {
                 ...state,
                 posts: state.posts.concat(action.posts)

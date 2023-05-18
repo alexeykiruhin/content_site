@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Post = (props) => {
 
+
     const sendScorePlus = () => {
         props.sendScore(props.post.id, 1);
     }
@@ -13,7 +14,7 @@ const Post = (props) => {
     }
 
     return (
-        <div className={styles.Post}>
+        <div ref={props.refIS} className={styles.Post}>
             <div className={styles.postHeader}>
                 <div className={styles.postUserInfo}>
                     <NavLink to={`/user/${props.post.author.id}`}>

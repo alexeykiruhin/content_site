@@ -18,14 +18,15 @@ export const getPostsThunkCreator = (currentPage, pageSize) => {
 
 export const loadNewPostsThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
-        dispatch(setIsFetching(true));
+        // dispatch(setIsFetching(true));
+        // dispatch(setFetch(false));
         API.Post.getPosts(currentPage, pageSize).then(response => {
             // получаем массив постов
             let posts = response.posts;
             let count = response.count;
             dispatch(loadNewPosts(posts));
             dispatch(setCount(count));
-            dispatch(setIsFetching(false));
+            // dispatch(setIsFetching(false));
             return posts;
         })
     }
@@ -49,11 +50,12 @@ export const getSubsPostsThunkCreator = (currentPage, pageSize) => {
 export const nextSubsPageThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(setCurrentPage(currentPage, pageSize));
-        dispatch(setIsFetching(true));
-        API.Post.getSubsPosts(currentPage).then(response => {
+        // dispatch(setIsFetching(true));
+        API.Post.getSubsPosts(currentPage, pageSize).then(response => {
             let posts = response.posts;
-            dispatch(setPosts(posts));
-            dispatch(setIsFetching(false));
+            // dispatch(setPosts(posts));
+            dispatch(loadNewPosts(posts));
+            // dispatch(setIsFetching(false));
         });
     }
 }

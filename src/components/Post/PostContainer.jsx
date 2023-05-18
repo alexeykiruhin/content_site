@@ -14,7 +14,7 @@ const PostContainer = (props) => {
     }
 
     return (
-        <Post index={props.index} post={props.post} sendScore={sendScore} />
+        <Post refIS={props.refIS} index={props.index} post={props.post} sendScore={sendScore} />
     )
 }
 
