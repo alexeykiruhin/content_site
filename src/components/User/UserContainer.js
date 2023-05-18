@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getUserThunkCreator, subscribe, unsubscribe, updUserThunkCreator } from "../../redux/thunk/userThunk";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { logoutThunkCreator } from "../../redux/thunk/logoutThunk";
 
 
 
@@ -45,6 +46,11 @@ const UserContainer = () => {
         console.log(paramUserId.userId);
     }
 
+    // выход из аккаунта
+    const logout = () => {
+        dispatch(logoutThunkCreator());
+    }
+
     return (
         <User
             isMe={isMe}
@@ -62,6 +68,7 @@ const UserContainer = () => {
             handlerSendStatusText={handlerSendStatusText}
             handlerSubscribe={handlerSubscribe}
             handlerUnsubscribe={handlerUnsubscribe}
+            logout={logout}
         />
     )
 }

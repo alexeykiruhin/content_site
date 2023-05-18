@@ -84,11 +84,8 @@ const User = (props) => {
                         <span>Подписчиков: {props.subscribers}</span>
                     }
                     {/* <button>Подписаться</button> */}
-                    <button>Написать</button>
-                    <button>+</button>
-                    <button>-</button>
                     {props.isMe &&
-                        <button onClick={() => console.log('заглушка выхода')}>Выйти</button>}
+                        <button onClick={props.logout}>Выйти</button>}
                 </div>
             </div>
             <div className={'postsUserPage'}>

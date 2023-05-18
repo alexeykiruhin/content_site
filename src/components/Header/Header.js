@@ -16,9 +16,6 @@ const Header = (props) => {
                                 {props.username}
                             </div>
                         </NavLink>
-                        <div className={'logout'} onClick={props.logout}>
-                            Logout
-                        </div>
                     </div>
                     :
                     <NavLink to={'/login'}>Login</NavLink>
