@@ -20,13 +20,13 @@ a {
 body::before {
     content: "";
     display: block;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     width: 100%;
     top: 0;
     left: 0;
     background-color: rgba(255, 255, 255, .9);
-    min-height: 100vh;
+    min-height: 100%;
     background-repeat: repeat;
     background-position: center;
     background-size: cover;
@@ -54,7 +54,6 @@ body::before {
     flex-direction: row;
     flex: 1 0 auto;
     gap: 10px;
-    margin: 0 10px 0 10px;
 }
 
 @media screen and (max-width: 767px) {

@@ -5,14 +5,12 @@
     min-height: 50px;
     max-height: 50px;
     background-color: #ff5e5b;
-    /*background: linear-gradient(90deg, #d7d931, #cdd21f);*/
-    /*background-color: #8b98a3;*/
-    /*background-color: #1d1f1f;*/
+    gap: 10px;
 }
 
 .login {
-    flex-shrink: 0;
-    margin-right: 10%; /* прижимаем левый край */
+    flex-basis: 12%;
+    /* margin-right: 10px; прижимаем левый край */
     padding-left: 10px;
 }
 
@@ -46,9 +44,17 @@
     border-radius: 50%;
 }
 
+.logoWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: 88%;
+    margin-right: 12%;
+}
+
 .logo {
-    margin-left: auto; /* прижимаем правый край */
-    margin-right: 45%; /* выравниваем по центру */
+    /* margin-left: auto; прижимаем правый край */
+    /* margin-right: 46%; выравниваем по центру */
     color: #2b2d42;
     font-size: x-large;
     text-decoration: none;
@@ -57,4 +63,23 @@
 .logout {
     color: #76371a;
     cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .login {
+        flex-shrink: 0;
+        padding-left: 10px;
+    }
+
+    .logoWrapper {
+        /* margin-right: 12%; */
+    }
+
+    .logo {
+        /* margin-left: auto; прижимаем правый край */
+        /* margin-right: 35%; выравниваем по центру */
+        color: #2b2d42;
+        font-size: x-large;
+        text-decoration: none;
+    }
 }

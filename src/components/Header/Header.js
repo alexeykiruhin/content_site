@@ -2,18 +2,18 @@ import React from "react";
 import './Header.css';
 import { NavLink } from "react-router-dom";
 
-const Header = (props) => {
+const Header = ({ id, img, isAuth }) => {
 
     return (
         <div className={'Header'}>
             <div className={'login'}>
-                {props.isAuth ?
+                {isAuth ?
                     <div className={'loginWrap'}>
-                        <NavLink to={'/user/' + props.id}>
+                        <NavLink to={'/user/' + id}>
                             {/* <NavLink to={'/user'}> */}
                             <div className={'info'}>
-                                <img src={props.img} alt="no ava" />
-                                {props.username}
+                                <img src={img} alt="no ava" />
+                                {/* {props.username} */}
                             </div>
                         </NavLink>
                     </div>
@@ -21,7 +21,9 @@ const Header = (props) => {
                     <NavLink to={'/login'}>Login</NavLink>
                 }
             </div>
-            <NavLink className={'logo'} to="/">Contentable</NavLink>
+            <div className={'logoWrapper'}>
+                <NavLink className={'logo'} to="/">Contentable</NavLink>
+            </div>
         </div>
     )
 }

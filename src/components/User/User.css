@@ -55,6 +55,16 @@
     margin-bottom: 10px;
 }
 
+.Exit {
+    border: 1px solid black;
+    border-radius: 5%;
+}
+
+.Exit:hover {
+    background: #ff5e5b;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
     .User {
         width: 100%;
