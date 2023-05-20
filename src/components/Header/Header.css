@@ -10,7 +10,6 @@
 
 .login {
     flex-basis: 12%;
-    /* margin-right: 10px; прижимаем левый край */
     padding-left: 10px;
 }
 
@@ -53,8 +52,6 @@
 }
 
 .logo {
-    /* margin-left: auto; прижимаем правый край */
-    /* margin-right: 46%; выравниваем по центру */
     color: #000000;
     font-size: x-large;
     text-decoration: none;
@@ -75,14 +72,7 @@
         padding-left: 10px;
     }
 
-    .logoWrapper {
-        /* margin-right: 12%; */
-    }
-
     .logo {
-        /* margin-left: auto; прижимаем правый край */
-        /* margin-right: 35%; выравниваем по центру */
-        /* color: #2b2d42; */
         font-size: x-large;
         text-decoration: none;
     }
