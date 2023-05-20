@@ -55,9 +55,13 @@
 .logo {
     /* margin-left: auto; прижимаем правый край */
     /* margin-right: 46%; выравниваем по центру */
-    color: #2b2d42;
+    color: #000000;
     font-size: x-large;
     text-decoration: none;
+}
+
+.logo:hover {
+    color: #ffffff;
 }
 
 .logout {
@@ -78,7 +82,7 @@
     .logo {
         /* margin-left: auto; прижимаем правый край */
         /* margin-right: 35%; выравниваем по центру */
-        color: #2b2d42;
+        /* color: #2b2d42; */
         font-size: x-large;
         text-decoration: none;
     }

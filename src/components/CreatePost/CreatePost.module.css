@@ -15,6 +15,7 @@
 }
 
 .textArea {
+    resize: none;
     /*flex-basis: 70%;*/
     flex: 2 0 auto;
     background-color: #063d7c2d;
@@ -33,4 +34,15 @@
 .createBTN {
     background-color: rgb(201, 115, 115);
     height: 50px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .wrapperCreatePost {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
 }
