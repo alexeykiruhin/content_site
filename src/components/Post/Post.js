@@ -36,8 +36,10 @@ const Post = (props) => {
             </div>
             <div className={styles.postText}>
                 {props.post.text}
+            </div>
+            <div className={styles.postActions}>
                 <NavLink to={`/post/${props.post.id}`}>
-                    go to post
+                    Открыть
                 </NavLink>
             </div>
         </div>

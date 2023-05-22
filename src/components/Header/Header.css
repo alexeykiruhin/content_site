@@ -4,7 +4,8 @@
     align-items: center;
     min-height: 50px;
     max-height: 50px;
-    background-color: #ff5e5b;
+    background-color: #6200EE;
+    /* #ff5252 #ff5252 */
     gap: 10px;
 }
 
@@ -52,7 +53,7 @@
 }
 
 .logo {
-    color: #000000;
+    color: #ffffff;
     font-size: x-large;
     text-decoration: none;
 }

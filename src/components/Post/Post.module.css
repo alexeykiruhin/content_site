@@ -2,17 +2,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
+    /* gap: 10px; */
     margin-bottom: 20px;
     background-color: #f0f4f8;
     width: 800px;
     height: 200px;
+    border: 1px solid #a5a5a5;
 }
 
 
 /* Header Post */
 .postHeader {
-    background-color: #ff5e5b;
+    background-color: #ffffff;
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
@@ -84,16 +85,31 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: #8d99ae;
+    background-color: #f3f3f3;
+    border-top: 1px solid #a5a5a5;
+    border-bottom: 1px solid #a5a5a5;
     flex: 5 0 auto;
     padding: 10px;
     /* padding-left: 10px;
     padding-top: 10px; */
 }
-.postText > a {
+
+
+
+/* Content Post */
+.postActions {
+    background-color: #ffffff;
+    height: 55px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.postActions > a {
     text-decoration: none;
     color: #2b2d42;
 }
+
 @media screen and (max-width: 767px) {
     .Post {
         width: 100%;

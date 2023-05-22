@@ -16,7 +16,7 @@ const PostView = (props) => {
     }
 
     return (
-        <div>
+        <div className={styles.PostWrapper}>
             <div className={styles.Post}>
                 <div className={styles.postHeader}>
                     <div className={styles.postUserInfo}>

@@ -58,7 +58,7 @@ const PostComment = props => {
     }
 
     return (
-        <>
+        <div className={style.commentWrapper}>
             <div className={style.commentHeader}>
                 <img className={style.avatar} src={props.comment.author.img} alt="no img" />
                 <div className={style.username} >{props.comment.author.username}</div>
@@ -67,7 +67,7 @@ const PostComment = props => {
             <div className={style.comment}>
                 {props.comment.comment_text}
             </div>
-        </>
+        </div>
     )
 }
 
