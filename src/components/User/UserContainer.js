@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getUserThunkCreator, subscribe, unsubscribe, updUserThunkCreator } from "../../redux/thunk/userThunk";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { logoutThunkCreator } from "../../redux/thunk/logoutThunk";
+import { delPostThunkCreator } from "../../redux/thunk/createPostThunk";
 
 
 
@@ -51,6 +52,16 @@ const UserContainer = () => {
         dispatch(logoutThunkCreator());
     }
 
+    // del post
+    const delPost = (postId) => {
+        dispatch(delPostThunkCreator(postId));
+    }
+
+    // edit post
+    const editPost = () => {
+        console.log('edit');
+    }
+
     return (
         <User
             isMe={isMe}
@@ -69,6 +80,8 @@ const UserContainer = () => {
             handlerSubscribe={handlerSubscribe}
             handlerUnsubscribe={handlerUnsubscribe}
             logout={logout}
+            delPost={delPost}
+            editPost={editPost}
         />
     )
 }

@@ -75,6 +75,12 @@ export const API = {
                 score: score
             });
             return response.data;
+        },
+        async delPost(postId) {
+            const response = await instance.post(`del_post`, {
+                post_id: postId
+            })
+            return response.data;
         }
     },
 

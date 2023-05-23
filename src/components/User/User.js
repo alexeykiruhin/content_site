@@ -90,7 +90,14 @@ const User = (props) => {
             <div className={'postsUserPage'}>
                 <h3>Посты пользователя</h3>
                 {props.posts.length !== 0 ?
-                    props.posts.map((post, index) => <div key={index} className={'post'}>{post}</div>) :
+                    props.posts.map((post, index) => <div key={index} className={'post'}>
+                        <button className={'editPost'} onClick={props.editPost}>Edit</button>
+
+                        <button className={'delPost'} onClick={() => props.delPost(post[1])}>Delete</button>
+                        {
+                            post[0].length > 50 ? post[0].slice(0,50)+'...' : post[0]
+                        }
+                    </div>) :
                     <div>У пользователя ещё нет постов</div>}
             </div>
         </div>

@@ -20,6 +20,10 @@
     flex: 2 0 auto;
 }
 
+.avatarUserPage > img {
+    border-radius: 5%;
+}
+
 .nameUserPage {
     flex: 1 0 auto;
     display: flex;
@@ -71,6 +75,31 @@
     cursor: pointer;
 }
 
+.delPost {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: #ff5e5b;
+    margin-right: 5px;
+}
+
+.delPost:hover {
+    background-color: #ff4a47;
+}
+
+.editPost {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: #5b7cff;
+    margin-right: 5px;
+}
+
+.editPost:hover {
+    background-color: #476bfc;
+}
+
+/* 860px */
 @media screen and (max-width: 767px) {
     .User {
         width: 100%;
@@ -99,5 +128,11 @@
     }
     .statusText {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .infoUserPage {
+        width: 600px;
     }
 }
