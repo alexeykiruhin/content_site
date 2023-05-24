@@ -76,9 +76,23 @@ export const API = {
             });
             return response.data;
         },
+        async createPost(dataPost, tags) {
+            const response = await instance.post(`posts`, {
+                text: dataPost,
+                tags: tags
+            });
+            return response.data;
+        },
         async delPost(postId) {
             const response = await instance.post(`del_post`, {
                 post_id: postId
+            })
+            return response.data;
+        },
+        async editPost(postId, newPostText) {
+            const response = await instance.post(`edit_post`, {
+                post_id: postId,
+                new_post_text: newPostText
             })
             return response.data;
         }
@@ -158,14 +172,6 @@ export const API = {
 
     async getUsers() {
         const response = await instance.get(`users`);
-        return response.data;
-    },
-
-
-    async createPost(dataPost) {
-        const response = await instance.post(`posts`, {
-            text: dataPost
-        });
         return response.data;
     }
 }

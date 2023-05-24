@@ -1,4 +1,4 @@
-import { IS_SUBSCRIBED, SET_USER, UPD_STATUS_TEXT, DEL_POST } from "../actions/actionTypes";
+import { IS_SUBSCRIBED, SET_USER, UPD_STATUS_TEXT, DEL_POST, EDIT_POST } from "../actions/actionTypes";
 
 let initialState = {
     isMe: false,
@@ -51,6 +51,16 @@ const userReducer = (state = initialState, action) => {
                         return false;
                     }
                     return true;
+                })
+            }
+        case EDIT_POST:
+            return {
+                ...state,
+                posts: state.posts.map((p) => {
+                    if (p[1] === action.postId) {
+                        p[0] = action.newPostText;
+                    }
+                    return p
                 })
             }
         default:

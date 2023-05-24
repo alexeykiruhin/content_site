@@ -6,7 +6,8 @@ const CreatePostForm = (props) => {
 
     const sendPostText = (obj) => {
         let postText = obj.postText;
-        props.createPost(postText);
+        let tags = obj.tags.split(',');
+        props.createPost(postText, tags);
     }
 
     return (
@@ -15,19 +16,29 @@ const CreatePostForm = (props) => {
             {props.isCreate && 'Done'}
             <Form
                 onSubmit={sendPostText}
-                initialValues={{ postText: '' }}
+                initialValues={{ postText: '', tags: '' }}
             >
                 {({ handleSubmit }) => (
                     <form onSubmit={handleSubmit} className={styles.wrapperCreatePost}>
-                        <Field
-                            className={styles.textArea}
-                            name="postText"
-                            // сюда нужно передать свой компонент со стилизацией
-                            component='textarea'
-                            type="text"
-                            placeholder="Напишите тут свои мысли"
-                            autoFocus={true}
-                        />
+                        <div className={styles.wrapperFields}>
+                            <Field
+                                className={styles.textArea}
+                                name="postText"
+                                // сюда нужно передать свой компонент со стилизацией
+                                component='textarea'
+                                type="text"
+                                placeholder="Напишите тут свои мысли"
+                                autoFocus={true}
+                            />
+                            <Field
+                                className={styles.textAreaTags}
+                                name="tags"
+                                component='textarea'
+                                type="text"
+                                placeholder="напишите теги через запятую"
+                            // autoFocus={true}
+                            />
+                        </div>
                         <div className={styles.submit}>
                             <button className={styles.createBTN}>Запостить</button>
                         </div>

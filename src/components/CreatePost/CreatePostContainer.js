@@ -12,8 +12,8 @@ const CreatePostContainer = () => {
     
     const dispatch = useDispatch();
 
-    const createPost = (postText) => {
-        dispatch(createPostThunkCreator(postText))
+    const createPost = (postText, tags) => {
+        dispatch(createPostThunkCreator(postText, tags))
     }
 
     return (

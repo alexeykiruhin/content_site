@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import './User.css';
 import editIcon from './img/edit-status.svg';
 import StatusForm from './StatusForm';
+// import EditPostForm from "./editPost/EditPostForm";
+import EditUserPosts from "./EditUserPosts";
+import UserPosts from "./UserPosts";
 
 const User = (props) => {
     //убрал из бизнес слоя значение переключения поля, слишком локальное состояние это
     const [isEditStatusText, toggleEditStatusText] = useState(false);
+    const [isEditPost, toggleEditPost] = useState(false);
+    const [textPost, editTextPost] = useState('');
+    const [idPost, editIdPost] = useState('');
 
     const handlerEditAndSendStatusText = (value) => {
         props.handlerSendStatusText(value);
@@ -24,11 +30,21 @@ const User = (props) => {
         props.handlerUnsubscribe()
     }
 
+    const toggleEditPostWrapper = (postId, textPost) => {
+        toggleEditPost(true);
+        editTextPost(textPost);
+        editIdPost(postId);
+    }
+
+    const backToPosts = () => {
+        toggleEditPost(false);
+    }
+
     return (
         <div className={'User'}>
             <div className={'infoUserPage'}>
                 <div className={'avatarUserPage'}>
-                    <img src={props.img} alt={props.id} />
+                    <img src={props.img} alt={props.userId} />
                 </div>
                 <div className={'nameUserPage'}>
                     <div className={'userNameUserPage'}>
@@ -87,19 +103,14 @@ const User = (props) => {
                     {props.isMe && <button className={'Exit'} onClick={props.logout}>Выйти</button>}
                 </div>
             </div>
-            <div className={'postsUserPage'}>
-                <h3>Посты пользователя</h3>
-                {props.posts.length !== 0 ?
-                    props.posts.map((post, index) => <div key={index} className={'post'}>
-                        <button className={'editPost'} onClick={props.editPost}>Edit</button>
+            {!isEditPost ? <UserPosts posts={props.posts} delPost={props.delPost} toggleEditPostWrapper={toggleEditPostWrapper} /> :
+            <EditUserPosts textPost={textPost} idPost={idPost} editPost={props.editPost} backToPosts={backToPosts} id={props.userId} isEditPost={isEditPost} />}
+            
+            {/* {isEditPost && <div className={'postsUserPage'}>
+                <h3>Редактирование поста</h3>
+                <EditPostForm textPost={textPost} idPost={idPost} editPost={props.editPost} backToPosts={backToPosts} id={props.userId} isEditPost={isEditPost}/>
+            </div>} */}
 
-                        <button className={'delPost'} onClick={() => props.delPost(post[1])}>Delete</button>
-                        {
-                            post[0].length > 50 ? post[0].slice(0,50)+'...' : post[0]
-                        }
-                    </div>) :
-                    <div>У пользователя ещё нет постов</div>}
-            </div>
         </div>
     )
 }
