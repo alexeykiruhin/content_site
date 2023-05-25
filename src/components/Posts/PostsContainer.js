@@ -61,6 +61,7 @@ const PostsContainer = () => {
             isFetching={isFetching}
             posts={posts}
             togglePostsType={togglePostsType}
+            isSubsPosts={isSubsPosts}
         />
 
     )

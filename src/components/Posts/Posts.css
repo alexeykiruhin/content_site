@@ -42,7 +42,11 @@
 
 .wrapperDifferentPosts > div:hover {
     cursor: pointer;
-    background-color: #ff5e5b;
+    /* background-color: #ff5e5b; */
+}
+
+.active {
+    color: #6200EE;
 }
 
 @media screen and (max-width: 767px) {

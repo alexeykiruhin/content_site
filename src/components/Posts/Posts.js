@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './Posts.css'
 import Preloader from "../common/Preloader/Preloader";
 import PostContainer from "../Post/PostContainer";
@@ -11,8 +11,8 @@ const Posts = (props) => {
         <div className={'Posts'}>
             <div className={'body'} >
                 <div className={'wrapperDifferentPosts'}>
-                    <div onClick={props.togglePostsType}>Все посты</div>
-                    <div onClick={props.togglePostsType}>Подписки</div>
+                    <div className={!props.isSubsPosts && 'active'} onClick={props.togglePostsType}>Все посты</div>
+                    <div className={props.isSubsPosts && 'active'} onClick={props.togglePostsType}>Подписки</div>
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
