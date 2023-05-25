@@ -6,7 +6,7 @@ const CreatePostForm = (props) => {
 
     const sendPostText = (obj) => {
         let postText = obj.postText;
-        let tags = obj.tags.split(',');
+        let tags = obj.tags.split(', ');
         props.createPost(postText, tags);
     }
 

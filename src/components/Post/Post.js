@@ -38,9 +38,14 @@ const Post = (props) => {
                 {props.post.text}
             </div>
             <div className={styles.postActions}>
-                <NavLink to={`/post/${props.post.id}`}>
-                    Открыть
-                </NavLink>
+                <div className={styles.openBtn}>
+                    <NavLink to={`/post/${props.post.id}`}>
+                        Открыть
+                    </NavLink>
+                </div>
+                <div className={styles.tagsWrapper}>
+                    {props.post.tags.map((tag, index) => <span className={styles.tag} key={index}>{tag.tag_name}</span>)}
+                </div>
             </div>
         </div>
     )
