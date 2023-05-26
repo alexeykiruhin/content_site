@@ -13,6 +13,7 @@ import Reg from "../Reg/Reg";
 import { useDispatch, useSelector } from "react-redux";
 import { initAppThunkCreator } from "../../redux/thunk/initAppThunk";
 import Preloader from "../common/Preloader/Preloader";
+import TagSearch from "../TagSearch/TagSearch";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                         <Route path="/users" element={<UsersContainer/>}/>
                         <Route path="/user/:userId" element={<UserContainer/>}/>
                         <Route path="/post/:postId" element={<PostViewContainer/>}/>
+                        <Route path="/tag-search" element={<TagSearch/>}/>
                     </Routes>
                 </div>
             </div>

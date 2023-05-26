@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './Posts.css'
 import Preloader from "../common/Preloader/Preloader";
 import PostContainer from "../Post/PostContainer";

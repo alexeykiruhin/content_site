@@ -1,0 +1,16 @@
+.tagSearchWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+/* Form */
+
+.tagSearchForm {
+    margin: 0;
+}
+
+.tagSearchInput {
+    cursor: pointer;
+}
