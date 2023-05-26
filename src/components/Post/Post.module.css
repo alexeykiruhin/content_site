@@ -47,6 +47,7 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
+    border: 1px solid #3700b3;
 }
 
 .postNameUser {
@@ -106,14 +107,24 @@
     justify-content: space-between;
 }
 
-.openBtn {
-    flex-basis: 12%;
-    padding-left: 10px;
-}
-
-.openBtn > a {
+.postActions > a {
     text-decoration: none;
     color: #2b2d42;
+}
+
+.openBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-basis: 12%;
+    background-color: #03dac5;
+    padding-right: 0;
+}
+
+.commentIcon {
+    width: 80px;
 }
 
 .tagsWrapper {
@@ -133,5 +144,9 @@
 @media screen and (max-width: 767px) {
     .Post {
         width: 100%;
+    }
+    .openBtn {
+        flex-basis: content;
+        padding: 0 10px;
     }
 }

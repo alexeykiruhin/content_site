@@ -21,7 +21,7 @@
 } */
 
 .item.active {
-    color: #6200EE;
+    color: #3700b3;
 }
 
 .item {
@@ -35,7 +35,7 @@
         flex-basis: auto;
         display: flex;
         /* background-color: #f17a78; */
-        border: 1px solid #6200EE;
+        border: 1px solid #3700b3;
     }
 
     .wrapperNavBar {
@@ -57,7 +57,7 @@
 
     .item.active {
         /* background-color: #6200EE; */
-        color: #6200EE;
+        color: #3700b3;
     }
 
     /* .item {

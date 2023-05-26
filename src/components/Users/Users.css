@@ -10,28 +10,34 @@
 
 .wrapperUser {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     width: 180px;
-    height: 100px;
     gap: 10px;
-    background-color: antiquewhite;
+    background-color: #fff;
+    border: 1px solid #a5a5a5;
+    padding: 5px;
 }
 
 .avatar {
-    width: 100px;
+    padding-left: 10px;
 }
 
 .avatar > img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    border: 1px solid #3700b3;
 }
 
 .avatar > img:hover {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 0%;
+}
+
+.nameUser {
+    width: 100%;
 }
 
 .wrapperUser > a {

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Post.module.css';
 import { NavLink } from "react-router-dom";
+import commentIcon from './icon/comment.png';
 
 const Post = (props) => {
 
@@ -38,11 +39,10 @@ const Post = (props) => {
                 {props.post.text}
             </div>
             <div className={styles.postActions}>
-                <div className={styles.openBtn}>
-                    <NavLink to={`/post/${props.post.id}`}>
-                        Открыть
-                    </NavLink>
-                </div>
+                <NavLink to={`/post/${props.post.id}`} className={styles.openBtn}>
+                    <img className={styles.commentIcon} src={commentIcon} />
+                    {/* <div>Открыть</div> */}
+                </NavLink>
                 <div className={styles.tagsWrapper}>
                     {props.post.tags.map((tag, index) => <span className={styles.tag} key={index}>{tag.tag_name}</span>)}
                 </div>

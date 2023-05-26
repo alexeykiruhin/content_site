@@ -38,9 +38,11 @@ const PostsContainer = () => {
     // диспатчу санку обычных постов или подписок в зависимости от флага
     useEffect(() => {
         if (isSubsPosts) {
-            dispatch(getSubsPostsThunkCreator(currentPage, pageSize));
+            // dispatch(getSubsPostsThunkCreator(currentPage, pageSize));
+            dispatch(getSubsPostsThunkCreator(pageNum, pageSize));
         } else {
-            dispatch(getPostsThunkCreator(currentPage, pageSize));
+            // dispatch(getPostsThunkCreator(currentPage, pageSize));
+            dispatch(getPostsThunkCreator(pageNum, pageSize));
         }
     }, [isSubsPosts]);
     // диспатч санки для загрузки новых постов в бесконечном скролле

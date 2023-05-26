@@ -11,8 +11,8 @@ const Posts = (props) => {
         <div className={'Posts'}>
             <div className={'body'} >
                 <div className={'wrapperDifferentPosts'}>
-                    <div className={!props.isSubsPosts && 'active'} onClick={props.togglePostsType}>Все посты</div>
-                    <div className={props.isSubsPosts && 'active'} onClick={props.togglePostsType}>Подписки</div>
+                    <div className={!props.isSubsPosts ? 'active' : ''} onClick={props.togglePostsType}>Все посты</div>
+                    <div className={props.isSubsPosts ? 'active' : ''} onClick={props.togglePostsType}>Подписки</div>
                 </div>
                 {(props.isFetching ?
                     <Preloader /> :
