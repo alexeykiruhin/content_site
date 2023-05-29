@@ -14,7 +14,8 @@ export const getPostViewThunkCreator = (postId) => {
                 let username = response.post_info.author.username;
                 let img = response.post_info.author.img;
                 let authorId = response.post_info.author.id;
-                dispatch(setPostView(postId, rating, text, username, img, authorId));
+                let tags = response.post_info.tags;
+                dispatch(setPostView(postId, rating, text, username, img, authorId, tags));
             });
     }
 }

@@ -3,11 +3,12 @@
     flex-direction: column;
     justify-content: space-between;
     /* gap: 10px; */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     background-color: #f0f4f8;
     width: 800px;
     height: 200px;
     border: 1px solid #a5a5a5;
+    border-radius: 5px;
 }
 
 
@@ -20,6 +21,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    border-radius: 5px;
 }
 
 .postUserInfo>a {
@@ -105,6 +107,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 .postActions > a {
@@ -119,12 +122,13 @@
     justify-content: center;
     height: 100%;
     flex-basis: 12%;
-    background-color: #03dac5;
+    /* background-color: #03dac5; */
     padding-right: 0;
+    border-radius: 5px;
 }
 
 .commentIcon {
-    width: 80px;
+    width: 40px;
 }
 
 .tagsWrapper {
@@ -136,9 +140,10 @@
 
 .tag {
     margin: 0 5px;
-    border: 1px solid #a5a5a5;
+    /* border: 1px solid #a5a5a5; */
     padding: 0 2px;
     cursor: pointer;
+    color: #8d8b8b;
 }
 
 @media screen and (max-width: 767px) {

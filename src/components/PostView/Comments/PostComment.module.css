@@ -1,25 +1,35 @@
 .commentWrapper {
+    display: flex;
+    flex-direction: column;
     width: 800px;
-}
-
-.comment {
-    padding: 5px 0 5px 10px;
-    background-color: #063d7c2d;
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    /* background-color: #fff; */
 }
 
 .commentHeader {
-    padding: 5px 0 5px 10px;
-    background-color: #063d7c2d;
-    margin-top: 10px;
     display: flex;
     flex-direction: row;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 5px;
 }
+
+.comment {
+    border-top: 1px solid #a5a5a5;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
 
 .avatar {
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    padding-right: 10px;
 }
 
 .username {

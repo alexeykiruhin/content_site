@@ -24,7 +24,7 @@ const TagSearchForm = () => {
                             placeholder='Напишите тег для поиска'
                             autoFocus={true}
                         />
-                        <button>Искать</button>
+                        <button className={styles.tagSearchFormBtn}>Искать</button>
                     </form>
                 )}
             </Form>

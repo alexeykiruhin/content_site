@@ -40,7 +40,7 @@ const Post = (props) => {
             </div>
             <div className={styles.postActions}>
                 <NavLink to={`/post/${props.post.id}`} className={styles.openBtn}>
-                    <img className={styles.commentIcon} src={commentIcon} />
+                    <img className={styles.commentIcon} src={commentIcon} alt="no img"/>
                 </NavLink>
                 <div className={styles.tagsWrapper}>
                     {props.post.tags.map((tag, index) => <span className={styles.tag} key={index}>{tag.tag_name}</span>)}

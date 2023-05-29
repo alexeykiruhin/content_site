@@ -1,14 +1,14 @@
 import { SET_POST_VIEW, UPD_RATING_POST_VIEW, SET_COMMENTS, ADD_COMMENT } from "../actions/actionTypes";
 
 let initialState = {
-    postId: null,
-    rating: '',
+    id: null,
+    rating: { result: '' },
     text: '',
     username: '',
-    img: '',
-    authorId: '',
+    author: { id: '', img: '' },
     comments: [],
-    addCom: ''
+    addCom: '',
+    tags: []
 }
 
 const postViewReducer = (state = initialState, action) => {
@@ -16,17 +16,17 @@ const postViewReducer = (state = initialState, action) => {
         case SET_POST_VIEW:
             return {
                 ...state,
-                postId: action.postId,
+                id: action.postId,
                 username: action.username,
-                rating: action.rating,
+                rating: { result: action.rating },
                 text: action.text,
-                img: action.img,
-                authorId: action.authorId
+                author: { id: action.authorId, img: action.img },
+                tags: action.tags
             }
         case UPD_RATING_POST_VIEW:
             return {
                 ...state,
-                rating: action.rating
+                rating: { result: action.rating },
             }
         case SET_COMMENTS:
             return {
