@@ -3,9 +3,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex-basis: 88%;
+    justify-content: center;
+    align-items: center;
+    line-height: 0.8;
+    margin-right: 12%;
     gap: 10px;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    /* height: 600px; */
 }
 
 .wrapperUser {
@@ -13,14 +17,16 @@
     flex-direction: column;
     align-items: center;
     width: 180px;
-    gap: 10px;
+    height: 140px;
+    gap: 20px;
     background-color: #fff;
     border: 1px solid #a5a5a5;
-    padding: 5px;
+    padding: 10px 5px 0 5px;
+    border-radius: 5px;
 }
 
 .avatar {
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 .avatar > img {
