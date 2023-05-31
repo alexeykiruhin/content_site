@@ -1,18 +1,21 @@
 import React from 'react';
 import styles from './TagSearch.module.css';
 import { Field, Form } from 'react-final-form';
+import { useSelector } from 'react-redux';
 
 const TagSearchForm = () => {
 
+    const tag = useSelector(state => state.tagSearch.tag)
+
     const handleInput = (obj) => {
-        console.log(obj);
+        console.log(obj.tagSearch);
     }
 
     return (
         <div className={styles.tagSearchFormWrapper}>
             <Form
                 onSubmit={handleInput}
-                initialValues={{tagSearch: ''}}
+                initialValues={{tagSearch: tag}}
             >
                 {({ handleSubmit }) => (
                     <form onSubmit={handleSubmit} className={styles.tagSearchForm}>

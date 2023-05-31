@@ -2,9 +2,12 @@ import React from "react";
 import styles from './Post.module.css';
 import { NavLink } from "react-router-dom";
 import commentIcon from './icon/comment.png';
+import {setTagSearch} from '../../redux/actions/tagSearchActions';
+import { useDispatch } from "react-redux";
 
 const Post = (props) => {
 
+    const dispatch = useDispatch();
 
     const sendScorePlus = () => {
         props.sendScore(props.post.id, 1);
@@ -12,6 +15,10 @@ const Post = (props) => {
 
     const sendScoreMinus = () => {
         props.sendScore(props.post.id, 0);
+    }
+
+    const handleClickTag = (obj) => {
+        dispatch(setTagSearch(obj.target.innerHTML));
     }
 
     return (
@@ -40,10 +47,14 @@ const Post = (props) => {
             </div>
             <div className={styles.postActions}>
                 <NavLink to={`/post/${props.post.id}`} className={styles.openBtn}>
-                    <img className={styles.commentIcon} src={commentIcon} alt="no img"/>
+                    <img className={styles.commentIcon} src={commentIcon} alt="no img" />
                 </NavLink>
                 <div className={styles.tagsWrapper}>
-                    {props.post.tags.map((tag, index) => <span className={styles.tag} key={index}>{tag.tag_name}</span>)}
+                    {props.post.tags.map((tag, index) => <span className={styles.tag} key={index} onClick={handleClickTag}>
+                        <NavLink to={`/tag-search`} className={styles.tag}>
+                            {tag.tag_name}
+                        </NavLink>
+                    </span>)}
                 </div>
             </div>
         </div>

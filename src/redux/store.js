@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'
 import regReducer from './reducers/regReducer';
 import appReducer from './reducers/appReducer';
 import postViewReducer from './reducers/postViewReducer';
+import tagSearchReducer from './reducers/tagSearchReducer';
 
 let rootReducers = combineReducers({
     init: appReducer,
@@ -18,7 +19,8 @@ let rootReducers = combineReducers({
     usersPage: usersReducer,
     userPage: userReducer,
     auth: authReducer,
-    reg: regReducer
+    reg: regReducer,
+    tagSearch: tagSearchReducer
 })
 
 let store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))

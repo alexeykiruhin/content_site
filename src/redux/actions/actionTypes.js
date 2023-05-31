@@ -31,3 +31,6 @@ export const SET_COMMENTS = 'SET_COMMENTS';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DEL_COMMENT = 'DEL_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
+
+//Tag Search
+export const SET_TAG_SEARCH = 'SET_TAG_SEARCH';
