@@ -12,6 +12,10 @@ const PostComments = props => {
     const dispatch = useDispatch();
     let paramPostId = useParams();
 
+    const handleEdit = (idComment) => {
+        console.log(idComment);
+    }
+
 
     // тут дёргаем подгрузку комментов передавая айди поста paramPostId.postId
     useEffect(() => {
@@ -19,7 +23,7 @@ const PostComments = props => {
     }, [paramPostId.postId, addCom])
 
     return (
-        props.comments.map((comment, index) => <PostComment key={index} comment={comment} />)
+        props.comments.map((comment, index) => <PostComment key={index} comment={comment} handleEdit={handleEdit}/>)
         // < PostComment />
     )
 }

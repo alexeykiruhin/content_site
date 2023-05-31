@@ -1,4 +1,4 @@
-import { SET_POST_VIEW, UPD_RATING_POST_VIEW, SET_COMMENTS, ADD_COMMENT } from "../actions/actionTypes";
+import { SET_POST_VIEW, UPD_RATING_POST_VIEW, SET_COMMENTS, ADD_COMMENT, DEL_COMMENT, EDIT_COMMENT  } from "../actions/actionTypes";
 
 let initialState = {
     id: null,
@@ -37,6 +37,26 @@ const postViewReducer = (state = initialState, action) => {
             return {
                 ...state,
                 addCom: action.addCom
+            }
+        case DEL_COMMENT:
+            return {
+                ...state,
+                comments: state.comments.filter((c) => {
+                    if (c['_id'] === action.commentId) {
+                        return false;
+                    }
+                    return true;
+                })
+            }
+        case EDIT_COMMENT:
+            return {
+                ...state,
+                comments: state.comments.map((c) => {
+                    if (c['_id'] === action.commentId) {
+                        c['comment_text'] = action.newCommentText;
+                    }
+                    return c
+                })
             }
         default:
             return state;

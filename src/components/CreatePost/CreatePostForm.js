@@ -35,7 +35,7 @@ const CreatePostForm = (props) => {
                                 name="tags"
                                 component='textarea'
                                 type="text"
-                                placeholder="напишите теги через запятую"
+                                placeholder="Напишите теги через запятую"
                             // autoFocus={true}
                             />
                         </div>

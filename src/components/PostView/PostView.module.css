@@ -4,7 +4,8 @@
     gap: 20px;
     align-items: center;
     flex-basis: 88%;
-    margin-right: 12%;
+    margin:  20px 12% 20px 0;
+    
 }
 
 .Post {
@@ -152,7 +153,16 @@
 
 
 @media screen and (max-width: 767px) {
+
+    .PostWrapper {
+        margin: 5px;
+    }
+
     .Post {
+        width: 100%;
+    }
+
+    .createComment {
         width: 100%;
     }
 }

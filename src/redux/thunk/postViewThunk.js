@@ -1,5 +1,5 @@
 import {API} from "../../api/api";
-import {setComments, setPostView, addCom} from "../actions/postViewActions";
+import {setComments, setPostView, addCom, editCom, delCom} from "../actions/postViewActions";
 
 export const getPostViewThunkCreator = (postId) => {
     return (dispatch) => {
@@ -39,6 +39,29 @@ export const addCommentThunkCreator = (postId, text) => {
                 // console.log(`rating - ${response.post_info.rating.result}`);
                 // console.log(`добавлен - ${response.isCommented}`);
                 dispatch(addCom(response.isCommented));
+            });
+    }
+}
+
+export const editCommentThunkCreator = (commentId, text) => {
+    return (dispatch) => {
+        console.log(commentId, text);
+        API.PostComments.editComment(commentId, text)
+            .then(response => {
+                dispatch(editCom(commentId, text));
+            });
+    }
+}
+
+export const delCommentThunkCreator = (commentId) => {
+    return (dispatch) => {
+        console.log(commentId,);
+        API.PostComments.delComment(commentId)
+            .then(response => {
+                // console.log(`пост - ${JSON.stringify(response, null, 2)}`);
+                // console.log(`rating - ${response.post_info.rating.result}`);
+                // console.log(`добавлен - ${response.isCommented}`);
+                dispatch(delCom(commentId));
             });
     }
 }

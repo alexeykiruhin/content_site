@@ -3,7 +3,7 @@
     flex-basis: 12%;
     display: flex;
     /* padding-left: 10px; */
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .wrapperNavBar {

@@ -106,6 +106,19 @@ export const API = {
             });
             return response.data;
         },
+        async editComment(commentId, text) {
+            const response = await instance.post(`edit_comment`, {
+                comment_id: commentId,
+                new_comment_text: text
+            });
+            return response.data;
+        },
+        async delComment(commentId) {
+            const response = await instance.post(`del_comment`, {
+                comment_id: commentId
+            });
+            return response.data;
+        },
         async getComments(postId) {
             const response = await instance.get(`comments/${postId}`);
             return response.data;

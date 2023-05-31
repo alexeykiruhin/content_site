@@ -29,3 +29,5 @@ export const UPD_RATING_POST_VIEW = 'UPD_RATING_POST_VIEW';
 //Комментарии к посту
 export const SET_COMMENTS = 'SET_COMMENTS';
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const DEL_COMMENT = 'DEL_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';

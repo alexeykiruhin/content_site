@@ -7,6 +7,7 @@ const PostViewAddCommentForm = (props) => {
     const sendCommentText = (obj) => {
         let text = obj.commentText;
         props.addComment(text);
+        obj.commentText = '';
     }
 
     return (

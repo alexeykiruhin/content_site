@@ -1,7 +1,37 @@
-import React from "react";
-import style from './PostComment.module.css';
+import React, { useRef, useState } from 'react';
+import styles from './PostComment.module.css';
+import EditCommentForm from "./EditCommentForm";
+import { delCommentThunkCreator, editCommentThunkCreator } from '../../../redux/thunk/postViewThunk';
+import { useDispatch, useSelector } from "react-redux";
 
 const PostComment = props => {
+
+    const textdivRef = useRef(null);
+
+    const [isEdit, setIsEdit] = useState(false);
+    const dispatch = useDispatch();
+    const userId = useSelector(state => state.auth.id);
+    const commentId = props.comment._id
+
+    const handleToggleEdit = () => {
+        setIsEdit(!isEdit);
+    }
+
+    const handleEditComment = (text) => {
+        console.log(`commentId, text`, commentId, text);
+        console.log(`userId = authorId`, userId, props.comment.author.id);
+        dispatch(editCommentThunkCreator(commentId, text));
+        setIsEdit(!isEdit);
+    }
+
+    const handleDelComment = () => {
+        console.log(props.comment._id);
+        dispatch(delCommentThunkCreator(commentId));
+    }
+
+    // const editComment = () => {
+    //     props.handleEdit(props.comment._id.slice(10, -2))
+    // }
 
     const calculateTime = date => {
         // массивы для склонения
@@ -57,16 +87,33 @@ const PostComment = props => {
 
     }
 
+    
+
     return (
-        <div className={style.commentWrapper}>
-            <div className={style.commentHeader}>
-                <img className={style.avatar} src={props.comment.author.img} alt="no img" />
-                <div className={style.username} >{props.comment.author.username}</div>
-                <div className={style.date} >{calculateTime(props.comment.created_at)}</div>
+        <div className={styles.commentWrapper}>
+            <div className={styles.commentHeader}>
+                <div className={styles.commentHeaderInfo}>
+                    <img className={styles.avatar} src={props.comment.author.img} alt="no img" />
+                    <div className={styles.username} >{props.comment.author.username}</div>
+                    <div className={styles.date} >{calculateTime(props.comment.created_at)}</div>
+                </div>
+                {userId === props.comment.author.id && <div className={styles.editComment} onClick={handleToggleEdit}>...</div>}
             </div>
-            <div className={style.comment}>
-                {props.comment.comment_text}
-            </div>
+            {isEdit ?
+                <div className={styles.editCommentBG}>
+                    <EditCommentForm
+                        commentText={props.comment.comment_text}
+                        sizeText={textdivRef.current ? textdivRef.current.scrollHeight : '20'}
+                        handleEditComment={handleEditComment}
+                        handleDelComment={handleDelComment}
+                    />
+                </div>
+                :
+                <div className={styles.comment} ref={textdivRef}>
+                    {props.comment.comment_text}
+                </div>
+            }
+
         </div>
     )
 }
