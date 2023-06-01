@@ -21,7 +21,7 @@ const StatusForm = (props) => {
             initialValues={{ statusText: props.statusText }}
         >
             {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={'statusForm'}>
                     <Field
                         name="statusText"
                         component='input'

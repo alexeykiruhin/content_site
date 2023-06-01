@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Post.module.css';
 import { NavLink } from "react-router-dom";
 import commentIcon from './icon/comment.png';
-import {setTagSearch} from '../../redux/actions/tagSearchActions';
+import {setTagSearch} from '../../redux/actions/searchActions';
 import { useDispatch } from "react-redux";
 
 const Post = (props) => {

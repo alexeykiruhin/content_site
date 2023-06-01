@@ -7,27 +7,40 @@
     margin-right: 12%;
 }
 
+.userWrapper {
+    background-color: #fff;
+    width: 800px;
+    margin-top: 20px;
+    border-radius: 5px;
+    height: auto;
+    border: 1px solid #a5a5a5;
+}
+
 .infoUserPage {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     gap: 10px;
-    margin-top: 20px;
-    width: 800px;
+    margin: 10px;
 }
-
+/* Avatar */
 .avatarUserPage {
+    display: flex;
     flex: 2 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .avatarUserPage > img {
-    border-radius: 5%;
+    border-radius: 5px;
+    border: 2px solid #3700b3;
 }
 
 .nameUserPage {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 5px;
 }
 
@@ -56,9 +69,49 @@
     width: 100px;
 }
 
+.userInfoItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+}
+
+/* Status Form */
+
+.statusForm {
+    width: 100px;
+}
+
+/* Posts */
+
 .postsUserPage {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.post {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    width: 350px;
+    height: auto;
+    gap: 10px;
+    background-color: #fff;
+    border: 1px solid #a5a5a5;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    margin: 2px 4px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.post:hover {
+    color: #3700b3;
 }
 
 .postsUserPage > h3 {
@@ -66,7 +119,7 @@
     text-align: center;
 }
 
-.Exit {
+/* .Exit {
     border: 1px solid black;
     border-radius: 5%;
 }
@@ -74,31 +127,35 @@
 .Exit:hover {
     background: #ff5e5b;
     cursor: pointer;
+} */
+
+.Exit {
+    background-color: #6200EE;
+    /* border-left: 1px solid #6200EE; */
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    height: 35px;
+}
+
+.Exit:hover {
+    background-color: #ee008b;
 }
 
 .delPost {
     cursor: pointer;
-    border: 1px solid black;
-    border-radius: 5%;
-    background-color: #ff5e5b;
-    margin-right: 5px;
-}
-
-.delPost:hover {
-    background-color: #ff4a47;
+    border-radius: 5px;
+    background-color: #ee008b;
+    color: #fff;
 }
 
 .editPost {
     cursor: pointer;
-    border: 1px solid black;
-    border-radius: 5%;
-    background-color: #5b7cff;
-    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #6200EE;
+    color: #fff;
 }
 
-.editPost:hover {
-    background-color: #476bfc;
-}
 
 
 
@@ -106,23 +163,26 @@
 /* 860px */
 @media screen and (max-width: 767px) {
     .User {
-        width: 100%;
-        margin-right: 0;
+        margin: 5px;
     }
+    .userWrapper {
+        width: 100%;
+    }
+
     .infoUserPage {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        margin: 0 10px;
-        width: 100%;
+        margin: 20px 0 10px 10px;
+        /* width: 100%; */
     }
     .nameUserPage {
         align-items: center;
     }
     .postsUserPage {
         align-items: center;
-        margin: 0 10px;
-        width: 100%;
+        margin: 0 10px 20px 10px;
+        /* width: 100%; */
     }
     .avatarUserPage {
         text-align: center;
@@ -132,11 +192,5 @@
     }
     .statusText {
         text-align: center;
-    }
-}
-
-@media screen and (max-width: 870px) {
-    .infoUserPage {
-        width: 600px;
     }
 }

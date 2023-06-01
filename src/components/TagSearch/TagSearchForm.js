@@ -3,12 +3,13 @@ import styles from './TagSearch.module.css';
 import { Field, Form } from 'react-final-form';
 import { useSelector } from 'react-redux';
 
-const TagSearchForm = () => {
+const TagSearchForm = ({handleSearch}) => {
 
-    const tag = useSelector(state => state.tagSearch.tag)
+    const tag = useSelector(state => state.search.tag)
 
     const handleInput = (obj) => {
-        console.log(obj.tagSearch);
+        // console.log(obj.tagSearch);
+        handleSearch(obj.tagSearch);
     }
 
     return (

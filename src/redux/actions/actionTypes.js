@@ -33,4 +33,5 @@ export const DEL_COMMENT = 'DEL_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 
 //Tag Search
+export const SET_SEARCH = 'SET_SEARCH';
 export const SET_TAG_SEARCH = 'SET_TAG_SEARCH';

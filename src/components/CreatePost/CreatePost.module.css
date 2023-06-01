@@ -17,7 +17,6 @@
     background: #fff;
     border: 1px solid #a5a5a5;
     border-radius: 5px;
-    padding: 10px;
 }
 
 /* родительский блок для полей ввода */
@@ -27,6 +26,7 @@
     gap: 10px;
     width: 80%;
     height: 350px;
+    margin: 10px;
 }
 
 .textArea {
@@ -52,6 +52,7 @@
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .createBTN {
@@ -64,11 +65,17 @@
 
 @media screen and (max-width: 767px) {
 
+    .createPost {
+        margin: 5px;
+    }
+
     .wrapperCreatePost {
-        display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
+        width: 100%;
+    }
+
+    .wrapperFields {
+        width: auto;
     }
 
 }

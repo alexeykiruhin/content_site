@@ -1,7 +1,8 @@
-import {SET_TAG_SEARCH} from "../actions/actionTypes";
+import {SET_SEARCH, SET_TAG_SEARCH} from "../actions/actionTypes";
 
 let initialState = {
-    tag: ''
+    tag: '',
+    result: [{text:'Результат поиска', id: false}]
 }
 // по флагу isReg делаю редирект после регистрации
 const tagSearchReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const tagSearchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tag: action.tag
+            }
+        case SET_SEARCH:
+            return {
+                ...state,
+                result: action.result
             }
         default:
             return state

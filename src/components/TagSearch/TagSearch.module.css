@@ -12,11 +12,12 @@
     align-items: center;
     width: 800px;
     border-radius: 5px;
-    height: 300px;
+    height: auto;
     border: 1px solid #a5a5a5;
     background-color: #fff;
     gap: 10px;
-    margin-top: 20px;
+    margin: 20px 0;
+    padding-bottom: 20px;
 }
 
 
@@ -61,4 +62,41 @@
 
 .tagSearchFormBtn:hover {
     background-color: #3700b3;
+}
+
+/* Result */
+.resultItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 180px; */
+    height: auto;
+    gap: 10px;
+    background-color: #fff;
+    border: 1px solid #a5a5a5;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    margin: 2px 4px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.resultItem:hover {
+    color: #3700b3;
+}
+
+@media screen and (max-width: 767px) {
+    .tagSearchWrapper {
+        margin: 5px;
+    }
+
+    .tagSearchWrapperInner {
+        width: 100%;
+    }
+
+    .tagSearchFormWrapper {
+        width: auto;
+    }
 }

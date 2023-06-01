@@ -56,6 +56,15 @@ instance.interceptors.response.use(
 
 export const API = {
 
+    Search: {
+        async search(tag) {
+            const response = await instance.post(`search`, {
+                tag
+            });
+            return response.data;
+        },
+    },
+
     Post: {
         async getPostView(postId) {
             const response = await instance.get(`post/${postId}`);
