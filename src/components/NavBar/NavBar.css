@@ -48,6 +48,8 @@
         border: 1px solid #3700b3;
         padding-top: 0;
         margin-top: 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     .wrapperNavBar {
@@ -59,9 +61,10 @@
         height: 50px;
         padding-top: 0;
 
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         padding: 0;
         border: 0px solid #a5a5a5;
-        border-radius: 0;
         width: 100px;
         background-color: #fff;
     }
